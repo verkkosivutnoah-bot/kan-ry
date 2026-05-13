@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KAN ry – Kristillinen alkoholisti- ja narkomaanityö | Mahdollisuus elämänmuutokseen</title>
+
+  <meta name="description" content="KAN ry on Suomen suurin päihdekuntoutuksen kansalaisjärjestö. 54 vuotta elämänmuutostyötä. Turvallinen, päihteetön yhteisö toipumiseen Jyväskylässä, Kauhavalla ja Päijät-Hämeessä.">
+  <meta name="keywords" content="päihdekuntoutus, toipuminen, päihteetön, alkoholi, huumeet, kristillinen kuntoutus, KAN ry, Jyväskylä, Kauhava, Päijät-Häme, päihderiippuvuus">
+  <meta name="author" content="KAN ry">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.kan.fi/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.kan.fi/">
+  <meta property="og:title" content="KAN ry – Mahdollisuus elämänmuutokseen">
+  <meta property="og:description" content="54 vuotta päihdekuntoutustyötä Suomessa. Turvallinen yhteisö, pysyvä raittius ja uusi elämä.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&auto=format&fit=crop&q=80">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NGO",
+    "name": "Kristillinen alkoholisti- ja narkomaanityö ry",
+    "alternateName": "KAN ry",
+    "url": "https://www.kan.fi",
+    "telephone": "+358457870 1950",
+    "email": "info@kan.fi",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Fräntiläntie 174",
+      "postalCode": "62430",
+      "addressLocality": "Peltotupa",
+      "addressCountry": "FI"
+    },
+    "description": "KAN ry on Suomen suurin päihdekuntoutuksen kansalaisjärjestö.",
+    "foundingDate": "1970",
+    "areaServed": "Finland"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --blue:         #0170B9;
+      --blue-hover:   #015a94;
+      --blue-deep:    #014E80;
+      --blue-dark:    #01253E;
+      --blue-navy:    #061222;
+      --blue-pale:    rgba(1,112,185,0.08);
+      --blue-pale2:   rgba(1,112,185,0.16);
+      --blue-sky:     #5EB8FF;
+      --gold:         #D9A86C;
+      --text:         #1F2937;
+      --text-body:    #4B5563;
+      --text-light:   #6B7280;
+      --text-mute:    #9CA3AF;
+      --white:        #FFFFFF;
+      --bg:           #FCFBF8;
+      --surface:      #F4F2EC;
+      --surface-2:    #EEEBE3;
+      --border:       #E5E1D8;
+      --border-soft:  #EFEDE6;
+      --shadow-xs:    0 1px 2px rgba(20,30,50,0.05);
+      --shadow-sm:    0 2px 8px rgba(20,30,50,0.06);
+      --shadow:       0 8px 28px rgba(20,30,50,0.08);
+      --shadow-lg:    0 24px 56px rgba(10,22,40,0.14);
+      --shadow-glow:  0 18px 44px rgba(1,112,185,0.28);
+      --radius:       18px;
+      --radius-sm:    10px;
+      --radius-xs:    6px;
+      --grain: radial-gradient(rgba(0,0,0,0.045) 1px, transparent 1px);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body {
+      font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text);
+      line-height: 1.6; overflow-x: hidden; font-feature-settings: 'ss01','cv01','cv11';
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    ::selection { background: var(--blue); color: var(--white); }
+
+    /* Scroll progress bar */
+    .scroll-progress {
+      position: fixed; top: 0; left: 0; height: 3px; width: 0;
+      background: linear-gradient(90deg, var(--blue), var(--blue-sky));
+      z-index: 2000; transition: width 0.1s linear;
+      box-shadow: 0 0 10px rgba(94,184,255,0.5);
+    }
+
+    /* ── SVG ICONS ─────────────────────────────── */
+    .icon { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+    /* ── NAVBAR ─────────────────────────────────── */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 1.25rem 3rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      background: var(--white);
+      box-shadow: 0 1px 0 var(--border);
+    }
+    .navbar.scrolled {
+      box-shadow: 0 1px 0 var(--border), 0 4px 16px rgba(0,0,0,0.07);
+    }
+    .navbar .nav-logo-name { color: var(--text); }
+    .navbar .nav-logo-tag  { color: var(--text-light); }
+    .navbar .nav-links a   { color: var(--text-body); }
+    .navbar .nav-links a:hover { color: var(--blue); background: var(--blue-pale); }
+    .navbar .btn-nav-ghost { color: var(--text); border-color: var(--border); }
+    .navbar .btn-nav-ghost:hover { border-color: var(--blue); color: var(--blue); }
+    .navbar .nav-logo-mark { background: var(--blue); }
+
+    .nav-logo-img { display: inline-flex; align-items: center; }
+    .nav-logo-img img {
+      height: 100px; width: auto; display: block;
+      transition: opacity 0.22s;
+    }
+    .nav-logo-img:hover img { opacity: 0.85; }
+
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; }
+    .nav-logo-mark {
+      width: 40px; height: 40px; background: rgba(255,255,255,0.15);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700;
+      color: var(--white); flex-shrink: 0; transition: background 0.35s;
+    }
+    .nav-logo-name {
+      font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700;
+      color: var(--white); display: block; line-height: 1.2; transition: color 0.35s;
+    }
+    .nav-logo-tag { font-size: 0.63rem; color: rgba(255,255,255,0.55); display: block; letter-spacing: 0.02em; transition: color 0.35s; }
+
+    .nav-links { display: flex; align-items: center; gap: 0.1rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.88); font-size: 0.875rem; font-weight: 500;
+      padding: 0.5rem 0.875rem; border-radius: 7px; transition: all 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.12); }
+
+    .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem;
+           font-weight: 600; font-size: 0.875rem; padding: 0.625rem 1.35rem;
+           border-radius: var(--radius-sm); transition: all 0.22s; cursor: pointer; border: none; white-space: nowrap; }
+    .btn-lg { padding: 0.875rem 2rem; font-size: 0.975rem; border-radius: 10px; }
+    .btn-blue  { background: var(--blue); color: var(--white); }
+    .btn-blue:hover  { background: var(--blue-hover); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(1,112,185,0.35); }
+    .btn-nav-ghost {
+      color: rgba(255,255,255,0.88); border: 1.5px solid rgba(255,255,255,0.38);
+      background: transparent; font-size: 0.875rem; font-weight: 600;
+      padding: 0.55rem 1.2rem; border-radius: var(--radius-sm); transition: all 0.22s;
+    }
+    .btn-nav-ghost:hover { border-color: rgba(255,255,255,0.75); color: var(--white); }
+    .btn-outline-blue {
+      color: var(--blue); border: 1.5px solid var(--blue); background: transparent;
+    }
+    .btn-outline-blue:hover { background: var(--blue); color: var(--white); transform: translateY(-1px); }
+    .btn-white-outline {
+      color: var(--white); border: 1.5px solid rgba(255,255,255,0.42); background: transparent;
+    }
+    .btn-white-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+
+    /* ── HERO ─ cinematic full-bleed ───────────────── */
+    #hero {
+      position: relative; width: 100%;
+      min-height: 100vh; height: 100vh;
+      overflow: hidden;
+      display: flex; align-items: flex-end;
+      color: var(--white);
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: url('hero.jpg') center/cover no-repeat;
+      animation: heroKenBurns 18s ease-in-out infinite alternate;
+    }
+    @keyframes heroKenBurns {
+      0%   { transform: scale(1.05) translate(0,0); }
+      100% { transform: scale(1.12) translate(-1.5%, -1%); }
+    }
+    .hero-scrim {
+      position: absolute; inset: 0; z-index: 1;
+      background:
+        linear-gradient(180deg, rgba(6,18,34,0.55) 0%, rgba(6,18,34,0.05) 35%, rgba(6,18,34,0.15) 60%, rgba(6,18,34,0.92) 100%),
+        linear-gradient(90deg, rgba(6,18,34,0.55) 0%, rgba(6,18,34,0.0) 55%);
+      pointer-events: none;
+    }
+    .hero-vignette {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background: radial-gradient(ellipse 110% 80% at 50% 60%, transparent 55%, rgba(0,0,0,0.45) 100%);
+    }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      width: 100%; max-width: 1280px;
+      margin: 0 auto; padding: 0 3rem 6rem;
+      display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: end; gap: 3rem;
+    }
+    .hero-text { max-width: 720px; }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.7rem;
+      padding: 0.45rem 0.95rem; margin-bottom: 1.75rem;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 100px; backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: rgba(255,255,255,0.95);
+    }
+    .hero-eyebrow-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--blue-sky);
+      box-shadow: 0 0 12px var(--blue-sky);
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6.5vw, 5.5rem);
+      font-weight: 700; line-height: 1.02; letter-spacing: -0.03em;
+      color: var(--white);
+      text-shadow: 0 4px 28px rgba(0,0,0,0.35);
+    }
+    .hero-title em {
+      font-style: italic;
+      background: linear-gradient(120deg, #FFE3B8 10%, #FFB870 60%, #FF9F4D 100%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-sub {
+      max-width: 560px; margin: 1.5rem 0 2.5rem;
+      font-size: 1.1rem; line-height: 1.7;
+      color: rgba(255,255,255,0.85); font-weight: 400;
+      text-shadow: 0 2px 16px rgba(0,0,0,0.35);
+    }
+    .hero-cta {
+      display: flex; gap: 0.875rem; flex-wrap: wrap;
+    }
+    .btn-hero-primary {
+      background: linear-gradient(135deg, var(--blue), var(--blue-sky));
+      color: var(--white);
+      padding: 1rem 2.1rem; border-radius: 100px;
+      font-weight: 700; font-size: 0.95rem; letter-spacing: 0.04em;
+      border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 0.55rem;
+      box-shadow: 0 14px 32px rgba(1,112,185,0.45), 0 2px 0 rgba(255,255,255,0.18) inset;
+      transition: transform 0.22s, box-shadow 0.22s;
+    }
+    .btn-hero-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 44px rgba(1,112,185,0.55), 0 2px 0 rgba(255,255,255,0.22) inset;
+    }
+    .btn-hero-ghost {
+      background: rgba(255,255,255,0.08);
+      border: 1.5px solid rgba(255,255,255,0.35);
+      color: var(--white); padding: 1rem 2.1rem; border-radius: 100px;
+      font-weight: 600; font-size: 0.95rem; letter-spacing: 0.04em;
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      cursor: pointer; display: inline-flex; align-items: center; gap: 0.55rem;
+      transition: background 0.22s, border-color 0.22s, transform 0.22s;
+    }
+    .btn-hero-ghost:hover {
+      background: rgba(255,255,255,0.18);
+      border-color: rgba(255,255,255,0.7);
+      transform: translateY(-2px);
+    }
+
+    /* Side stat rail right */
+    .hero-rail {
+      display: flex; flex-direction: column; gap: 1.25rem;
+      padding: 1.75rem 1.5rem;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 20px;
+      backdrop-filter: blur(20px) saturate(140%);
+      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.30), 0 1px 0 rgba(255,255,255,0.18) inset;
+      min-width: 220px;
+    }
+    .hero-rail-stat { display: flex; flex-direction: column; }
+    .hero-rail-stat + .hero-rail-stat { padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.13); }
+    .hero-rail-num {
+      font-family: 'Playfair Display', serif; font-size: 1.85rem;
+      font-weight: 700; color: var(--white); line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .hero-rail-lbl {
+      font-size: 0.7rem; color: rgba(255,255,255,0.7);
+      letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600;
+      margin-top: 0.45rem;
+    }
+
+    /* Scroll cue */
+    .hero-scroll {
+      position: absolute; left: 50%; bottom: 2.25rem;
+      transform: translateX(-50%); z-index: 3;
+      display: flex; flex-direction: column; align-items: center; gap: 0.55rem;
+      color: rgba(255,255,255,0.65); pointer-events: none;
+    }
+    .hero-scroll-line {
+      width: 1px; height: 38px; position: relative; overflow: hidden;
+      background: rgba(255,255,255,0.18);
+    }
+    .hero-scroll-line::after {
+      content: ''; position: absolute; left: 0; top: -50%;
+      width: 1px; height: 50%; background: var(--white);
+      animation: heroScrollLine 2s ease-in-out infinite;
+    }
+    @keyframes heroScrollLine {
+      0%   { top: -50%; }
+      100% { top: 100%; }
+    }
+    .hero-scroll-lbl {
+      font-size: 0.62rem; letter-spacing: 0.24em; text-transform: uppercase;
+      writing-mode: horizontal-tb;
+    }
+
+    /* Stagger fade-in */
+    .hero-anim { opacity: 0; transform: translateY(24px); animation: heroItemIn 0.7s cubic-bezier(0.2,0.7,0.2,1) forwards; }
+    .hero-anim.h1 { animation-delay: 0.30s; }
+    .hero-anim.h2 { animation-delay: 0.45s; }
+    .hero-anim.h3 { animation-delay: 0.60s; }
+    .hero-anim.h4 { animation-delay: 0.75s; }
+    .hero-anim.h5 { animation-delay: 0.90s; }
+    .hero-anim.h6 { animation-delay: 1.10s; }
+    @keyframes heroItemIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── STATS BAR ─────────────────────────────── */
+    .stats-bar {
+      position: relative; overflow: hidden;
+      background: linear-gradient(135deg, var(--blue-navy) 0%, var(--blue-dark) 100%);
+    }
+    .stats-bar::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 50% 90% at 0% 50%, rgba(1,112,185,0.22), transparent 60%),
+        radial-gradient(ellipse 50% 90% at 100% 50%, rgba(94,184,255,0.10), transparent 60%);
+      pointer-events: none;
+    }
+    .stats-inner {
+      position: relative;
+      max-width: 1120px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+    }
+    .stat-cell {
+      text-align: center; padding: 2.75rem 1.5rem;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+    }
+    .stat-cell:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.75rem; font-weight: 700; color: var(--white);
+      display: block; line-height: 1.05; margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+      background: linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.78) 100%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .stat-lbl {
+      font-size: 0.78rem; color: rgba(255,255,255,0.68);
+      font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+
+    /* ── SECTIONS ────────────────────────────────── */
+    section { padding: 7rem 2rem; }
+    .container { max-width: 1180px; margin: 0 auto; }
+    .eyebrow {
+      font-size: 0.74rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.18em; color: var(--blue); display: inline-flex; align-items: center;
+      gap: 0.6rem; margin-bottom: 1rem;
+    }
+    .eyebrow::before {
+      content: ''; width: 24px; height: 1.5px; background: var(--blue);
+    }
+    .sec-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700; color: var(--text); line-height: 1.18;
+      letter-spacing: -0.02em; margin-bottom: 1.1rem;
+    }
+    .sec-title em {
+      font-style: italic;
+      background: linear-gradient(120deg, var(--blue), var(--blue-sky));
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .sec-lead { font-size: 1.05rem; color: var(--text-body); line-height: 1.78; }
+    .divider {
+      width: 56px; height: 3px;
+      background: linear-gradient(90deg, var(--blue), var(--blue-sky));
+      border-radius: 2px; margin: 1rem 0 1.75rem;
+    }
+    .divider-center { margin: 1rem auto 1.75rem; }
+
+    /* ── FADE ─────────────────────────────────────── */
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+    .d4 { transition-delay: 0.4s; }
+
+    /* ── ABOUT ────────────────────────────────────── */
+    #esittely { background: var(--bg); position: relative; }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5.5rem; align-items: center;
+    }
+    .about-text p {
+      color: var(--text-body); margin-bottom: 1.15rem;
+      line-height: 1.82; font-size: 1.015rem;
+    }
+    .about-text p:last-of-type { margin-bottom: 2.25rem; }
+    .about-quote {
+      position: relative;
+      border-left: 3px solid var(--blue);
+      padding: 1rem 0 1rem 1.75rem; margin: 2rem 0;
+      background: linear-gradient(90deg, var(--blue-pale) 0%, transparent 100%);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .about-quote::before {
+      content: '“'; position: absolute; left: 1rem; top: -0.5rem;
+      font-family: 'Playfair Display', serif; font-size: 3rem;
+      color: var(--blue); opacity: 0.25; line-height: 1;
+    }
+    .about-quote blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; font-style: italic;
+      color: var(--text); line-height: 1.55; margin-bottom: 0.45rem;
+    }
+    .about-quote cite { font-size: 0.82rem; color: var(--text-light); font-style: normal; letter-spacing: 0.05em; }
+    .about-img-wrap {
+      position: relative; border-radius: var(--radius); overflow: hidden;
+      aspect-ratio: 4/5; box-shadow: var(--shadow-lg);
+    }
+    .about-img-wrap::after {
+      content: ''; position: absolute; top: -18px; right: -18px;
+      width: 110px; height: 110px; border: 2px solid var(--blue);
+      border-radius: var(--radius); z-index: -1;
+    }
+    .about-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.9s ease;
+    }
+    .about-img-wrap:hover img { transform: scale(1.04); }
+    .img-badge {
+      position: absolute; bottom: 1.5rem; left: 1.5rem;
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(10px);
+      padding: 1rem 1.25rem;
+      border-radius: 14px; box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,0.6);
+      display: flex; align-items: center; gap: 0.85rem;
+    }
+    .badge-icon-wrap {
+      width: 42px; height: 42px;
+      background: linear-gradient(135deg, var(--blue), var(--blue-sky));
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 14px rgba(1,112,185,0.30);
+    }
+    .badge-icon-wrap svg { color: var(--white); }
+    .badge-strong { display: block; font-size: 0.92rem; color: var(--text); font-weight: 700; }
+    .badge-span { font-size: 0.76rem; color: var(--text-light); letter-spacing: 0.03em; }
+
+    /* ── PILLARS ──────────────────────────────────── */
+    #pillars {
+      position: relative;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 0%, rgba(1,112,185,0.06), transparent 60%),
+        var(--surface);
+    }
+    .pillars-hd { text-align: center; max-width: 720px; margin: 0 auto 4rem; }
+    .pillars-hd .eyebrow { justify-content: center; display: inline-flex; }
+    .pillars-hd .sec-lead { margin: 0 auto; }
+    .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+    .pillar-card {
+      background: var(--white); border-radius: var(--radius);
+      padding: 2.75rem 2rem 2.25rem; position: relative; overflow: hidden;
+      transition: transform 0.35s cubic-bezier(0.2,0.7,0.2,1), box-shadow 0.35s, border-color 0.35s;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-xs);
+    }
+    .pillar-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--blue), var(--blue-sky));
+      transform: scaleX(0); transform-origin: left; transition: transform 0.5s ease;
+    }
+    .pillar-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: transparent; }
+    .pillar-card:hover::before { transform: scaleX(1); }
+    .pillar-num {
+      position: absolute; top: 1.75rem; right: 1.75rem;
+      font-family: 'Playfair Display', serif; font-size: 1rem;
+      font-weight: 600; color: var(--text-mute); letter-spacing: 0.05em;
+    }
+    .pillar-icon-bg {
+      width: 60px; height: 60px;
+      background: linear-gradient(135deg, var(--blue-pale2), var(--blue-pale));
+      border: 1px solid var(--blue-pale2);
+      border-radius: 14px; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.75rem; transition: all 0.35s;
+    }
+    .pillar-card:hover .pillar-icon-bg {
+      background: linear-gradient(135deg, var(--blue), var(--blue-sky));
+      border-color: transparent;
+      box-shadow: 0 10px 24px rgba(1,112,185,0.30);
+    }
+    .pillar-icon-bg svg { color: var(--blue); transition: color 0.35s; }
+    .pillar-card:hover .pillar-icon-bg svg { color: var(--white); }
+    .pillar-title {
+      font-family: 'Playfair Display', serif; font-size: 1.45rem;
+      font-weight: 700; color: var(--text); margin-bottom: 0.875rem;
+      letter-spacing: -0.01em;
+    }
+    .pillar-text { color: var(--text-body); line-height: 1.78; font-size: 0.95rem; }
+
+    /* ── LOCATIONS ────────────────────────────────── */
+    #toimintayksiköt { background: var(--bg); }
+    .locs-hd { margin-bottom: 3.75rem; max-width: 720px; }
+    .locs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+    .loc-card {
+      border-radius: var(--radius); overflow: hidden; background: var(--white);
+      transition: transform 0.35s cubic-bezier(0.2,0.7,0.2,1), box-shadow 0.35s, border-color 0.35s;
+      box-shadow: var(--shadow-xs);
+      border: 1px solid var(--border-soft);
+    }
+    .loc-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: transparent; }
+    .loc-img { height: 230px; overflow: hidden; position: relative; }
+    .loc-img::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 50%, rgba(6,18,34,0.18) 100%);
+      pointer-events: none;
+    }
+    .loc-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+    .loc-card:hover .loc-img img { transform: scale(1.07); }
+    .loc-body { padding: 1.85rem; }
+    .loc-tag {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: var(--blue-pale); color: var(--blue);
+      font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.11em; padding: 0.28rem 0.8rem;
+      border-radius: 100px; margin-bottom: 0.85rem;
+      border: 1px solid rgba(1,112,185,0.18);
+    }
+    .loc-tag::before {
+      content: ''; width: 5px; height: 5px; background: var(--blue); border-radius: 50%;
+    }
+    .loc-name {
+      font-family: 'Playfair Display', serif; font-size: 1.45rem;
+      font-weight: 700; color: var(--text); margin-bottom: 0.6rem;
+      letter-spacing: -0.01em;
+    }
+    .loc-desc { color: var(--text-body); font-size: 0.93rem; line-height: 1.72; margin-bottom: 1.5rem; }
+    .loc-link {
+      color: var(--blue); font-weight: 700; font-size: 0.82rem;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      transition: gap 0.2s, color 0.2s;
+    }
+    .loc-link:hover { gap: 0.7rem; color: var(--blue-hover); }
+
+    /* ── NEWS ─────────────────────────────────────── */
+    #ajankohtaista { background: var(--surface); }
+    .news-hd-row {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem;
+    }
+    .news-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.75rem; }
+    .news-card {
+      background: var(--white); border-radius: var(--radius); overflow: hidden;
+      transition: transform 0.35s cubic-bezier(0.2,0.7,0.2,1), box-shadow 0.35s, border-color 0.35s;
+      box-shadow: var(--shadow-xs);
+      border: 1px solid var(--border-soft);
+    }
+    .news-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: transparent; }
+    .news-card.featured { grid-column: span 2; display: grid; grid-template-columns: 1.15fr 1fr; }
+    .news-img { height: 240px; overflow: hidden; position: relative; }
+    .news-card.featured .news-img { height: auto; }
+    .news-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+    .news-card:hover .news-img img { transform: scale(1.05); }
+    .news-body { padding: 2.25rem; }
+    .news-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+    .news-tag {
+      background: var(--blue-pale); color: var(--blue);
+      font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 0.28rem 0.75rem; border-radius: 100px;
+      border: 1px solid rgba(1,112,185,0.18);
+    }
+    .news-date { font-size: 0.78rem; color: var(--text-light); letter-spacing: 0.04em; }
+    .news-title {
+      font-family: 'Playfair Display', serif; font-size: 1.35rem;
+      font-weight: 700; color: var(--text); margin-bottom: 0.875rem;
+      line-height: 1.32; letter-spacing: -0.01em;
+    }
+    .news-excerpt { color: var(--text-body); font-size: 0.93rem; line-height: 1.76; margin-bottom: 1.5rem; }
+    .news-link {
+      color: var(--blue); font-weight: 700; font-size: 0.82rem;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      transition: gap 0.2s;
+    }
+    .news-link:hover { gap: 0.7rem; }
+
+    /* ── DONATE CTA ───────────────────────────────── */
+    #lahjoita {
+      background: linear-gradient(135deg, var(--blue-navy) 0%, var(--blue-dark) 100%);
+      padding: 8.5rem 2rem; position: relative; overflow: hidden;
+    }
+    #lahjoita::before {
+      content: ''; position: absolute;
+      top: -40%; right: -15%; width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(94,184,255,0.22) 0%, transparent 65%);
+      pointer-events: none; filter: blur(20px);
+    }
+    #lahjoita::after {
+      content: ''; position: absolute;
+      bottom: -40%; left: -20%; width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(1,112,185,0.22) 0%, transparent 65%);
+      pointer-events: none; filter: blur(20px);
+    }
+    .donate-wrap {
+      max-width: 760px; margin: 0 auto; text-align: center; position: relative; z-index: 1;
+    }
+    .donate-wrap .eyebrow { color: var(--blue-sky); justify-content: center; display: inline-flex; }
+    .donate-wrap .eyebrow::before { background: var(--blue-sky); }
+    .donate-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.25rem, 5vw, 3.4rem);
+      font-weight: 700; color: var(--white);
+      line-height: 1.15; margin-bottom: 1.5rem; letter-spacing: -0.02em;
+    }
+    .donate-title em {
+      font-style: italic;
+      background: linear-gradient(120deg, var(--blue-sky), #A6D7FF);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .donate-lead {
+      color: rgba(255,255,255,0.72); font-size: 1.08rem;
+      line-height: 1.78; margin-bottom: 3rem; font-weight: 400;
+      max-width: 620px; margin-left: auto; margin-right: auto;
+    }
+    .donate-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .trust-row {
+      display: flex; align-items: center; justify-content: center;
+      gap: 2.5rem; margin-top: 3.5rem; flex-wrap: wrap;
+      padding-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 0.5rem;
+      color: rgba(255,255,255,0.55); font-size: 0.78rem;
+      letter-spacing: 0.04em;
+    }
+    .trust-item svg { color: var(--blue-sky); opacity: 0.8; }
+
+    /* ── FOOTER ───────────────────────────────────── */
+    footer {
+      background: var(--blue-navy); padding: 6rem 2rem 0; position: relative;
+    }
+    footer::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(94,184,255,0.35), transparent);
+    }
+    .footer-grid {
+      max-width: 1180px; margin: 0 auto;
+      display: grid; grid-template-columns: 2.1fr 1fr 1fr 1.2fr; gap: 4rem;
+    }
+    .f-desc { color: rgba(255,255,255,0.58); font-size: 0.88rem; line-height: 1.76; margin: 1.5rem 0 2rem; }
+    .f-contact { display: flex; flex-direction: column; gap: 0.75rem; }
+    .f-contact a, .f-contact-item {
+      color: rgba(255,255,255,0.72); font-size: 0.88rem;
+      display: flex; align-items: flex-start; gap: 0.6rem; transition: color 0.2s;
+    }
+    .f-contact a:hover { color: var(--blue-sky); }
+    .f-contact-icon { margin-top: 0.07rem; flex-shrink: 0; color: var(--blue-sky); opacity: 0.85; }
+    .f-col-title {
+      font-family: 'Playfair Display', serif; font-size: 1.05rem;
+      font-weight: 700; color: var(--white); margin-bottom: 1.5rem;
+      position: relative; padding-bottom: 0.75rem;
+    }
+    .f-col-title::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 28px; height: 2px;
+      background: linear-gradient(90deg, var(--blue), var(--blue-sky));
+      border-radius: 2px;
+    }
+    .f-links { list-style: none; }
+    .f-links li { margin-bottom: 0.7rem; }
+    .f-links a {
+      color: rgba(255,255,255,0.62); font-size: 0.88rem; transition: color 0.2s, padding-left 0.2s;
+      position: relative; display: inline-block;
+    }
+    .f-links a:hover { color: var(--blue-sky); padding-left: 0.35rem; }
+    .f-sub { color: rgba(255,255,255,0.38); font-size: 0.76rem; display: block; margin-bottom: 0.4rem; letter-spacing: 0.03em; }
+    .f-social { display: flex; gap: 0.65rem; margin-top: 1rem; }
+    .f-social a {
+      width: 38px; height: 38px; border-radius: 10px;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.7); transition: all 0.25s;
+    }
+    .f-social a:hover {
+      background: var(--blue); color: var(--white); border-color: transparent;
+      transform: translateY(-2px); box-shadow: 0 8px 20px rgba(1,112,185,0.4);
+    }
+    .footer-bottom {
+      max-width: 1180px; margin: 4.5rem auto 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 1.85rem 0 2.25rem;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-bottom p { color: rgba(255,255,255,0.38); font-size: 0.78rem; letter-spacing: 0.02em; }
+    .footer-bottom-links { display: flex; gap: 1.5rem; }
+    .footer-bottom-links a { color: rgba(255,255,255,0.38); font-size: 0.78rem; transition: color 0.2s; }
+    .footer-bottom-links a:hover { color: var(--blue-sky); }
+
+    /* ── RESPONSIVE ───────────────────────────────── */
+    @media (max-width: 1024px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+    }
+    @media (max-width: 900px) {
+      #hero { min-height: 88vh; height: auto; }
+      .hero-content { grid-template-columns: 1fr; gap: 2rem; padding: 0 1.5rem 4rem; }
+      .hero-rail { flex-direction: row; min-width: 0; padding: 1.25rem; }
+      .hero-rail-stat + .hero-rail-stat { padding-top: 0; padding-left: 1.25rem; border-top: none; border-left: 1px solid rgba(255,255,255,0.13); }
+      .hero-rail-num { font-size: 1.4rem; }
+      .hero-scroll { display: none; }
+      .nav-links { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-img-wrap { aspect-ratio: 16/9; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .locs-grid { grid-template-columns: 1fr; }
+      .news-grid { grid-template-columns: 1fr; }
+      .news-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
+      .news-card.featured .news-img { height: 240px; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .stat-cell:nth-child(2) { border-right: none; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 4.5rem 1.5rem; }
+      .navbar, .navbar.scrolled { padding: 1rem 1.5rem; }
+      .hero-cta, .donate-cta { flex-direction: column; align-items: flex-start; }
+      .news-hd-row { flex-direction: column; align-items: flex-start; }
+      .stats-inner { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ════════════════════════════════════
+     NAVIGATION
+════════════════════════════════════ -->
+<nav class="navbar" id="navbar">
+  <a href="#" class="nav-logo-img" aria-label="KAN ry – Kristillinen alkoholisti- ja narkomaanityö">
+    <img src="logo.png" alt="KAN ry">
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#esittely">Esittely</a></li>
+    <li><a href="#toimintayksiköt">Toimintayksiköt</a></li>
+    <li><a href="#ajankohtaista">Ajankohtaista</a></li>
+    <li><a href="#yhteystiedot">Yhteystiedot</a></li>
+  </ul>
+
+  <div class="nav-actions">
+    <a href="#yhteystiedot" class="btn-nav-ghost btn">Liity jäseneksi</a>
+    <a href="#lahjoita" class="btn btn-blue">Lahjoita</a>
+  </div>
+</nav>
+
+
+<!-- ════════════════════════════════════
+     HERO — cinematic full-bleed
+════════════════════════════════════ -->
+<section id="hero" aria-label="KAN ry – Mahdollisuus elämänmuutokseen">
+
+  <div class="hero-bg" role="img" aria-label="Ystävät yhdessä auringonlaskussa"></div>
+  <div class="hero-scrim"></div>
+  <div class="hero-vignette"></div>
+
+  <div class="hero-content">
+    <div class="hero-text">
+      <span class="hero-eyebrow hero-anim h1">
+        <span class="hero-eyebrow-dot"></span>
+        Päihdekuntoutus · 54 vuotta
+      </span>
+      <h1 class="hero-title hero-anim h2">
+        Mahdollisuus<br>
+        <em>elämänmuutokseen</em>
+      </h1>
+      <p class="hero-sub hero-anim h3">
+        Turvallinen, päihteetön yhteisö rakennettu kristilliselle lähimmäisenrakkaudelle. Autamme ihmisiä löytämään uuden suunnan – taustasta riippumatta.
+      </p>
+      <div class="hero-cta hero-anim h4">
+        <a href="#yhteystiedot" class="btn-hero-primary">
+          Ota yhteyttä
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#esittely" class="btn-hero-ghost">Lue tarinamme</a>
+      </div>
+    </div>
+
+    <aside class="hero-rail hero-anim h5" aria-label="KAN ry numeroina">
+      <div class="hero-rail-stat">
+        <span class="hero-rail-num">54v</span>
+        <span class="hero-rail-lbl">Toimintaa</span>
+      </div>
+      <div class="hero-rail-stat">
+        <span class="hero-rail-num">2 000+</span>
+        <span class="hero-rail-lbl">Jäsentä</span>
+      </div>
+      <div class="hero-rail-stat">
+        <span class="hero-rail-num">3</span>
+        <span class="hero-rail-lbl">Yksikköä</span>
+      </div>
+    </aside>
+  </div>
+
+  <a href="#esittely" class="hero-scroll" aria-label="Vieritä alas">
+    <span class="hero-scroll-lbl">Lue lisää</span>
+    <span class="hero-scroll-line"></span>
+  </a>
+
+</section>
+
+
+<!-- ════════════════════════════════════
+     STATS BAR
+════════════════════════════════════ -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-cell fade-up">
+      <span class="stat-num">54</span>
+      <span class="stat-lbl">Vuotta toiminnassa</span>
+    </div>
+    <div class="stat-cell fade-up d1">
+      <span class="stat-num">2 000+</span>
+      <span class="stat-lbl">Kannattajajäsentä</span>
+    </div>
+    <div class="stat-cell fade-up d2">
+      <span class="stat-num">3</span>
+      <span class="stat-lbl">Toimintayksikköä</span>
+    </div>
+    <div class="stat-cell fade-up d3">
+      <span class="stat-num">100%</span>
+      <span class="stat-lbl">Päihteetön yhteisö</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════
+     ESITTELY — ABOUT
+════════════════════════════════════ -->
+<section id="esittely">
+  <div class="container">
+    <div class="about-grid">
+
+      <div class="about-text">
+        <span class="eyebrow fade-up">Mikä on KAN?</span>
+        <h2 class="sec-title fade-up">
+          Suomen suurin<br>
+          päihdekuntoutuksen<br>
+          <em>kansalaisjärjestö</em>
+        </h2>
+        <div class="divider fade-up"></div>
+
+        <p class="fade-up">
+          KAN ry on toiminut yli 54 vuoden ajan Suomen suurimpana päihdekuntoutuksen kansalaisjärjestönä. Olemme kasvaneet vapaaehtoisesta vertaistukityöstä ammatilliseksi asumispalveluksi, joka yhdistää päihdekuntoutuksen ja yhteisöllisen tuen.
+        </p>
+        <p class="fade-up d1">
+          Palvelemme erityisesti ihmisiä, joilla on päihteiden, rikollisuuden tai muiden riippuvuuksien tausta. Autamme heitä löytämään tiensä takaisin yhteiskuntaan päihteettömässä yhteisössä, jossa jokainen kohdataan arvostavasti.
+        </p>
+        <p class="fade-up d2">
+          Kristillinen maailmankuva on osa meitä, mutta uskonnon harjoittaminen ei ole edellytys osallistumiselle. Kunnioitamme jokaisen ihmisarvoa, maailmankuvaa ja henkilökohtaisia valintoja.
+        </p>
+
+        <div class="about-quote fade-up d2">
+          <blockquote>
+            "Elämänmuutos on pääsääntöisesti hidasta ja kivuliasta, mutta mahdollista ja sen arvoista."
+          </blockquote>
+          <cite>KAN ry:n toiminnan ydin</cite>
+        </div>
+
+        <a href="#yhteystiedot" class="btn btn-blue btn-lg fade-up d3">Ota meihin yhteyttä</a>
+      </div>
+
+      <div class="about-img-wrap fade-up d2">
+        <img
+          src="https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?w=900&q=85&auto=format&fit=crop"
+          alt="Suomalainen koivumetsä – elämänmuutoksen rauha"
+          loading="lazy"
+        >
+        <div class="img-badge">
+          <div class="badge-icon-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <span class="badge-strong">Perustettu 1970</span>
+            <span class="badge-span">54 vuotta elämänmuutostyötä</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     PILLARS — KOLME KULMAKIVEÄ
+════════════════════════════════════ -->
+<section id="pillars">
+  <div class="container">
+    <div class="pillars-hd">
+      <span class="eyebrow fade-up">Toimintamme perusta</span>
+      <h2 class="sec-title fade-up">Turvallisuus, raittius<br>ja <em>yhteisö</em></h2>
+      <div class="divider divider-center fade-up"></div>
+      <p class="sec-lead fade-up">Kaikki toimintamme rakentuu kolmen periaatteen varaan. Ne muodostavat pohjan kestävälle ja merkitykselliselle elämänmuutokselle.</p>
+    </div>
+
+    <div class="pillars-grid">
+      <div class="pillar-card fade-up">
+        <span class="pillar-num">01</span>
+        <div class="pillar-icon-bg">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h3 class="pillar-title">Turvallisuus</h3>
+        <p class="pillar-text">
+          Yhteisömme rakentuu kristilliselle ihmisarvolle. Jokaisella on oikeus tulla kohdatuksi arvokkaana ihmisenä riippumatta taustasta, vakaumuksesta tai menneisyydestä. Uskonto ei ole edellytys toimintaan osallistumiselle.
+        </p>
+      </div>
+
+      <div class="pillar-card fade-up d1">
+        <span class="pillar-num">02</span>
+        <div class="pillar-icon-bg">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+        </div>
+        <h3 class="pillar-title">Raittius</h3>
+        <p class="pillar-text">
+          Pysyvä päihteettömyys on yhteisöllisyytemme perusta. Tutkimus osoittaa, että kristillinen vakaumus tukee sitoutumista päihteettömään elämään. Tahto muutokseen riittää aloittaakseen.
+        </p>
+      </div>
+
+      <div class="pillar-card fade-up d2">
+        <span class="pillar-num">03</span>
+        <div class="pillar-icon-bg">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+            <path d="M16 3.13a4 4 0 010 7.75"/>
+          </svg>
+        </div>
+        <h3 class="pillar-title">Yhteisö</h3>
+        <p class="pillar-text">
+          Autamme osallistujia siirtymään päihteiden käyttöön liittyvistä kaveripiireistä uusiin, rakentaviin ihmissuhteisiin. Seurakuntien, AA/NA-ryhmien ja harrastusten kautta rakentuu kokonaan uusi elämä.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     TOIMINTAYKSIKÖT — LOCATIONS
+════════════════════════════════════ -->
+<section id="toimintayksiköt">
+  <div class="container">
+    <div class="locs-hd">
+      <span class="eyebrow fade-up">Missä toimimme</span>
+      <h2 class="sec-title fade-up">Olemme siellä<br>missä <em>sinä olet</em></h2>
+      <div class="divider fade-up"></div>
+      <p class="sec-lead fade-up" style="max-width:580px;">Toimintayksiköitämme löytyy kolmelta paikkakunnalta ympäri Suomea. Jokaisessa on turvallinen yhteisö valmiina ottamaan sinut vastaan.</p>
+    </div>
+
+    <div class="locs-grid">
+      <div class="loc-card fade-up">
+        <div class="loc-img">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&q=85&auto=format&fit=crop" alt="Jyväskylän järvimaisema – mökki ja rauha" loading="lazy">
+        </div>
+        <div class="loc-body">
+          <span class="loc-tag">Toimintayksikkö</span>
+          <h3 class="loc-name">Jyväskylä</h3>
+          <p class="loc-desc">Jyväskylän toimintayksikkömme tarjoaa turvallisen asumisyhteisön päihdekuntoutumiseen kauniin järvi-Suomen sydämessä.</p>
+          <a href="#yhteystiedot" class="loc-link">
+            Ota yhteyttä
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="loc-card fade-up d1">
+        <div class="loc-img">
+          <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=85&auto=format&fit=crop" alt="Pohjanmaan maaseutumaisema – rauha ja avara taivas" loading="lazy">
+        </div>
+        <div class="loc-body">
+          <span class="loc-tag">Päätoimipaikka</span>
+          <h3 class="loc-name">Kauhava</h3>
+          <p class="loc-desc">Päämajanamme Fräntiläntie 174, Peltotupa. Rauhallinen maaseutuympäristö tarjoaa ihanteelliset olosuhteet toipumiseen.</p>
+          <a href="#yhteystiedot" class="loc-link">
+            Ota yhteyttä
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="loc-card fade-up d2">
+        <div class="loc-img">
+          <img src="https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=800&q=85&auto=format&fit=crop" alt="Päijät-Hämeen syksyinen järvi- ja metsämaisema" loading="lazy">
+        </div>
+        <div class="loc-body">
+          <span class="loc-tag">Toimintayksikkö</span>
+          <h3 class="loc-name">Päijät-Häme</h3>
+          <p class="loc-desc">Päijät-Hämeen toimintayksikkömme palvelee eteläisen Suomen alueen asukkaita päihdekuntoutuksen parissa.</p>
+          <a href="#yhteystiedot" class="loc-link">
+            Ota yhteyttä
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     AJANKOHTAISTA — NEWS
+════════════════════════════════════ -->
+<section id="ajankohtaista">
+  <div class="container">
+    <div class="news-hd-row">
+      <div>
+        <span class="eyebrow fade-up">Ajankohtaista</span>
+        <h2 class="sec-title fade-up">Mitä meillä<br><em>tapahtuu</em></h2>
+      </div>
+      <a href="#yhteystiedot" class="btn btn-outline-blue fade-up">Kaikki uutiset</a>
+    </div>
+
+    <div class="news-grid">
+      <div class="news-card featured fade-up">
+        <div class="news-img">
+          <img src="https://images.unsplash.com/photo-1521119989659-a83eee488004?w=900&q=85&auto=format&fit=crop" alt="Valtteri Tuokkola KAN ry:n uusi toiminnanjohtaja" loading="lazy">
+        </div>
+        <div class="news-body">
+          <div class="news-meta">
+            <span class="news-tag">Organisaatio</span>
+            <span class="news-date">2024</span>
+          </div>
+          <h3 class="news-title">Valtteri Tuokkola valittu uudeksi toiminnanjohtajaksi</h3>
+          <p class="news-excerpt">
+            KAN ry:n hallitus on valinnut Valtteri Tuokkolan uudeksi toiminnanjohtajaksi, kun Jouko Vuorenniemi jää eläkkeelle. Tuokkola tuo mukanaan vahvaa kansainvälistä elämänkokemusta lapsuudesta Tansaniassa ja 16 vuoden työvuosista Kanadasta.
+          </p>
+          <p class="news-excerpt" style="margin-top:-0.5rem;">
+            Tällä hetkellä hän työskentelee Iso Kirja -opistolla johtavana opettajana ja tähtää rohkaisemaan ihmisiä elämään täyteen potentiaaliinsa.
+          </p>
+          <a href="#yhteystiedot" class="news-link">
+            Lue lisää
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="news-card fade-up d1">
+        <div class="news-img">
+          <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=85&auto=format&fit=crop" alt="Yhteisö – kädet kohtaavat" loading="lazy">
+        </div>
+        <div class="news-body">
+          <div class="news-meta">
+            <span class="news-tag">Yhteisö</span>
+            <span class="news-date">2024</span>
+          </div>
+          <h3 class="news-title">54 vuotta yhdessä — juhlahistoriikki saatavilla</h3>
+          <p class="news-excerpt">
+            KAN ry:n 50-vuotisjuhlahistoriikki on ladattavissa verkosta. Tutustu järjestömme vuosikymmenien matkaan vapaaehtoistyöstä ammatilliseksi kuntoutustyöksi.
+          </p>
+          <a href="#yhteystiedot" class="news-link">
+            Lue lisää
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="news-card fade-up d2">
+        <div class="news-img">
+          <img src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=800&q=85&auto=format&fit=crop" alt="Auringonvalo lehtien läpi – toivon symboli" loading="lazy">
+        </div>
+        <div class="news-body">
+          <div class="news-meta">
+            <span class="news-tag">Jäsenyys</span>
+            <span class="news-date">2024</span>
+          </div>
+          <h3 class="news-title">Liity yli 2 000 jäsenen joukkoon</h3>
+          <p class="news-excerpt">
+            Kannattajajäsenyydellä tuet konkreettisesti elämänmuutostyötä Suomessa. Yhdessä olemme jo auttaneet tuhansia ihmisiä löytämään uuden suunnan.
+          </p>
+          <a href="#lahjoita" class="news-link">
+            Liity jäseneksi
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     LAHJOITA — DONATE CTA
+════════════════════════════════════ -->
+<section id="lahjoita">
+  <div class="container">
+    <div class="donate-wrap">
+      <span class="eyebrow fade-up">Tue elämänmuutostyötä</span>
+      <h2 class="donate-title fade-up">
+        Jokaisella ihmisellä on<br>
+        <em>mahdollisuus muutokseen</em>
+      </h2>
+      <p class="donate-lead fade-up">
+        Tuellasi mahdollistamme turvallisen yhteisön ja uuden alun sitä tarvitseville. Jokainen lahjoitus vie eteenpäin 54-vuotista elämänmuutostyötämme.
+      </p>
+
+      <div class="donate-cta fade-up">
+        <a href="mailto:info@kan.fi?subject=Lahjoitus" class="btn btn-blue btn-lg">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z"/></svg>
+          Lahjoita nyt
+        </a>
+        <a href="mailto:info@kan.fi?subject=Jäsenyys" class="btn btn-white-outline btn-lg">Liity jäseneksi</a>
+      </div>
+
+      <div class="trust-row fade-up d2">
+        <div class="trust-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          Turvallinen lahjoitus
+        </div>
+        <div class="trust-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          54 vuotta luotettavaa työtä
+        </div>
+        <div class="trust-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Rekisteröity yhdistys
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     FOOTER — YHTEYSTIEDOT
+════════════════════════════════════ -->
+<footer id="yhteystiedot">
+  <div class="footer-grid">
+
+    <div>
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-mark">K</div>
+        <div>
+          <span class="nav-logo-name">KAN ry</span>
+          <span class="nav-logo-tag">Mahdollisuus elämänmuutokseen</span>
+        </div>
+      </a>
+      <p class="f-desc">
+        Kristillinen alkoholisti- ja narkomaanityö ry on Suomen suurin päihdekuntoutuksen kansalaisjärjestö. Toimintamme perustuu kristilliseen lähimmäisenrakkauteen ja jokaisen ihmisen ainutlaatuiseen arvokkuuteen.
+      </p>
+      <div class="f-contact">
+        <a href="tel:+358457870 1950">
+          <span class="f-contact-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 10.1a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1.47h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </span>
+          045 7870 1950
+        </a>
+        <a href="mailto:info@kan.fi">
+          <span class="f-contact-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </span>
+          info@kan.fi
+        </a>
+        <div class="f-contact-item">
+          <span class="f-contact-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </span>
+          Fräntiläntie 174, 62430 Peltotupa
+        </div>
+      </div>
+      <div class="f-social" aria-label="Sosiaalinen media">
+        <a href="#" aria-label="Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="#" aria-label="LinkedIn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2zM8.339 18.337v-8.49H5.667v8.49zm-1.336-9.66a1.55 1.55 0 110-3.1 1.55 1.55 0 010 3.1zM18.336 18.337v-4.65c0-2.485-1.345-3.642-3.137-3.642-1.446 0-2.094.795-2.455 1.354v-1.162h-2.672c.035.749 0 8.49 0 8.49h2.672v-4.74c0-.24.017-.48.088-.652.193-.48.633-.978 1.371-.978.967 0 1.354.734 1.354 1.81v4.56z"/></svg>
+        </a>
+        <a href="mailto:info@kan.fi" aria-label="Sähköposti">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <h4 class="f-col-title">Sivusto</h4>
+      <ul class="f-links">
+        <li><a href="#esittely">Esittely</a></li>
+        <li><a href="#toimintayksiköt">Toimintayksiköt</a></li>
+        <li><a href="#ajankohtaista">Ajankohtaista</a></li>
+        <li><a href="#yhteystiedot">Yhteystiedot</a></li>
+        <li><a href="#lahjoita">Lahjoita</a></li>
+        <li><a href="#lahjoita">Liity jäseneksi</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="f-col-title">Toimintayksiköt</h4>
+      <ul class="f-links">
+        <li><a href="#toimintayksiköt">Jyväskylä</a></li>
+        <li><a href="#toimintayksiköt">Kauhava</a></li>
+        <li><a href="#toimintayksiköt">Päijät-Häme</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="f-col-title">Johto</h4>
+      <ul class="f-links">
+        <li><a href="mailto:valtteri.tuokkola@kan.fi">Valtteri Tuokkola</a></li>
+        <li><span class="f-sub">Toiminnanjohtaja, 040 769 2553</span></li>
+        <li><a href="mailto:marjut.pirttinen@kan.fi">Marjut Pirttinen</a></li>
+        <li><span class="f-sub">Taloushallinto</span></li>
+        <li><a href="mailto:timo.katto@kan.fi">Timo Katto</a></li>
+        <li><span class="f-sub">Hallituksen puheenjohtaja, Tampere</span></li>
+        <li><a href="mailto:ilpo.talka@gmail.com">Ilpo Talka</a></li>
+        <li><span class="f-sub">Varapuheenjohtaja, Pello</span></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2024 Kristillinen alkoholisti- ja narkomaanityö ry. Kaikki oikeudet pidätetään.</p>
+    <div class="footer-bottom-links">
+      <a href="https://www.kan.fi/tietosuojaseloste/">Tietosuojaseloste</a>
+      <a href="https://www.kan.fi/evasteet/">Evästekäytäntö</a>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════ -->
+<script>
+
+  /* ── Navbar scroll + progress bar ── */
+  const navbar = document.getElementById('navbar');
+  const progress = document.getElementById('scrollProgress');
+  function onScroll() {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+    const h = document.documentElement;
+    const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    progress.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ── Fade-up on scroll ── */
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+  /* ── Animated count-up for stats ── */
+  function parseTarget(str) {
+    const num = parseFloat(str.replace(/[^\d.]/g, ''));
+    return isNaN(num) ? null : num;
+  }
+  function formatNum(n, original) {
+    if (original.includes('%')) return Math.round(n) + '%';
+    if (original.includes('+')) return Math.round(n).toLocaleString('fi-FI').replace(/,/g, ' ') + '+';
+    return Math.round(n).toLocaleString('fi-FI').replace(/,/g, ' ');
+  }
+  const statObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      if (el.dataset.counted) return;
+      el.dataset.counted = '1';
+      const original = el.textContent.trim();
+      const target = parseTarget(original);
+      if (target === null) return;
+      const dur = 1400, t0 = performance.now();
+      function tick(t) {
+        const p = Math.min(1, (t - t0) / dur);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = formatNum(target * eased, original);
+        if (p < 1) requestAnimationFrame(tick);
+        else el.textContent = original;
+      }
+      requestAnimationFrame(tick);
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('.stat-num').forEach(el => statObs.observe(el));
+
+</script>
+
+</body>
+</html>
