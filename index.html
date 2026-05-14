@@ -104,7 +104,13 @@
       display: flex; align-items: center; justify-content: space-between; gap: 1rem;
       background: var(--white);
       box-shadow: 0 1px 0 var(--border);
+      transition: padding 0.3s ease, box-shadow 0.3s ease;
     }
+    .navbar.scrolled {
+      padding: 0.6rem 3rem;
+      box-shadow: 0 1px 0 var(--border), 0 4px 18px rgba(0,0,0,0.06);
+    }
+    .navbar.scrolled .nav-logo-img img { height: 64px; }
     .navbar .nav-logo-name { color: var(--text); }
     .navbar .nav-logo-tag  { color: var(--text-light); }
     .navbar .nav-links a   { color: var(--text-body); }
@@ -722,7 +728,9 @@
     }
     @media (max-width: 900px) {
       .navbar { padding: 0.9rem 1.25rem; }
+      .navbar.scrolled { padding: 0.55rem 1.25rem; }
       .nav-logo-img img { height: 72px; }
+      .navbar.scrolled .nav-logo-img img { height: 50px; }
       .nav-actions { gap: 0.5rem; }
       .nav-actions .btn-nav-ghost { display: none; }
       .nav-actions .btn-blue { padding: 0.6rem 1.05rem; font-size: 0.82rem; }
@@ -759,7 +767,9 @@
     }
     @media (max-width: 600px) {
       .navbar { padding: 0.75rem 1rem; }
+      .navbar.scrolled { padding: 0.45rem 1rem; }
       .nav-logo-img img { height: 56px; }
+      .navbar.scrolled .nav-logo-img img { height: 42px; }
       .nav-actions .btn-blue { padding: 0.55rem 0.9rem; font-size: 0.78rem; }
 
       section { padding: 4rem 1.25rem; }
