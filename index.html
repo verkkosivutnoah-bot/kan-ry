@@ -148,6 +148,63 @@
     .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.12); }
 
     .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
+
+    /* Hamburger button (mobile only) */
+    .nav-burger {
+      display: none; width: 44px; height: 44px;
+      align-items: center; justify-content: center;
+      background: transparent; border: none; cursor: pointer; padding: 0;
+      border-radius: 8px; transition: background 0.22s;
+      position: relative;
+    }
+    .nav-burger:hover { background: rgba(0,0,0,0.05); }
+    .nav-burger-bars {
+      width: 22px; height: 14px; position: relative;
+    }
+    .nav-burger-bars span {
+      position: absolute; left: 0; right: 0; height: 2px;
+      background: var(--text); border-radius: 2px;
+      transition: transform 0.3s ease, top 0.3s ease, opacity 0.2s ease;
+    }
+    .nav-burger-bars span:nth-child(1) { top: 0; }
+    .nav-burger-bars span:nth-child(2) { top: 6px; }
+    .nav-burger-bars span:nth-child(3) { top: 12px; }
+    .nav-burger.open .nav-burger-bars span:nth-child(1) { top: 6px; transform: rotate(45deg); }
+    .nav-burger.open .nav-burger-bars span:nth-child(2) { opacity: 0; }
+    .nav-burger.open .nav-burger-bars span:nth-child(3) { top: 6px; transform: rotate(-45deg); }
+
+    /* Mobile drawer */
+    .nav-drawer {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 999;
+      background: var(--white);
+      padding: 7rem 1.5rem 2rem;
+      opacity: 0; visibility: hidden;
+      transform: translateY(-10px);
+      transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+      display: flex; flex-direction: column;
+      overflow-y: auto;
+    }
+    .nav-drawer.open {
+      opacity: 1; visibility: visible; transform: translateY(0);
+    }
+    .nav-drawer ul {
+      list-style: none; display: flex; flex-direction: column;
+      gap: 0.25rem; margin-bottom: 2.5rem;
+    }
+    .nav-drawer ul a {
+      display: block; padding: 1rem 0.5rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem; font-weight: 600; color: var(--text);
+      border-bottom: 1px solid var(--border);
+      transition: color 0.22s, padding-left 0.22s;
+    }
+    .nav-drawer ul a:hover, .nav-drawer ul a:focus { color: var(--blue); padding-left: 1rem; }
+    .nav-drawer-cta {
+      display: flex; flex-direction: column; gap: 0.7rem;
+      margin-top: auto; padding-top: 1.5rem;
+    }
+    .nav-drawer-cta .btn { width: 100%; justify-content: center; padding: 1rem; }
+    body.nav-open { overflow: hidden; }
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem;
            font-weight: 600; font-size: 0.875rem; padding: 0.625rem 1.35rem;
            border-radius: var(--radius-sm); transition: all 0.22s; cursor: pointer; border: none; white-space: nowrap; }
@@ -734,6 +791,7 @@
       .nav-actions { gap: 0.5rem; }
       .nav-actions .btn-nav-ghost { display: none; }
       .nav-actions .btn-blue { padding: 0.6rem 1.05rem; font-size: 0.82rem; }
+      .nav-burger { display: inline-flex; }
 
       #hero { min-height: auto; height: auto; padding-top: 100px; }
       .hero-content { grid-template-columns: 1fr; gap: 2rem; padding: 1rem 1.25rem 3rem; max-width: 100%; }
@@ -771,6 +829,7 @@
       .nav-logo-img img { height: 56px; }
       .navbar.scrolled .nav-logo-img img { height: 42px; }
       .nav-actions .btn-blue { padding: 0.55rem 0.9rem; font-size: 0.78rem; }
+      .nav-actions { gap: 0.4rem; }
 
       section { padding: 4rem 1.25rem; }
       .container { padding: 0; }
@@ -822,8 +881,26 @@
   <div class="nav-actions">
     <a href="#yhteystiedot" class="btn-nav-ghost btn">Liity jäseneksi</a>
     <a href="#lahjoita" class="btn btn-blue">Lahjoita</a>
+    <button class="nav-burger" id="navBurger" aria-label="Avaa valikko" aria-expanded="false" aria-controls="navDrawer">
+      <span class="nav-burger-bars"><span></span><span></span><span></span></span>
+    </button>
   </div>
 </nav>
+
+<!-- MOBILE DRAWER -->
+<div class="nav-drawer" id="navDrawer" role="dialog" aria-modal="true" aria-label="Mobiilinavigaatio">
+  <ul>
+    <li><a href="#esittely" data-drawer-link>Esittely</a></li>
+    <li><a href="#toimintayksiköt" data-drawer-link>Toimintayksiköt</a></li>
+    <li><a href="#ajankohtaista" data-drawer-link>Ajankohtaista</a></li>
+    <li><a href="#yhteystiedot" data-drawer-link>Yhteystiedot</a></li>
+    <li><a href="#lahjoita" data-drawer-link>Lahjoita</a></li>
+  </ul>
+  <div class="nav-drawer-cta">
+    <a href="#yhteystiedot" class="btn btn-outline-blue" data-drawer-link>Liity jäseneksi</a>
+    <a href="#lahjoita" class="btn btn-blue" data-drawer-link>Lahjoita nyt</a>
+  </div>
+</div>
 
 
 <!-- ════════════════════════════════════
@@ -1328,6 +1405,33 @@
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+
+  /* ── Mobile drawer toggle ── */
+  const burger = document.getElementById('navBurger');
+  const drawer = document.getElementById('navDrawer');
+  if (burger && drawer) {
+    const closeDrawer = () => {
+      burger.classList.remove('open');
+      drawer.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('nav-open');
+    };
+    const openDrawer = () => {
+      burger.classList.add('open');
+      drawer.classList.add('open');
+      burger.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('nav-open');
+    };
+    burger.addEventListener('click', () => {
+      drawer.classList.contains('open') ? closeDrawer() : openDrawer();
+    });
+    drawer.querySelectorAll('[data-drawer-link]').forEach(a => {
+      a.addEventListener('click', closeDrawer);
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
+    });
+  }
 
   /* ── Fade-up on scroll ── */
   const obs = new IntersectionObserver(entries => {
