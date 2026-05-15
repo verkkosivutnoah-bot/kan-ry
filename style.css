@@ -1102,3 +1102,28 @@
       .loc-head-name { font-size: 1.15rem; }
       .loc-panel-body { grid-template-columns: 1fr; gap: 1.5rem; padding: 0 1.25rem 1.5rem; }
     }
+
+    /* ── TOIMINTAYKSIKOT BG IMAGE ────────────────── */
+    #toimintayksikot-body {
+      position: relative; isolation: isolate;
+      padding: 6rem 2rem 8rem;
+      overflow: hidden;
+    }
+    #toimintayksikot-body::before {
+      content: ''; position: absolute; inset: 0; z-index: -2;
+      background-image: url('https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?w=1800&q=85&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    #toimintayksikot-body::after {
+      content: ''; position: absolute; inset: 0; z-index: -1;
+      background:
+        linear-gradient(180deg, rgba(252,251,248,0.88) 0%, rgba(252,251,248,0.78) 100%);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+    }
+    @media (max-width: 900px) {
+      #toimintayksikot-body { padding: 4rem 1.25rem 6rem; }
+      #toimintayksikot-body::before { background-attachment: scroll; }
+    }
