@@ -1127,3 +1127,55 @@
       #toimintayksikot-body { padding: 4rem 1.25rem 6rem; }
       #toimintayksikot-body::before { background-attachment: scroll; }
     }
+
+    /* ── TOIMINTAYKSIKOT GRID ──────────────────── */
+    .toim-grid {
+      display: grid; grid-template-columns: 1.4fr 1fr;
+      gap: 3.5rem; align-items: start;
+    }
+    .toim-grid .loc-accordion { max-width: none; }
+    .toim-aside {
+      position: sticky; top: 9rem;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius);
+      padding: 2.25rem 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .toim-aside-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 1.25rem;
+      display: inline-flex; align-items: center; gap: 0.7rem;
+    }
+    .toim-aside-title::before {
+      content: ''; width: 24px; height: 1.5px; background: var(--blue);
+    }
+    .toim-aside-intro {
+      font-size: 1rem; line-height: 1.7;
+      color: var(--text-body); margin-bottom: 2rem;
+    }
+    .toim-aside-block { margin-bottom: 1.75rem; }
+    .toim-aside-block:last-child { margin-bottom: 0; }
+    .toim-aside-block h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; font-weight: 700;
+      color: var(--text); margin-bottom: 0.65rem;
+      letter-spacing: -0.01em;
+    }
+    .toim-aside-block p {
+      font-size: 0.93rem; line-height: 1.68;
+      color: var(--text-body);
+    }
+    .toim-aside-block a {
+      color: var(--blue); font-weight: 600;
+      transition: color 0.2s;
+    }
+    .toim-aside-block a:hover { color: var(--blue-hover); }
+
+    @media (max-width: 1000px) {
+      .toim-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .toim-aside { position: static; }
+    }
