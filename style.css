@@ -939,3 +939,82 @@
     @media (max-width: 600px) {
       .page-hero { padding: 6.5rem 0 3rem; }
     }
+
+    /* ── MISSION + PDF DOWNLOAD STRIP ───────────── */
+    #mission {
+      padding: 6rem 2rem;
+      background: var(--surface);
+      border-top: 1px solid var(--border-soft);
+      border-bottom: 1px solid var(--border-soft);
+      position: relative; overflow: hidden;
+    }
+    #mission::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 50% 0%, rgba(1,112,185,0.05), transparent 65%);
+      pointer-events: none;
+    }
+    .mission-wrap {
+      max-width: 920px; margin: 0 auto; text-align: center;
+      position: relative; z-index: 1;
+    }
+    .mission-text {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+      font-weight: 400; line-height: 1.4;
+      color: var(--text); letter-spacing: -0.01em;
+      max-width: 28ch; margin: 0 auto 2.5rem;
+    }
+    .mission-text em {
+      font-style: italic;
+      background: linear-gradient(120deg, var(--blue), var(--blue-sky));
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .pdf-card {
+      display: inline-flex; align-items: center; gap: 1.25rem;
+      background: var(--white); border: 1px solid var(--border);
+      padding: 1.1rem 1.6rem 1.1rem 1.25rem;
+      border-radius: 14px; box-shadow: var(--shadow-sm);
+      transition: transform 0.28s cubic-bezier(0.2,0.7,0.2,1),
+                  box-shadow 0.28s, border-color 0.28s;
+    }
+    .pdf-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+      border-color: var(--blue);
+    }
+    .pdf-icon {
+      width: 48px; height: 48px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--blue), var(--blue-sky));
+      color: var(--white); border-radius: 11px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 20px rgba(1,112,185,0.28);
+    }
+    .pdf-meta {
+      display: flex; flex-direction: column; align-items: flex-start; line-height: 1.25;
+    }
+    .pdf-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; font-weight: 700; color: var(--text);
+      letter-spacing: -0.01em;
+    }
+    .pdf-sub {
+      font-size: 0.78rem; color: var(--text-light);
+      letter-spacing: 0.04em; margin-top: 0.15rem;
+    }
+    .pdf-arrow {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--surface); color: var(--blue);
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.28s, background 0.28s, color 0.28s;
+    }
+    .pdf-card:hover .pdf-arrow {
+      background: var(--blue); color: var(--white);
+      transform: translate(2px, -2px);
+    }
+    @media (max-width: 600px) {
+      #mission { padding: 4rem 1.25rem; }
+      .pdf-card { width: 100%; gap: 0.85rem; padding: 0.95rem 1rem; }
+      .pdf-title { font-size: 0.95rem; }
+    }
