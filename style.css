@@ -1179,3 +1179,17 @@
       .toim-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .toim-aside { position: static; }
     }
+
+    /* ── NEWS GALLERY (dual image) ──────────────── */
+    .news-gallery {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4px; height: 100%; min-height: 360px;
+    }
+    .news-gallery img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center;
+      transition: transform 0.8s ease;
+    }
+    .news-card:hover .news-gallery img { transform: scale(1.04); }
+    @media (max-width: 900px) {
+      .news-gallery { grid-template-columns: 1fr 1fr; min-height: 240px; }
+    }
