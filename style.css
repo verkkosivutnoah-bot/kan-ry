@@ -199,19 +199,19 @@
     .hero-scrim {
       position: absolute; inset: 0; z-index: 1;
       background:
-        linear-gradient(180deg, rgba(6,18,34,0.55) 0%, rgba(6,18,34,0.05) 35%, rgba(6,18,34,0.15) 60%, rgba(6,18,34,0.92) 100%),
-        linear-gradient(90deg, rgba(6,18,34,0.55) 0%, rgba(6,18,34,0.0) 55%);
+        linear-gradient(180deg, rgba(6,18,34,0.30) 0%, rgba(6,18,34,0.0) 30%, rgba(6,18,34,0.10) 55%, rgba(6,18,34,0.92) 100%),
+        linear-gradient(90deg, rgba(6,18,34,0.45) 0%, rgba(6,18,34,0.0) 60%);
       pointer-events: none;
     }
     .hero-vignette {
       position: absolute; inset: 0; z-index: 1; pointer-events: none;
-      background: radial-gradient(ellipse 110% 80% at 50% 60%, transparent 55%, rgba(0,0,0,0.45) 100%);
+      background: radial-gradient(ellipse 110% 80% at 50% 65%, transparent 60%, rgba(0,0,0,0.35) 100%);
     }
 
     .hero-content {
       position: relative; z-index: 2;
       width: 100%; max-width: 1280px;
-      margin: 0 auto; padding: 0 3rem 6rem;
+      margin: 0 auto; padding: 0 3rem 2.5rem;
       display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: end; gap: 3rem;
     }
     .hero-text { max-width: 720px; }
