@@ -76,3 +76,12 @@
   }, { threshold: 0.4 });
   document.querySelectorAll('.stat-num').forEach(el => statObs.observe(el));
 
+
+  /* ── Location accordion ── */
+  document.querySelectorAll('.loc-head').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.loc-item');
+      const open = item.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
