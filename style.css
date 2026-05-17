@@ -1052,6 +1052,21 @@
       line-height: 1.72; margin-bottom: 1rem;
     }
     .loc-panel-desc p:last-child { margin-bottom: 0; }
+    .loc-panel-desc h5 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--blue);
+      margin: 1.75rem 0 0.65rem;
+      display: inline-flex; align-items: center; gap: 0.55rem;
+    }
+    .loc-panel-desc h5::before {
+      content: ''; width: 20px; height: 1.5px; background: var(--blue);
+    }
+    .loc-panel-desc h5:first-child { margin-top: 0; }
+    .loc-panel-desc > p:first-child {
+      font-size: 1.05rem; color: var(--text); font-weight: 500;
+    }
     .loc-panel-meta {
       display: flex; flex-direction: column; gap: 1rem;
       padding: 1.25rem; background: var(--surface);
