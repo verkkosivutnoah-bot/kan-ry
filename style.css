@@ -1208,3 +1208,25 @@
     @media (max-width: 900px) {
       .news-gallery { grid-template-columns: 1fr 1fr; min-height: 240px; }
     }
+
+    /* ── LOCATION DOC BUTTON ROW ────────────────── */
+    .loc-doc-row {
+      display: flex; flex-wrap: wrap; gap: 0.6rem;
+      margin-top: 1.75rem;
+    }
+    .loc-doc-btn {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      font-size: 0.82rem; font-weight: 600;
+      color: var(--text); background: var(--white);
+      padding: 0.7rem 1.1rem; border-radius: 100px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.22s;
+    }
+    .loc-doc-btn:hover {
+      background: var(--blue); color: var(--white);
+      border-color: var(--blue);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(1,112,185,0.22);
+    }
+    .loc-doc-btn svg { width: 14px; height: 14px; flex-shrink: 0; }
