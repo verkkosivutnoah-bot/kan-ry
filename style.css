@@ -1244,3 +1244,20 @@
       box-shadow: 0 8px 18px rgba(1,112,185,0.22);
     }
     .loc-doc-btn svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+    /* ── FOOTER LOGO IMAGE ─────────────────────── */
+    .footer-logo-img {
+      display: inline-flex; align-items: center;
+      transition: opacity 0.22s;
+    }
+    .footer-logo-img:hover { opacity: 0.85; }
+    .footer-logo-img img {
+      height: 84px; width: auto; max-width: none; display: block;
+      background: var(--white);
+      padding: 0.65rem 0.9rem;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+    }
+    @media (max-width: 600px) {
+      .footer-logo-img img { height: 64px; padding: 0.5rem 0.75rem; border-radius: 12px; }
+    }
