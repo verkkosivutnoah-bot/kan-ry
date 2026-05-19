@@ -302,6 +302,7 @@
       font-family: var(--font-sub);
       font-style: italic;
       font-weight: 700;
+      font-size: 1.12em;
       letter-spacing: 0.005em;
       line-height: 1.12;
       padding: 0.05em 0.08em 0.18em;
@@ -1602,4 +1603,134 @@
     /* Tag pills that are nice-to-have nowrap but truncate on tiny screens */
     @media (max-width: 380px) {
       .loc-head-tag, .news-tag, .loc-tag { white-space: normal; }
+    }
+
+    /* ── PAGE HERO IMAGE VARIANTS ──────────────── */
+
+    /* Toimintayksikot — split: text left, diagonal-clipped image right */
+    .page-hero.ph-toim {
+      padding: 9rem 0 4rem; position: relative; overflow: hidden;
+    }
+    .ph-toim .container { position: relative; z-index: 2; }
+    .ph-toim .page-hero-inner { max-width: 620px; }
+    .ph-toim-img {
+      position: absolute; top: 0; right: 0; bottom: 0;
+      width: 48%; z-index: 1;
+      background: url('https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?w=1400&q=85&auto=format&fit=crop') center/cover no-repeat;
+      clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%);
+    }
+    .ph-toim-img::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(105deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.0) 50%);
+    }
+
+    /* Ajankohtaista — full-bleed image w/ dark overlay, light text */
+    .page-hero.ph-news {
+      padding: 11rem 0 5rem; position: relative; overflow: hidden;
+      background: none; border-bottom: 0;
+    }
+    .ph-news-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: url('https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1800&q=85&auto=format&fit=crop') center/cover no-repeat;
+      filter: brightness(0.6);
+    }
+    .ph-news-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(20,41,65,0.45) 0%, rgba(20,41,65,0.65) 100%);
+    }
+    .ph-news .container { position: relative; z-index: 1; }
+    .ph-news .page-hero-title { color: var(--white); text-shadow: 0 2px 14px rgba(0,0,0,0.4); }
+    .ph-news .page-hero-title em { color: transparent; }
+    .ph-news .page-hero-lead { color: rgba(255,255,255,0.92); text-shadow: 0 1px 8px rgba(0,0,0,0.35); }
+    .ph-news .breadcrumb { color: rgba(255,255,255,0.75); }
+    .ph-news .breadcrumb a { color: var(--orange); }
+    .ph-news .breadcrumb span { color: rgba(255,255,255,0.4); }
+
+    /* Yhteystiedot — small rounded inset image bottom-right */
+    .page-hero.ph-yht {
+      padding: 9rem 0 5rem; position: relative;
+    }
+    .ph-yht .container { position: relative; }
+    .ph-yht-img {
+      position: absolute; right: 2rem; bottom: -3rem;
+      width: 320px; aspect-ratio: 4/5;
+      border-radius: 24px; overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      transform: rotate(2deg);
+      z-index: 1;
+    }
+    .ph-yht-img img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .ph-yht-img::after {
+      content: ''; position: absolute; inset: 0;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.4);
+      border-radius: 24px; pointer-events: none;
+    }
+
+    /* Lahjoita — left strip image w/ orange wash */
+    .page-hero.ph-don {
+      padding: 9rem 0 5rem; position: relative; overflow: hidden;
+    }
+    .ph-don-strip {
+      position: absolute; top: 0; left: 0; bottom: 0;
+      width: 38%; z-index: 0;
+      background: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1400&q=85&auto=format&fit=crop') center/cover no-repeat;
+      clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+    }
+    .ph-don-strip::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(255,201,51,0.30) 0%, rgba(255,255,255,0.85) 100%);
+    }
+    .ph-don .container { position: relative; z-index: 2; }
+    .ph-don .page-hero-inner { margin-left: auto; max-width: 560px; }
+
+    /* Liity jäseneksi — soft-blurred image bg + warm gradient overlay */
+    .page-hero.ph-liit {
+      padding: 11rem 0 6rem; position: relative; overflow: hidden;
+    }
+    .ph-liit-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: url('hero.jpg') center/cover no-repeat;
+      filter: blur(14px) saturate(110%) brightness(0.95);
+      transform: scale(1.1);
+    }
+    .ph-liit-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,241,168,0.5) 0%, rgba(168,208,240,0.55) 100%);
+    }
+    .ph-liit .container { position: relative; z-index: 1; }
+    .ph-liit .page-hero-inner {
+      background: rgba(255,255,255,0.78);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.6);
+      border-radius: 22px;
+      padding: 2.5rem 2.25rem;
+      box-shadow: 0 20px 50px rgba(20,41,65,0.18);
+    }
+    .ph-liit .breadcrumb { margin-bottom: 1rem; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .ph-toim { padding: 7rem 0 3rem; }
+      .ph-toim-img { width: 100%; opacity: 0.35; clip-path: none; }
+      .ph-toim-img::after { background: linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.95) 100%); }
+
+      .ph-news { padding: 8rem 0 4rem; }
+
+      .ph-yht { padding: 7rem 0 4rem; }
+      .ph-yht-img { display: none; }
+
+      .ph-don { padding: 7rem 0 4rem; }
+      .ph-don-strip { width: 100%; opacity: 0.4; clip-path: none; }
+      .ph-don-strip::after { background: linear-gradient(180deg, rgba(255,201,51,0.20) 0%, rgba(255,255,255,0.92) 100%); }
+      .ph-don .page-hero-inner { margin-left: 0; }
+
+      .ph-liit { padding: 8rem 0 4rem; }
+      .ph-liit .page-hero-inner { padding: 1.75rem 1.5rem; }
+    }
+    @media (max-width: 600px) {
+      .ph-toim, .ph-news, .ph-yht, .ph-don, .ph-liit { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .ph-liit-bg { filter: blur(20px) brightness(0.95); }
     }
