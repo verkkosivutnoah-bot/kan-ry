@@ -1616,7 +1616,7 @@
     .ph-toim-img {
       position: absolute; top: 0; right: 0; bottom: 0;
       width: 48%; z-index: 1;
-      background: url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1400&q=85&auto=format&fit=crop') center/cover no-repeat;
+      background: url('img-embrace.jpg') center/cover no-repeat;
       clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%);
     }
     .ph-toim-img::after {
@@ -1631,7 +1631,7 @@
     }
     .ph-news-bg {
       position: absolute; inset: 0; z-index: 0;
-      background: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1800&q=85&auto=format&fit=crop') center/cover no-repeat;
+      background: url('img-hand-mountains.jpg') center/cover no-repeat;
       filter: brightness(0.6);
     }
     .ph-news-bg::after {
@@ -1675,7 +1675,7 @@
     .ph-don-strip {
       position: absolute; top: 0; left: 0; bottom: 0;
       width: 38%; z-index: 0;
-      background: url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1400&q=85&auto=format&fit=crop') center/cover no-repeat;
+      background: url('img-beach-sunset.jpg') center/cover no-repeat;
       clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
     }
     .ph-don-strip::after {
