@@ -1545,3 +1545,36 @@
 
     /* Accordion now full-width centered (no sidebar) */
     #toimintayksikot-body .loc-accordion { max-width: 1080px; margin: 0 auto; }
+
+    /* ── GLOBAL TEXT OVERFLOW SAFETY ─────────────── */
+    body { overflow-wrap: break-word; word-wrap: break-word; }
+    h1, h2, h3, h4, h5, h6, p, li, dt, dd, span, a, label, blockquote, cite {
+      overflow-wrap: anywhere; word-break: break-word;
+    }
+    /* Long codes (IBAN, BIC, MobilePay) — allow wrap on small screens */
+    .card-list code {
+      overflow-wrap: anywhere; word-break: break-all;
+      display: inline-block; max-width: 100%;
+    }
+    /* Forms — keep inputs from overflowing */
+    .form-field input, .form-field textarea { max-width: 100%; min-width: 0; }
+    /* Grid + flex children that hold text — allow shrinking */
+    .hero-text, .hero-rail, .hero-rail-stat,
+    .news-body, .news-title, .news-excerpt,
+    .loc-panel-desc, .loc-meta-row, .loc-meta-val,
+    .toim-info-card, .lahjoita-card, .form-wrap,
+    .contact-card, .leader-card, .pillar-card,
+    .stat-cell { min-width: 0; }
+    /* Long email + phone links never overflow */
+    .loc-meta-val a, .contact-card-val, .leader-card a, .f-contact a {
+      overflow-wrap: anywhere; word-break: break-word;
+    }
+    /* Mobile: drop nowrap on buttons that hold long labels */
+    @media (max-width: 600px) {
+      .btn, .btn-nav-ghost, .nav-cta { white-space: normal; }
+      .nav-actions .btn-blue, .btn-hero-primary, .btn-hero-ghost { white-space: nowrap; }
+    }
+    /* Tag pills that are nice-to-have nowrap but truncate on tiny screens */
+    @media (max-width: 380px) {
+      .loc-head-tag, .news-tag, .loc-tag { white-space: normal; }
+    }
