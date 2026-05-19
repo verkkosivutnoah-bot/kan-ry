@@ -1740,3 +1740,65 @@
       .ph-toim, .ph-news, .ph-yht, .ph-don, .ph-liit { padding-left: 1.25rem; padding-right: 1.25rem; }
       .ph-liit-bg { filter: blur(20px) brightness(0.95); }
     }
+
+    /* ── LIITY INTRO PROSE ──────────────────────── */
+    #liity-intro {
+      padding: 4.5rem 2rem 1rem;
+      background: var(--bg);
+    }
+    .liity-intro-wrap {
+      max-width: 720px; margin: 0 auto;
+    }
+    .liity-intro-wrap p {
+      font-size: 1.05rem; line-height: 1.78;
+      color: var(--text-body); margin-bottom: 1.25rem;
+    }
+    .liity-intro-wrap .liity-lead {
+      font-size: 1.18rem; line-height: 1.65;
+      color: var(--text); font-weight: 500;
+      margin-bottom: 1.75rem;
+    }
+    .liity-list {
+      list-style: none; padding: 0;
+      margin: 0.5rem 0 1.75rem;
+      display: flex; flex-direction: column; gap: 0.6rem;
+    }
+    .liity-list li {
+      position: relative; padding-left: 1.5rem;
+      font-size: 1.02rem; line-height: 1.55;
+      color: var(--text-body);
+    }
+    .liity-list li::before {
+      content: ''; position: absolute; left: 0; top: 0.7rem;
+      width: 8px; height: 2px; background: var(--blue);
+    }
+    .liity-emphasis {
+      font-family: var(--font-sub);
+      font-style: italic;
+      font-size: 1.2rem !important;
+      line-height: 1.55 !important;
+      color: var(--blue) !important;
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin: 2rem 0 !important;
+      text-align: center;
+    }
+    .liity-cta-line {
+      background: var(--orange-soft);
+      border: 1px solid var(--orange);
+      border-radius: 14px;
+      padding: 1.25rem 1.5rem;
+      font-size: 0.98rem !important;
+      color: var(--grey-dark) !important;
+      margin-top: 2rem !important;
+      margin-bottom: 0 !important;
+    }
+    .liity-cta-line strong { color: var(--grey-dark); }
+
+    @media (max-width: 700px) {
+      #liity-intro { padding: 3rem 1.25rem 0.5rem; }
+      .liity-intro-wrap p { font-size: 1rem; }
+      .liity-intro-wrap .liity-lead { font-size: 1.08rem; }
+      .liity-emphasis { font-size: 1.05rem !important; padding: 1.25rem 0; }
+    }
