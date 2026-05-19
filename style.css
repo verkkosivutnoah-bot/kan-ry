@@ -1538,9 +1538,14 @@
       border-radius: 18px;
       box-shadow: var(--shadow-xs);
       position: relative;
+      display: flex; flex-direction: column;
+      justify-content: flex-start; gap: 1rem;
+      min-height: 220px;
       transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
     }
     .toim-info-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--blue); }
+    .toim-info-card .toim-info-tag { margin-bottom: 0; }
+    .toim-info-card p { flex: 1; }
     .toim-info-card.alt {
       background: var(--orange-soft);
       border-color: var(--orange);
