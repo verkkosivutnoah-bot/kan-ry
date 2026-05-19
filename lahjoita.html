@@ -14,7 +14,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;500;600;700;800&family=Saira+Condensed:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -34,7 +34,7 @@
   </ul>
 
   <div class="nav-actions">
-    <a href="yhteystiedot.html" class="btn-nav-ghost btn">Liity jäseneksi</a>
+    <a href="liity-jaseneksi.html" class="btn-nav-ghost btn">Liity jäseneksi</a>
     <a href="lahjoita.html" class="btn btn-blue">Lahjoita</a>
     <button class="nav-burger" id="navBurger" aria-label="Avaa valikko" aria-expanded="false" aria-controls="navDrawer">
       <span class="nav-burger-bars"><span></span><span></span><span></span></span>
@@ -51,7 +51,7 @@
     <li><a href="lahjoita.html" data-drawer-link>Lahjoita</a></li>
   </ul>
   <div class="nav-drawer-cta">
-    <a href="yhteystiedot.html" class="btn btn-outline-blue" data-drawer-link>Liity jäseneksi</a>
+    <a href="liity-jaseneksi.html" class="btn btn-outline-blue" data-drawer-link>Liity jäseneksi</a>
     <a href="lahjoita.html" class="btn btn-blue" data-drawer-link>Lahjoita nyt</a>
   </div>
 </div>
@@ -66,24 +66,46 @@
   </div>
 </section>
 
-<section id="lahjoita-body">
+<section id="lahjoita-info">
   <div class="container">
-    <div class="donate-wrap">
-      <span class="eyebrow fade-up">Tue elämänmuutostyötä</span>
-      <h2 class="donate-title fade-up">Jokaisella ihmisellä on<br><em>mahdollisuus muutokseen</em></h2>
-      <p class="donate-lead fade-up">Tuellasi mahdollistamme turvallisen yhteisön ja uuden alun sitä tarvitseville. Jokainen lahjoitus vie eteenpäin 54-vuotista elämänmuutostyötämme.</p>
-      <div class="donate-cta fade-up">
-        <a href="mailto:info@kan.fi?subject=Lahjoitus" class="btn btn-blue btn-lg">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z"/></svg>
-          Lahjoita nyt
-        </a>
-        <a href="mailto:info@kan.fi?subject=Jäsenyys" class="btn btn-white-outline btn-lg">Liity jäseneksi</a>
+    <div class="lahjoita-grid">
+
+      <div class="lahjoita-amounts">
+        <h2 class="lahjoita-h2">Lahjoita verkossa</h2>
+        <p class="lahjoita-lead">Tuet KAN ry:n päihdekuntoutus- ja vankityötä. Voit valita valmiin summan tai antaa oman.</p>
+        <div class="amount-grid">
+          <a href="mailto:info@kan.fi?subject=Lahjoitus 20€" class="amount-btn">20 €</a>
+          <a href="mailto:info@kan.fi?subject=Lahjoitus 50€" class="amount-btn">50 €</a>
+          <a href="mailto:info@kan.fi?subject=Lahjoitus 100€" class="amount-btn">100 €</a>
+          <a href="mailto:info@kan.fi?subject=Lahjoitus 200€" class="amount-btn">200 €</a>
+          <a href="mailto:info@kan.fi?subject=Lahjoitus 500€" class="amount-btn">500 €</a>
+          <a href="mailto:info@kan.fi?subject=Lahjoitus 1000€" class="amount-btn">1000 €</a>
+        </div>
+        <a href="mailto:info@kan.fi?subject=Lahjoitus oma summa" class="btn btn-blue btn-lg amount-custom">Oma summa</a>
+        <p class="lahjoita-small">Maksu välitetään OP Lahjoituspalvelun kautta.</p>
       </div>
-      <div class="trust-row fade-up d2">
-        <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Turvallinen lahjoitus</div>
-        <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>54 vuotta luotettavaa työtä</div>
-        <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Rekisteröity yhdistys</div>
-      </div>
+
+      <aside class="lahjoita-card">
+        <h3 class="card-h3">Pankkisiirto</h3>
+        <dl class="card-list">
+          <dt>Pankki</dt><dd>Pohjanmaan Osuuspankki</dd>
+          <dt>IBAN</dt><dd><code>FI35 4743 1020 0095 79</code></dd>
+          <dt>BIC</dt><dd><code>POPFFI22</code></dd>
+          <dt>Viitenumero — yleinen</dt><dd><code>1232</code></dd>
+          <dt>Viitenumero — vankityö</dt><dd><code>1368</code></dd>
+        </dl>
+
+        <h3 class="card-h3 card-h3-mt">MobilePay</h3>
+        <dl class="card-list">
+          <dt>Yleinen tuki</dt><dd><code>95895</code></dd>
+          <dt>Vankityö</dt><dd><code>80204</code></dd>
+        </dl>
+      </aside>
+
+    </div>
+
+    <div class="lahjoita-trust">
+      <p>KAN ry:llä on Poliisihallituksen myöntämä rahankeräyslupa <strong>RA/2021/1068</strong> (myönnetty 30.8.2021). Lahjoittajan tiedot pidetään luottamuksellisina, eikä niitä luovuteta kolmansille osapuolille.</p>
     </div>
   </div>
 </section>
@@ -109,7 +131,7 @@
         </a>
         <div class="f-contact-item">
           <span class="f-contact-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-          Fräntiläntie 174, 62430 Peltotupa
+          Yläkoskentie 11 B 5, 40800 Vaajakoski
         </div>
       </div>
       <div class="f-social" aria-label="Sosiaalinen media">
