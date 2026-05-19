@@ -2,11 +2,17 @@
   /* ── Navbar scroll + progress bar ── */
   const navbar = document.getElementById('navbar');
   const progress = document.getElementById('scrollProgress');
+  /* Only home page has full-bleed dark hero suitable for transparent navbar.
+     Other pages start in "scrolled" state immediately (light bg). */
+  const hasDarkHero = !!document.querySelector('#hero .hero-bg');
   function onScroll() {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
-    const h = document.documentElement;
-    const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
-    progress.style.width = pct + '%';
+    const threshold = hasDarkHero ? 10 : 0;
+    navbar.classList.toggle('scrolled', window.scrollY > threshold || !hasDarkHero);
+    if (progress) {
+      const h = document.documentElement;
+      const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+      progress.style.width = pct + '%';
+    }
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
