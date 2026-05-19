@@ -247,7 +247,7 @@
     .hero-content {
       position: relative; z-index: 2;
       width: 100%; max-width: 1280px;
-      margin: 0 auto; padding: 0 3rem 4rem;
+      margin: 0 auto; padding: 0 3rem 1.75rem;
       display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: end; gap: 3rem;
     }
     .hero-text { max-width: 720px; }
@@ -783,7 +783,7 @@
       .nav-burger { display: inline-flex; }
 
       #hero { min-height: 90vh; height: auto; padding-top: 6rem; }
-      .hero-content { grid-template-columns: 1fr; gap: 2rem; padding: 2rem 1.25rem 3.5rem; max-width: 100%; }
+      .hero-content { grid-template-columns: 1fr; gap: 2rem; padding: 2rem 1.25rem 1.75rem; max-width: 100%; }
       .hero-text { max-width: 100%; }
       .hero-title { font-size: clamp(2.4rem, 8vw, 3.6rem); }
       .hero-sub { font-size: 1rem; }
