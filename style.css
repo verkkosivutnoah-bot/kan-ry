@@ -2125,3 +2125,47 @@
       transition: background 0.22s;
     }
     #cookie-banner button:hover { background: var(--grey-dark); }
+
+    /* ── LEGAL PAGES (Tietosuoja + Evästeet) ───── */
+    .legal { padding: 4rem 2rem 5rem; background: var(--bg); }
+    .legal-wrap {
+      max-width: 760px; margin: 0 auto;
+      font-size: 1rem; line-height: 1.72; color: var(--text-body);
+    }
+    .legal-wrap h2 {
+      font-family: var(--font-head);
+      font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+      font-weight: 700; letter-spacing: 0.02em;
+      text-transform: uppercase; color: var(--text);
+      margin: 2.5rem 0 0.85rem;
+    }
+    .legal-wrap h3 {
+      font-family: var(--font-sub);
+      font-size: 1rem; font-weight: 700;
+      letter-spacing: 0.04em; color: var(--text);
+      margin: 1.75rem 0 0.6rem;
+    }
+    .legal-wrap p { margin-bottom: 1rem; }
+    .legal-wrap ul {
+      list-style: none; padding: 0; margin: 0.5rem 0 1.25rem;
+      display: flex; flex-direction: column; gap: 0.5rem;
+    }
+    .legal-wrap ul li {
+      position: relative; padding-left: 1.25rem;
+      font-size: 0.98rem; line-height: 1.6;
+    }
+    .legal-wrap ul li::before {
+      content: ''; position: absolute; left: 0; top: 0.7rem;
+      width: 6px; height: 2px; background: var(--blue);
+    }
+    .legal-wrap a { color: var(--blue); text-decoration: underline; }
+    .legal-wrap a:hover { color: var(--grey-dark); }
+    .legal-meta {
+      font-size: 0.9rem; color: var(--text-light);
+      padding: 1rem 1.25rem; background: var(--grey-light);
+      border-radius: 10px; margin-bottom: 2rem;
+    }
+    @media (max-width: 600px) {
+      .legal { padding: 2.5rem 1.25rem 4rem; }
+      .legal-wrap { font-size: 0.96rem; }
+    }
