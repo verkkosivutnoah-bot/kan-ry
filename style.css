@@ -96,16 +96,27 @@
       border-radius: 14px;
       box-shadow: 0 10px 32px rgba(20,30,50,0.10);
     }
-    /* Default (clear over hero image) — light text */
-    .navbar .nav-links a { color: rgba(255,255,255,0.95); }
-    .navbar .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.16); }
-    .navbar .btn-nav-ghost {
+    /* Default (clear over dark hero, e.g. etusivu) — light text */
+    .has-dark-hero .navbar .nav-links a { color: rgba(255,255,255,0.95); }
+    .has-dark-hero .navbar .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.16); }
+    .has-dark-hero .navbar .btn-nav-ghost {
       color: var(--white); border-color: rgba(255,255,255,0.6);
       background: rgba(255,255,255,0.08); backdrop-filter: blur(6px);
     }
-    .navbar .btn-nav-ghost:hover { background: rgba(255,255,255,0.18); border-color: var(--white); color: var(--white); }
-    .navbar .nav-burger-bars span { background: var(--white); box-shadow: 0 1px 4px rgba(0,0,0,0.35); }
-    .navbar .nav-burger:hover { background: rgba(255,255,255,0.12); }
+    .has-dark-hero .navbar .btn-nav-ghost:hover { background: rgba(255,255,255,0.18); border-color: var(--white); color: var(--white); }
+    .has-dark-hero .navbar .nav-burger-bars span { background: var(--white); }
+    .has-dark-hero .navbar .nav-burger:hover { background: rgba(255,255,255,0.12); }
+
+    /* Default (inner pages — light bg behind transparent nav) — dark text */
+    body:not(.has-dark-hero) .navbar .nav-links a { color: var(--text-body); }
+    body:not(.has-dark-hero) .navbar .nav-links a:hover { color: var(--blue); background: var(--blue-pale); }
+    body:not(.has-dark-hero) .navbar .btn-nav-ghost {
+      color: var(--text); border-color: var(--border);
+      background: transparent; backdrop-filter: none;
+    }
+    body:not(.has-dark-hero) .navbar .btn-nav-ghost:hover { border-color: var(--blue); color: var(--blue); }
+    body:not(.has-dark-hero) .navbar .nav-burger-bars span { background: var(--text); }
+    body:not(.has-dark-hero) .navbar .nav-burger:hover { background: rgba(0,0,0,0.05); }
 
     /* Scrolled state — dark text on translucent white pill */
     .navbar.scrolled .nav-links a { color: var(--text-body); }
