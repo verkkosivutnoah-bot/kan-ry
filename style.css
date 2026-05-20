@@ -2078,7 +2078,15 @@
       .page-hero { padding: 6rem 1.25rem 2.5rem; }
       .ph-news, .ph-toim, .ph-don, .ph-yht, .ph-liit { padding: 6rem 1.25rem 2.5rem; }
       .ph-toim .container { min-height: 0; }
-      .ph-yht-img, .ph-toim-img, .ph-don-strip { display: none; }
+      .ph-yht-img, .ph-don-strip { display: none; }
+      .ph-toim-img {
+        display: block; width: 100%; opacity: 0.55;
+        clip-path: none;
+        filter: saturate(0.9);
+      }
+      .ph-toim-img::after {
+        background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.85) 75%, rgba(255,255,255,1) 100%);
+      }
       .ph-toim, .ph-don { padding-bottom: 3rem; }
       .ph-liit .page-hero-inner { padding: 1.5rem 1.25rem; }
       .footer-bottom { flex-direction: column; align-items: flex-start; }
