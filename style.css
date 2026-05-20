@@ -860,7 +860,10 @@
       .locs-grid { grid-template-columns: 1fr; }
       .news-grid { grid-template-columns: 1fr; }
       .news-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
-      .news-card.featured .news-img { height: 240px; }
+      .news-card.featured .news-img,
+      .news-card.featured .news-portrait { height: 320px; min-height: 320px; }
+      .news-img { height: 220px; }
+      .news-img img { object-position: center top; }
       .stats-inner { grid-template-columns: repeat(2, 1fr); }
       .stat-cell { padding: 1.6rem 1rem; }
       .stat-num { font-size: 1.85rem; }
