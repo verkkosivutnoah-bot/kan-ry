@@ -124,16 +124,15 @@
     .nav-logo-img img {
       height: 72px; width: auto; max-width: none; display: block;
       object-fit: contain;
-      background: rgba(255,255,255,0.92);
+      background: rgba(255,255,255,0.78);
       padding: 0.4rem 0.7rem;
       border-radius: 14px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
-      transition: opacity 0.22s, height 0.35s, padding 0.35s, border-radius 0.35s, box-shadow 0.35s, background 0.35s;
+      box-shadow: none;
+      transition: opacity 0.22s, height 0.35s, padding 0.35s, border-radius 0.35s, background 0.35s;
     }
     .nav-logo-img:hover img { opacity: 0.88; }
     .navbar.scrolled .nav-logo-img img {
       background: rgba(255,255,255,0.78);
-      box-shadow: none;
       padding: 0.3rem 0.55rem;
       border-radius: 12px;
     }
