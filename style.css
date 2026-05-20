@@ -1928,3 +1928,21 @@
       .news-portrait { min-height: 260px; }
       .news-portrait img { transform: scale(1.25); transform-origin: 50% 22%; }
     }
+
+    /* ── LEADER PHOTOS (round) ─────────────────── */
+    .leader-photo {
+      width: 96px; height: 96px;
+      border-radius: 50%; overflow: hidden;
+      margin-bottom: 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+    .leader-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 20%;
+      display: block;
+    }
+    .leader-card--featured { padding-top: 1.5rem; }
+    @media (max-width: 600px) {
+      .leader-photo { width: 80px; height: 80px; }
+    }
