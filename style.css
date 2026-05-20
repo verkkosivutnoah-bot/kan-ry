@@ -1,45 +1,47 @@
     :root {
-      /* New brand palette */
+      /* Brand palette — STRICT, 7 colors + white */
       --blue:         #4F86C6;
-      --blue-hover:   #3a6fad;
-      --blue-deep:    #2f5f97;
-      --blue-dark:    #1f3d63;
-      --blue-navy:    #142941;
-      --blue-pale:    rgba(79,134,198,0.10);
-      --blue-pale2:   rgba(79,134,198,0.20);
       --blue-sky:     #A8D0F0;
       --orange:       #FFC933;
       --orange-soft:  #FFF1A8;
+      --grey-light:   #F4F4F4;
+      --grey:         #DDDDDD;
+      --grey-dark:    #2F2F2F;
+      --white:        #FFFFFF;
+
+      /* Aliases (no extra hues — only palette colors or opacity tints) */
+      --blue-hover:   #2F2F2F;
+      --blue-deep:    #2F2F2F;
+      --blue-dark:    #2F2F2F;
+      --blue-navy:    #2F2F2F;
+      --blue-pale:    rgba(79,134,198,0.10);
+      --blue-pale2:   rgba(79,134,198,0.20);
       --gold:         #FFC933;
       --text:         #2F2F2F;
-      --text-body:    #4A4A4A;
-      --text-light:   #6E6E6E;
-      --text-mute:    #9A9A9A;
-      --white:        #FFFFFF;
+      --text-body:    #2F2F2F;
+      --text-light:   rgba(47,47,47,0.70);
+      --text-mute:    rgba(47,47,47,0.50);
       --bg:           #FFFFFF;
       --surface:      #F4F4F4;
       --surface-2:    #DDDDDD;
       --border:       #DDDDDD;
-      --border-soft:  #EAEAEA;
-      --grey-light:   #F4F4F4;
-      --grey:         #DDDDDD;
-      --grey-dark:    #2F2F2F;
+      --border-soft:  #DDDDDD;
 
       --shadow-xs:    0 1px 2px rgba(47,47,47,0.05);
       --shadow-sm:    0 2px 8px rgba(47,47,47,0.06);
       --shadow:       0 8px 28px rgba(47,47,47,0.10);
-      --shadow-lg:    0 24px 56px rgba(31,61,99,0.18);
+      --shadow-lg:    0 24px 56px rgba(47,47,47,0.18);
       --shadow-glow:  0 18px 44px rgba(79,134,198,0.32);
       --radius:       18px;
       --radius-sm:    10px;
       --radius-xs:    6px;
-      --grain: radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px);
+      --grain: radial-gradient(rgba(47,47,47,0.04) 1px, transparent 1px);
 
-      /* New type stack — Garet body, Estenda 30 Deca sub, Zuume Rough Bold heading.
-         Closest Google-Font subs used until Adobe Fonts kit loaded. */
-      --font-body:    'Outfit', 'Inter', system-ui, sans-serif;        /* Garet sub */
-      --font-sub:     'Saira Condensed', 'Outfit', sans-serif;         /* Estenda 30 Deca sub */
-      --font-head:    'Anton', 'Saira Condensed', 'Outfit', sans-serif;/* Zuume Rough Bold sub */
+      /* Type — prefer exact brand fonts (local install / Adobe Fonts kit),
+         fallback to nearest free subs */
+      --font-body:    'Garet', 'Outfit', system-ui, sans-serif;
+      --font-sub:     'Estenda 30 Deca', 'Estenda', 'Saira Condensed', 'Outfit', sans-serif;
+      --font-head:    'Zuume Rough Bold', 'Zuume Rough', 'Zuume', 'Anton', sans-serif;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -96,8 +98,8 @@
     }
     .navbar.scrolled .nav-logo-img img { height: 52px; }
     /* Default (clear over hero image) — light text */
-    .navbar .nav-links a { color: rgba(255,255,255,0.95); text-shadow: 0 1px 6px rgba(0,0,0,0.35); }
-    .navbar .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.16); text-shadow: none; }
+    .navbar .nav-links a { color: rgba(255,255,255,0.95); }
+    .navbar .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.16); }
     .navbar .btn-nav-ghost {
       color: var(--white); border-color: rgba(255,255,255,0.6);
       background: rgba(255,255,255,0.08); backdrop-filter: blur(6px);
@@ -107,7 +109,7 @@
     .navbar .nav-burger:hover { background: rgba(255,255,255,0.12); }
 
     /* Scrolled state — dark text on translucent white pill */
-    .navbar.scrolled .nav-links a { color: var(--text-body); text-shadow: none; }
+    .navbar.scrolled .nav-links a { color: var(--text-body); }
     .navbar.scrolled .nav-links a:hover { color: var(--blue); background: var(--blue-pale); }
     .navbar.scrolled .btn-nav-ghost {
       color: var(--text); border-color: var(--border);
@@ -294,7 +296,6 @@
       font-size: clamp(2.8rem, 6.5vw, 5.5rem);
       font-weight: 700; line-height: 1.12; letter-spacing: -0.02em;
       color: var(--white);
-      text-shadow: 0 2px 14px rgba(0,0,0,0.25);
       padding-bottom: 0.15em;
     }
     .hero-title em {
@@ -306,7 +307,7 @@
       letter-spacing: 0.005em;
       line-height: 1.12;
       padding: 0.05em 0.08em 0.18em;
-      background: linear-gradient(120deg, #FFC933 0%, #FFE38A 55%, #FFF1A8 100%);
+      background: linear-gradient(120deg, var(--orange) 0%, var(--orange-soft) 100%);
       -webkit-background-clip: text; background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -314,7 +315,6 @@
       max-width: 560px; margin: 1.5rem 0 2.5rem;
       font-size: 1.1rem; line-height: 1.7;
       color: rgba(255,255,255,0.92); font-weight: 400;
-      text-shadow: 0 1px 6px rgba(0,0,0,0.25);
     }
     .hero-cta {
       display: flex; gap: 0.875rem; flex-wrap: wrap;
@@ -471,7 +471,7 @@
       letter-spacing: 0.005em;
       line-height: 1.18;
       padding: 0.05em 0.1em 0.18em;
-      background: linear-gradient(120deg, var(--blue) 0%, #6FA1D6 55%, var(--blue-sky) 100%);
+      background: linear-gradient(120deg, var(--blue) 0%, var(--blue-sky) 55%, var(--blue-sky) 100%);
       -webkit-background-clip: text; background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -726,7 +726,7 @@
       letter-spacing: 0.005em;
       line-height: 1.15;
       padding: 0.05em 0.1em 0.18em;
-      background: linear-gradient(120deg, var(--blue-sky), #DCEEFF);
+      background: linear-gradient(120deg, var(--blue-sky), var(--orange-soft));
       -webkit-background-clip: text; background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -930,7 +930,7 @@
       letter-spacing: 0.005em;
       line-height: 1.15;
       padding: 0.05em 0.1em 0.18em;
-      background: linear-gradient(120deg, var(--blue) 0%, #6FA1D6 55%, var(--blue-sky) 100%);
+      background: linear-gradient(120deg, var(--blue) 0%, var(--blue-sky) 55%, var(--blue-sky) 100%);
       -webkit-background-clip: text; background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -1645,9 +1645,9 @@
       background: linear-gradient(180deg, rgba(20,41,65,0.45) 0%, rgba(20,41,65,0.65) 100%);
     }
     .ph-news .container { position: relative; z-index: 1; }
-    .ph-news .page-hero-title { color: var(--white); text-shadow: 0 2px 14px rgba(0,0,0,0.4); }
+    .ph-news .page-hero-title { color: var(--white); }
     .ph-news .page-hero-title em { color: transparent; }
-    .ph-news .page-hero-lead { color: rgba(255,255,255,0.92); text-shadow: 0 1px 8px rgba(0,0,0,0.35); }
+    .ph-news .page-hero-lead { color: rgba(255,255,255,0.92); }
     .ph-news .breadcrumb { color: rgba(255,255,255,0.75); }
     .ph-news .breadcrumb a { color: var(--orange); }
     .ph-news .breadcrumb span { color: rgba(255,255,255,0.4); }
