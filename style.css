@@ -96,7 +96,6 @@
       border-radius: 14px;
       box-shadow: 0 10px 32px rgba(20,30,50,0.10);
     }
-    .navbar.scrolled .nav-logo-img img { height: 52px; }
     /* Default (clear over hero image) — light text */
     .navbar .nav-links a { color: rgba(255,255,255,0.95); }
     .navbar .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.16); }
@@ -120,21 +119,23 @@
     .navbar.scrolled .nav-burger:hover { background: rgba(0,0,0,0.05); }
     .navbar .nav-logo-mark { background: var(--blue); }
 
-    .nav-logo-img { display: inline-flex; align-items: center; flex-shrink: 0; min-width: 0; }
-    .nav-logo-img img {
-      height: 72px; width: auto; max-width: none; display: block;
-      object-fit: contain;
+    .nav-logo-img {
+      display: inline-flex; align-items: center;
+      flex-shrink: 0; min-width: 0;
+      height: 64px; overflow: hidden;
       background: rgba(255,255,255,0.78);
-      padding: 0.4rem 0.7rem;
       border-radius: 14px;
-      box-shadow: none;
-      transition: opacity 0.22s, height 0.35s, padding 0.35s, border-radius 0.35s, background 0.35s;
+      transition: height 0.35s, border-radius 0.35s, background 0.35s;
+    }
+    .nav-logo-img img {
+      height: 130%; width: auto; max-width: none; display: block;
+      object-fit: cover; object-position: center;
+      transform: translateY(-2%);
+      transition: opacity 0.22s;
     }
     .nav-logo-img:hover img { opacity: 0.88; }
-    .navbar.scrolled .nav-logo-img img {
-      background: rgba(255,255,255,0.78);
-      padding: 0.3rem 0.55rem;
-      border-radius: 12px;
+    .navbar.scrolled .nav-logo-img {
+      height: 44px; border-radius: 12px;
     }
 
     .nav-logo { display: flex; align-items: center; gap: 0.75rem; }
@@ -819,8 +820,8 @@
     @media (max-width: 900px) {
       .navbar { padding: 0.6rem 1rem; width: calc(100% - 1rem); }
       .navbar.scrolled { padding: 0.4rem 0.85rem; top: 0.5rem; max-width: calc(100% - 1.5rem); }
-      .nav-logo-img img { height: 56px; }
-      .navbar.scrolled .nav-logo-img img { height: 46px; }
+      .nav-logo-img { height: 56px; }
+      .navbar.scrolled .nav-logo-img { height: 46px; }
       .nav-actions { gap: 0.5rem; }
       .nav-actions .btn-nav-ghost { display: none; }
       .nav-actions .btn-blue { padding: 0.6rem 1.05rem; font-size: 0.82rem; }
@@ -862,8 +863,8 @@
     @media (max-width: 600px) {
       .navbar { padding: 0.5rem 0.85rem; }
       .navbar.scrolled { padding: 0.4rem 0.75rem; }
-      .nav-logo-img img { height: 48px; }
-      .navbar.scrolled .nav-logo-img img { height: 42px; }
+      .nav-logo-img { height: 48px; }
+      .navbar.scrolled .nav-logo-img { height: 42px; }
       .nav-actions .btn-blue { padding: 0.55rem 0.9rem; font-size: 0.78rem; }
       .nav-actions { gap: 0.4rem; }
 
@@ -890,7 +891,7 @@
       .stat-lbl { font-size: 0.62rem; letter-spacing: 0.06em; }
     }
     @media (max-width: 380px) {
-      .nav-logo-img img { height: 48px; }
+      .nav-logo-img { height: 48px; }
       .hero-title { font-size: 1.85rem; }
       .hero-rail { flex-direction: column; }
       .hero-rail-stat + .hero-rail-stat { padding-left: 0; padding-top: 0.85rem; border-left: none; border-top: 1px solid rgba(255,255,255,0.13); }
