@@ -2034,3 +2034,60 @@
     @media (max-width: 600px) {
       .laskutus-card { padding: 1.25rem 1.25rem; }
     }
+
+    /* ── MOBILE + DESKTOP POLISH SWEEP ────────── */
+    /* Universal: keep paddings sane on small viewports */
+    @media (max-width: 900px) {
+      section, .sec { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .container { padding: 0; }
+      .sec-title { font-size: clamp(1.6rem, 5.5vw, 2.2rem); line-height: 1.12; }
+      .page-hero-title { font-size: clamp(1.9rem, 6.5vw, 3.2rem); line-height: 1.1; }
+      .page-hero-lead { font-size: 1rem; }
+      .sec-lead { font-size: 0.98rem; }
+      .breadcrumb { font-size: 0.72rem; margin-bottom: 1rem; }
+      .divider { width: 44px; }
+
+      /* About grid stays stacked + image tighter */
+      .about-img-wrap { aspect-ratio: 4/3; }
+      .about-quote { padding: 0.8rem 0 0.8rem 1.25rem; }
+      .about-quote blockquote { font-size: 1.05rem; }
+
+      /* Pillars / loc + news cards */
+      .pillar-card, .loc-card, .news-card { padding: 1.5rem 1.25rem; }
+      .pillar-title, .loc-name, .news-title { font-size: 1.2rem; }
+
+      /* Contact + leaders */
+      .contact-card { padding: 1.5rem 1.25rem; }
+      .leader-card { padding: 1.35rem 1.2rem; }
+      .leader-name { font-size: 1.05rem; }
+
+      /* Lahjoita layout */
+      .lahjoita-trust { padding: 1.25rem 1.25rem; font-size: 0.88rem; }
+
+      /* Loc accordion meta wraps cleanly */
+      .loc-meta-row { flex: 1 1 140px; }
+      .loc-doc-btn { font-size: 0.78rem; padding: 0.6rem 0.95rem; }
+    }
+    @media (max-width: 600px) {
+      h1, .hero-title, .page-hero-title { letter-spacing: -0.015em; }
+      .container { padding: 0; max-width: 100%; }
+      section, .sec { padding-left: 1rem; padding-right: 1rem; }
+      .page-hero { padding-top: 6rem; padding-bottom: 2.5rem; }
+      .ph-news, .ph-toim, .ph-don, .ph-yht, .ph-liit { padding-top: 6rem; padding-bottom: 2.5rem; }
+      .ph-toim .container { min-height: 0; }
+      .ph-yht-img, .ph-toim-img, .ph-don-strip { display: none; }
+      .ph-toim, .ph-don { padding-bottom: 3rem; }
+      .ph-liit .page-hero-inner { padding: 1.5rem 1.25rem; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+      footer { padding: 4rem 1.25rem 0; }
+      .footer-grid { gap: 2rem; }
+    }
+
+    /* Desktop polish — consistent max-widths and section rhythm */
+    @media (min-width: 1280px) {
+      .container { max-width: 1180px; }
+      section.sec { padding-top: 7rem; padding-bottom: 7rem; }
+    }
+
+    /* Prevent any horizontal scroll on any screen */
+    html, body { overflow-x: hidden; }
