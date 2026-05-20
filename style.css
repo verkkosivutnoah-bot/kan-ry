@@ -269,10 +269,10 @@
     .hero-content {
       position: relative; z-index: 2;
       width: 100%; max-width: 1280px;
-      margin: 0 auto; padding: 0 3rem 1.75rem;
+      margin: 0 auto; padding: 0 3rem 0.85rem;
       display: block;
     }
-    .hero-text { max-width: 640px; }
+    .hero-text { max-width: 880px; }
 
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 0.7rem;
@@ -292,8 +292,8 @@
 
     .hero-title {
       font-family: var(--font-head);
-      font-size: clamp(2.8rem, 6.5vw, 5.5rem);
-      font-weight: 700; line-height: 1.12; letter-spacing: -0.02em;
+      font-size: clamp(2.4rem, 5.5vw, 4.6rem);
+      font-weight: 700; line-height: 1.08; letter-spacing: -0.02em;
       color: var(--white);
       padding-bottom: 0.15em;
     }
@@ -306,6 +306,10 @@
       letter-spacing: 0.005em;
       line-height: 1.12;
       padding: 0.05em 0.08em 0.18em;
+      white-space: nowrap;
+      overflow-wrap: normal;
+      word-break: keep-all;
+      max-width: 100%;
       background: linear-gradient(120deg, var(--orange) 0%, var(--orange-soft) 100%);
       -webkit-background-clip: text; background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -823,7 +827,7 @@
       .nav-burger { display: inline-flex; }
 
       #hero { min-height: 90vh; height: auto; padding-top: 6rem; }
-      .hero-content { grid-template-columns: 1fr; gap: 2rem; padding: 2rem 1.25rem 1.75rem; max-width: 100%; }
+      .hero-content { padding: 2rem 1.25rem 1rem; max-width: 100%; }
       .hero-text { max-width: 100%; }
       .hero-title { font-size: clamp(2.4rem, 8vw, 3.6rem); }
       .hero-sub { font-size: 1rem; }
@@ -866,7 +870,8 @@
       #hero { padding-top: 5rem; min-height: 86vh; }
       .hero-content { padding: 1rem 1rem 3rem; }
       .hero-eyebrow { padding: 0.35rem 0.75rem; font-size: 0.62rem; letter-spacing: 0.14em; }
-      .hero-title { font-size: clamp(2rem, 9.5vw, 3rem); line-height: 1.05; }
+      .hero-title { font-size: clamp(2rem, 9vw, 2.8rem); line-height: 1.05; }
+      .hero-title em { font-size: 1.06em; white-space: normal; }
       .hero-sub { font-size: 0.95rem; margin: 1rem 0 1.75rem; }
       .hero-cta { flex-direction: column; align-items: stretch; }
       .hero-cta .btn-hero-primary, .hero-cta .btn-hero-ghost { width: 100%; }
