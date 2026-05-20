@@ -1939,7 +1939,7 @@
     }
     .leader-photo img {
       width: 100%; height: 100%;
-      object-fit: cover; object-position: center top;
+      object-fit: cover; object-position: center 60%;
       display: block;
     }
     .leader-card--featured { padding-top: 1.5rem; }
