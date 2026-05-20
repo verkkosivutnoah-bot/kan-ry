@@ -1946,3 +1946,30 @@
     @media (max-width: 600px) {
       .leader-photo { width: 80px; height: 80px; }
     }
+
+    /* ── LASKUTUSOSOITE CARD ───────────────────── */
+    .laskutus-card {
+      grid-column: 1 / -1;
+      background: var(--orange-soft);
+      border: 1px solid var(--orange);
+      border-radius: 16px;
+      padding: 1.5rem 1.75rem;
+      display: flex; flex-direction: column; gap: 0.45rem;
+    }
+    .laskutus-tag {
+      font-family: var(--font-sub);
+      font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--grey-dark);
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      margin-bottom: 0.35rem;
+    }
+    .laskutus-tag::before { content: ''; width: 24px; height: 1.5px; background: var(--grey-dark); }
+    .laskutus-card p {
+      font-size: 0.95rem; color: var(--grey-dark); line-height: 1.5;
+      margin: 0;
+    }
+    .laskutus-card strong { color: var(--grey-dark); font-weight: 700; }
+    @media (max-width: 600px) {
+      .laskutus-card { padding: 1.25rem 1.25rem; }
+    }
