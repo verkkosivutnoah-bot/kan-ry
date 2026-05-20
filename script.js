@@ -87,3 +87,27 @@
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
   });
+
+  /* ── Cookie banner ── */
+  (function(){
+    const banner = document.getElementById('cookie-banner');
+    if (!banner) return;
+    if (!localStorage.getItem('kan-cookie-ack')) banner.classList.add('show');
+    const btn = document.getElementById('cookie-accept');
+    if (btn) btn.addEventListener('click', () => {
+      localStorage.setItem('kan-cookie-ack', '1');
+      banner.classList.remove('show');
+    });
+  })();
+
+  /* ── Form submit loading state ── */
+  document.querySelectorAll('form.form-grid').forEach(form => {
+    form.addEventListener('submit', (e) => {
+      const btn = form.querySelector('.form-submit');
+      if (!btn) return;
+      btn.disabled = true;
+      btn.dataset.original = btn.dataset.original || btn.textContent;
+      btn.style.opacity = '0.7';
+      btn.style.cursor = 'wait';
+    });
+  });

@@ -2038,8 +2038,9 @@
     /* ── MOBILE + DESKTOP POLISH SWEEP ────────── */
     /* Universal: keep paddings sane on small viewports */
     @media (max-width: 900px) {
-      section, .sec { padding-left: 1.25rem; padding-right: 1.25rem; }
-      .container { padding: 0; }
+      section, .sec { padding-left: 0; padding-right: 0; }
+      .container { padding: 0 1.5rem; }
+      .page-hero, .ph-news, .ph-toim, .ph-don, .ph-yht, .ph-liit { padding-left: 1.5rem; padding-right: 1.5rem; }
       .sec-title { font-size: clamp(1.6rem, 5.5vw, 2.2rem); line-height: 1.12; }
       .page-hero-title { font-size: clamp(1.9rem, 6.5vw, 3.2rem); line-height: 1.1; }
       .page-hero-lead { font-size: 1rem; }
@@ -2070,10 +2071,10 @@
     }
     @media (max-width: 600px) {
       h1, .hero-title, .page-hero-title { letter-spacing: -0.015em; }
-      .container { padding: 0; max-width: 100%; }
-      section, .sec { padding-left: 1rem; padding-right: 1rem; }
-      .page-hero { padding-top: 6rem; padding-bottom: 2.5rem; }
-      .ph-news, .ph-toim, .ph-don, .ph-yht, .ph-liit { padding-top: 6rem; padding-bottom: 2.5rem; }
+      .container { padding: 0 1.25rem; max-width: 100%; }
+      section, .sec { padding-left: 0; padding-right: 0; }
+      .page-hero { padding: 6rem 1.25rem 2.5rem; }
+      .ph-news, .ph-toim, .ph-don, .ph-yht, .ph-liit { padding: 6rem 1.25rem 2.5rem; }
       .ph-toim .container { min-height: 0; }
       .ph-yht-img, .ph-toim-img, .ph-don-strip { display: none; }
       .ph-toim, .ph-don { padding-bottom: 3rem; }
@@ -2091,3 +2092,36 @@
 
     /* Prevent any horizontal scroll on any screen */
     html, body { overflow-x: hidden; }
+
+    /* ── ANCHOR OFFSET (floating navbar covers deep-linked sections) ── */
+    section[id], [id^="lahjoita"], #esittely, #pillars, #toimintayksikot-body, #stats, #mission { scroll-margin-top: 100px; }
+
+    /* ── SKIP TO CONTENT (a11y) ── */
+    .skip-link {
+      position: absolute; top: -100px; left: 1rem;
+      background: var(--grey-dark); color: var(--white);
+      padding: 0.75rem 1.25rem; border-radius: 8px;
+      z-index: 9999; font-weight: 700; font-size: 0.9rem;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 1rem; outline: 2px solid var(--orange); }
+
+    /* ── COOKIE BANNER ── */
+    #cookie-banner {
+      position: fixed; left: 1rem; right: 1rem; bottom: 1rem; z-index: 1500;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 16px; padding: 1.25rem 1.5rem;
+      box-shadow: 0 18px 48px rgba(47,47,47,0.18);
+      display: none; align-items: center; gap: 1rem; flex-wrap: wrap;
+      max-width: 720px; margin: 0 auto;
+    }
+    #cookie-banner.show { display: flex; }
+    #cookie-banner p { margin: 0; font-size: 0.88rem; color: var(--text-body); flex: 1 1 280px; }
+    #cookie-banner button {
+      padding: 0.7rem 1.2rem; border-radius: 100px;
+      font-weight: 700; font-size: 0.82rem; letter-spacing: 0.06em;
+      text-transform: uppercase; cursor: pointer;
+      background: var(--blue); color: var(--white); border: none;
+      transition: background 0.22s;
+    }
+    #cookie-banner button:hover { background: var(--grey-dark); }
