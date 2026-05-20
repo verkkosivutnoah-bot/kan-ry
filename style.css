@@ -1866,7 +1866,8 @@
 
     /* ── MOBILEPAY BLOCK ────────────────────────── */
     .lahjoita-mobilepay { display: flex; flex-direction: column; gap: 1.5rem; }
-    .mp-logo { display: inline-block; max-width: 220px; }
+    .mp-logo { display: inline-block; max-width: 260px; }
+    .mp-logo img,
     .mp-logo svg { width: 100%; height: auto; display: block; }
     .mp-grid {
       display: grid; grid-template-columns: 1fr 1fr;
@@ -1902,4 +1903,24 @@
       .mp-card { padding: 1.25rem 1rem; }
       .mp-card-code { font-size: 2.2rem; }
       .mp-logo { max-width: 180px; }
+    }
+
+    /* Featured news portrait — single image, panned cleanly into card */
+    .news-portrait {
+      height: 100%; min-height: 360px; overflow: hidden;
+      background: var(--surface);
+    }
+    .news-portrait img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 22%;
+      transition: transform 0.8s ease;
+    }
+    .news-card.featured:hover .news-portrait img { transform: scale(1.03); }
+    @media (max-width: 900px) {
+      .news-portrait { min-height: 320px; }
+      .news-portrait img { object-position: center 18%; }
+    }
+    @media (max-width: 540px) {
+      .news-portrait { min-height: 280px; }
     }
