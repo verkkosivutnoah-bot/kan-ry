@@ -1448,51 +1448,54 @@
     /* ── MEMBERSHIP FORM ────────────────────────── */
     #liity-form-section { padding: 5rem 2rem; background: var(--surface); }
     .form-wrap {
-      max-width: 720px; margin: 0 auto;
+      max-width: 560px; margin: 0 auto;
       background: var(--white);
       border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 2.5rem 2rem;
-      box-shadow: var(--shadow);
+      border-radius: 20px;
+      padding: 2.5rem 2.25rem;
+      box-shadow: 0 18px 48px rgba(47,47,47,0.08);
     }
     .form-eyebrow {
       font-family: var(--font-sub);
-      font-size: 0.78rem; font-weight: 600;
-      letter-spacing: 0.18em; text-transform: uppercase;
+      font-size: 0.74rem; font-weight: 600;
+      letter-spacing: 0.20em; text-transform: uppercase;
       color: var(--blue); display: inline-flex; align-items: center; gap: 0.6rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0.85rem;
     }
     .form-eyebrow::before { content: ''; width: 26px; height: 1.5px; background: var(--blue); }
     .form-h2 {
       font-family: var(--font-head);
-      font-size: clamp(1.8rem, 3.4vw, 2.4rem);
+      font-size: clamp(1.7rem, 3vw, 2.2rem);
       line-height: 1.05; letter-spacing: 0.02em;
       text-transform: uppercase; color: var(--text);
-      margin-bottom: 0.7rem;
+      margin-bottom: 0.5rem;
     }
     .form-lead {
-      color: var(--text-body); font-size: 1rem; line-height: 1.65;
-      margin-bottom: 2rem;
+      color: var(--text-light); font-size: 0.95rem; line-height: 1.6;
+      margin-bottom: 1.75rem;
     }
     .form-grid {
       display: grid; grid-template-columns: 1fr 1fr;
-      gap: 1rem 1.25rem;
+      gap: 0.95rem 1rem;
     }
-    .form-field { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-field { display: flex; flex-direction: column; gap: 0.35rem; min-width: 0; }
     .form-field.full { grid-column: 1 / -1; }
     .form-field label {
-      font-size: 0.78rem; font-weight: 600;
+      font-size: 0.74rem; font-weight: 600;
       letter-spacing: 0.06em; color: var(--text-body);
     }
     .form-field input,
     .form-field textarea {
       font: inherit; font-size: 0.95rem;
-      padding: 0.85rem 1rem; border-radius: 10px;
+      padding: 0.85rem 0.95rem; border-radius: 10px;
       border: 1px solid var(--border); background: var(--white);
-      color: var(--text);
-      transition: border-color 0.22s, box-shadow 0.22s;
+      color: var(--text); width: 100%;
+      transition: border-color 0.22s, box-shadow 0.22s, background 0.22s;
     }
-    .form-field textarea { resize: vertical; min-height: 110px; }
+    .form-field input::placeholder, .form-field textarea::placeholder { color: var(--text-mute); }
+    .form-field textarea { resize: vertical; min-height: 100px; }
+    .form-field input:hover,
+    .form-field textarea:hover { border-color: var(--text-mute); }
     .form-field input:focus,
     .form-field textarea:focus {
       outline: none; border-color: var(--blue);
@@ -1500,34 +1503,46 @@
     }
     .form-consent {
       grid-column: 1 / -1;
-      display: flex; align-items: flex-start; gap: 0.7rem;
-      font-size: 0.88rem; color: var(--text-body); line-height: 1.5;
-      margin-top: 0.5rem;
+      display: flex; align-items: flex-start; gap: 0.65rem;
+      font-size: 0.84rem; color: var(--text-body); line-height: 1.5;
+      padding: 0.85rem 0.95rem; background: var(--grey-light);
+      border-radius: 10px;
+      margin-top: 0.25rem;
     }
-    .form-consent input { margin-top: 0.2rem; accent-color: var(--blue); }
+    .form-consent input { margin-top: 0.18rem; accent-color: var(--blue); flex-shrink: 0; }
     .form-submit {
       grid-column: 1 / -1;
       display: inline-flex; align-items: center; justify-content: center;
-      gap: 0.55rem; padding: 1rem 1.5rem; margin-top: 0.5rem;
+      gap: 0.55rem; padding: 1.05rem 1.5rem; margin-top: 0.75rem;
       font-family: var(--font-sub);
-      font-size: 0.95rem; font-weight: 600;
-      letter-spacing: 0.06em; text-transform: uppercase;
+      font-size: 0.95rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
       background: var(--blue); color: var(--white);
       border: none; border-radius: 12px;
       cursor: pointer; transition: all 0.22s;
+      width: 100%;
     }
-    .form-submit:hover { background: var(--blue-hover); transform: translateY(-1px); box-shadow: 0 12px 30px rgba(79,134,198,0.32); }
+    .form-submit:hover { background: var(--grey-dark); transform: translateY(-1px); box-shadow: 0 12px 28px rgba(79,134,198,0.30); }
     .form-fee {
-      grid-column: 1 / -1; margin-top: 0.25rem;
-      font-size: 0.85rem; color: var(--text-light);
-      text-align: center;
+      grid-column: 1 / -1; margin-top: 0.5rem;
+      font-size: 0.84rem; color: var(--text-light);
+      text-align: center; padding: 0.75rem;
+      background: var(--orange-soft); border-radius: 10px;
     }
-    .form-fee strong { color: var(--orange); font-weight: 700; }
+    .form-fee strong { color: var(--grey-dark); font-weight: 700; }
 
+    /* Within combined 2-col layout the form column is narrow — keep fields stacked */
+    #liity-combined .form-grid { grid-template-columns: 1fr; }
+
+    @media (max-width: 1000px) {
+      .form-wrap { max-width: 640px; }
+      #liity-combined .form-grid { grid-template-columns: 1fr 1fr; }
+    }
     @media (max-width: 600px) {
-      #liity-form-section { padding: 3rem 1.25rem; }
-      .form-wrap { padding: 1.75rem 1.25rem; }
-      .form-grid { grid-template-columns: 1fr; }
+      #liity-form-section { padding: 3rem 1rem; }
+      .form-wrap { padding: 1.75rem 1.25rem; border-radius: 16px; }
+      .form-grid, #liity-combined .form-grid { grid-template-columns: 1fr; gap: 0.85rem; }
+      .form-submit { padding: 0.95rem 1.25rem; font-size: 0.88rem; }
     }
 
     /* ── TOIM INTRO STRIP ────────────────────────── */
