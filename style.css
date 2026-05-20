@@ -1837,3 +1837,43 @@
     @media (max-width: 600px) {
       #liity-combined { padding: 3rem 1.25rem 4rem; }
     }
+
+    /* ── MOBILEPAY BLOCK ────────────────────────── */
+    .lahjoita-mobilepay { display: flex; flex-direction: column; gap: 1.5rem; }
+    .mp-logo { display: inline-block; max-width: 220px; }
+    .mp-logo svg { width: 100%; height: auto; display: block; }
+    .mp-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .mp-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem 1.25rem;
+      display: flex; flex-direction: column; align-items: flex-start;
+      gap: 0.5rem;
+      transition: transform 0.22s, border-color 0.22s, box-shadow 0.22s;
+    }
+    .mp-card:hover { transform: translateY(-2px); border-color: var(--blue); box-shadow: var(--shadow-sm); }
+    .mp-card--alt { background: var(--orange-soft); border-color: var(--orange); }
+    .mp-card--alt:hover { border-color: var(--grey-dark); }
+    .mp-card-tag {
+      font-family: var(--font-sub);
+      font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--text-light);
+    }
+    .mp-card--alt .mp-card-tag { color: var(--grey-dark); }
+    .mp-card-code {
+      font-family: var(--font-head);
+      font-size: 2.6rem; line-height: 1;
+      letter-spacing: 0.02em;
+      color: var(--text);
+    }
+    @media (max-width: 600px) {
+      .mp-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+      .mp-card { padding: 1.25rem 1rem; }
+      .mp-card-code { font-size: 2.2rem; }
+      .mp-logo { max-width: 180px; }
+    }

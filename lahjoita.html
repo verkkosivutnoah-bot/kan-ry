@@ -71,19 +71,29 @@
   <div class="container">
     <div class="lahjoita-grid">
 
-      <div class="lahjoita-amounts">
-        <h2 class="lahjoita-h2">Lahjoita verkossa</h2>
-        <p class="lahjoita-lead">Tuet KAN ry:n päihdekuntoutus- ja vankityötä. Voit valita valmiin summan tai antaa oman.</p>
-        <div class="amount-grid">
-          <a href="mailto:info@kan.fi?subject=Lahjoitus 20€" class="amount-btn">20 €</a>
-          <a href="mailto:info@kan.fi?subject=Lahjoitus 50€" class="amount-btn">50 €</a>
-          <a href="mailto:info@kan.fi?subject=Lahjoitus 100€" class="amount-btn">100 €</a>
-          <a href="mailto:info@kan.fi?subject=Lahjoitus 200€" class="amount-btn">200 €</a>
-          <a href="mailto:info@kan.fi?subject=Lahjoitus 500€" class="amount-btn">500 €</a>
-          <a href="mailto:info@kan.fi?subject=Lahjoitus 1000€" class="amount-btn">1000 €</a>
+      <div class="lahjoita-mobilepay">
+        <div class="mp-logo" aria-label="MobilePay">
+          <svg viewBox="0 0 220 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+            <rect x="0" y="0" width="60" height="60" rx="14" fill="#5A78F0"/>
+            <path d="M18 18h6l6 14 6-14h6v24h-5V26l-5 12h-4l-5-12v16h-5V18z" fill="#fff"/>
+            <text x="72" y="40" font-family="'Inter', system-ui, sans-serif" font-size="26" font-weight="800" fill="#5A78F0" letter-spacing="-0.5">MobilePay</text>
+          </svg>
         </div>
-        <a href="mailto:info@kan.fi?subject=Lahjoitus oma summa" class="btn btn-blue btn-lg amount-custom">Oma summa</a>
-        <p class="lahjoita-small">Maksu välitetään OP Lahjoituspalvelun kautta.</p>
+
+        <p class="lahjoita-lead">Lahjoita helposti MobilePay-sovelluksella. Valitse kohde — Suurin tarve tai Vankilatyö.</p>
+
+        <div class="mp-grid">
+          <div class="mp-card">
+            <span class="mp-card-tag">Suurin tarve</span>
+            <span class="mp-card-code">95895</span>
+          </div>
+          <div class="mp-card mp-card--alt">
+            <span class="mp-card-tag">Vankilatyö</span>
+            <span class="mp-card-code">80204</span>
+          </div>
+        </div>
+
+        <p class="lahjoita-small">Avaa MobilePay-sovellus, valitse <em>Lähetä rahaa</em> ja syötä yllä oleva numero.</p>
       </div>
 
       <aside class="lahjoita-card">
@@ -94,12 +104,6 @@
           <dt>BIC</dt><dd><code>POPFFI22</code></dd>
           <dt>Viitenumero — yleinen</dt><dd><code>1232</code></dd>
           <dt>Viitenumero — vankityö</dt><dd><code>1368</code></dd>
-        </dl>
-
-        <h3 class="card-h3 card-h3-mt">MobilePay</h3>
-        <dl class="card-list">
-          <dt>Yleinen tuki</dt><dd><code>95895</code></dd>
-          <dt>Vankityö</dt><dd><code>80204</code></dd>
         </dl>
       </aside>
 
