@@ -2199,3 +2199,129 @@
         transform-origin: 50% 18%;
       }
     }
+
+    /* ── AJANKOHTAISTA — refined magazine layout ── */
+    #ajankohtaista-body { padding: 4rem 2rem 6rem; background: var(--bg); }
+    #ajankohtaista-body .container { display: flex; flex-direction: column; gap: 3rem; }
+
+    /* Featured editorial card */
+    .njs-featured {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0; align-items: stretch;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 22px; overflow: hidden;
+      box-shadow: 0 18px 48px rgba(47,47,47,0.06);
+      transition: box-shadow 0.35s, transform 0.35s;
+    }
+    .njs-featured:hover { box-shadow: 0 24px 60px rgba(47,47,47,0.12); transform: translateY(-2px); }
+    .njs-featured-media {
+      position: relative; overflow: hidden;
+      min-height: 380px;
+      background: var(--grey-light);
+    }
+    .njs-featured-media img {
+      width: 100%; height: 100%; object-fit: cover;
+      object-position: center 18%;
+      transform: scale(1.25);
+      transform-origin: 50% 18%;
+      transition: transform 0.9s ease;
+    }
+    .njs-featured:hover .njs-featured-media img { transform: scale(1.3); }
+    .njs-featured-body {
+      padding: 2.5rem 2.5rem;
+      display: flex; flex-direction: column; justify-content: center; gap: 0.85rem;
+    }
+    .njs-meta {
+      display: flex; align-items: center; gap: 0.75rem;
+      font-family: var(--font-sub);
+      font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+    }
+    .njs-tag {
+      background: var(--orange-soft); color: var(--grey-dark);
+      padding: 0.32rem 0.8rem; border-radius: 100px;
+      font-weight: 700;
+    }
+    .njs-date { color: var(--text-light); font-weight: 600; }
+
+    .njs-headline {
+      font-family: var(--font-head);
+      font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+      line-height: 1.08; letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--text); margin: 0;
+    }
+    .njs-lead {
+      font-size: 1.05rem; line-height: 1.6; color: var(--text);
+      font-weight: 500; margin: 0;
+    }
+    .njs-body {
+      font-size: 0.95rem; line-height: 1.65; color: var(--text-light);
+      margin: 0;
+    }
+    .njs-byline {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      font-family: var(--font-sub);
+      font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--text-mute); font-weight: 600;
+      margin-top: 0.5rem;
+    }
+    .njs-byline-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); }
+
+    /* Secondary cards row */
+    .njs-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1.75rem;
+    }
+    .njs-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px; overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: transform 0.35s, box-shadow 0.35s, border-color 0.35s;
+    }
+    .njs-card:hover {
+      transform: translateY(-4px); border-color: var(--blue);
+      box-shadow: 0 18px 36px rgba(47,47,47,0.10);
+    }
+    .njs-card-media {
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+    }
+    .njs-card-media img {
+      width: 100%; height: 100%; object-fit: cover;
+      object-position: center 35%;
+      transition: transform 0.9s ease;
+    }
+    .njs-card:hover .njs-card-media img { transform: scale(1.05); }
+    .njs-card-body {
+      padding: 1.75rem 1.75rem 2rem;
+      display: flex; flex-direction: column; gap: 0.75rem;
+      flex: 1;
+    }
+    .njs-card-title {
+      font-family: var(--font-head);
+      font-size: 1.3rem; line-height: 1.18; letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--text); margin: 0;
+    }
+    .njs-card-text {
+      font-size: 0.93rem; line-height: 1.6;
+      color: var(--text-light); margin: 0;
+    }
+
+    /* Mobile */
+    @media (max-width: 900px) {
+      #ajankohtaista-body { padding: 3rem 1.25rem 4rem; gap: 2rem; }
+      #ajankohtaista-body .container { gap: 2rem; }
+      .njs-featured { grid-template-columns: 1fr; }
+      .njs-featured-media { min-height: 0; aspect-ratio: 4/3; }
+      .njs-featured-body { padding: 1.75rem 1.5rem 2rem; }
+      .njs-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+    }
+    @media (max-width: 540px) {
+      .njs-featured-body { padding: 1.5rem 1.25rem 1.75rem; }
+      .njs-headline { font-size: 1.4rem; }
+      .njs-card-body { padding: 1.4rem 1.25rem 1.6rem; }
+      .njs-card-title { font-size: 1.15rem; }
+    }

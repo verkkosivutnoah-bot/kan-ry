@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="canonical" href="https://kan.fi/ajankohtaista.html">
   <meta property="og:url" content="https://kan.fi/ajankohtaista.html">
-  <link rel="icon" type="image/png" href="logo.png">
-  <link rel="apple-touch-icon" href="logo.png">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -96,35 +96,57 @@
 
 <section id="ajankohtaista-body">
   <div class="container">
-    <div class="news-grid">
-      <div class="news-card featured fade-up">
-        <div class="news-img news-portrait">
-          <img src="https://www.kan.fi/wp-content/uploads/2025/12/IMG_0685-731x1024.jpeg" alt="Valtteri Tuokkola" loading="lazy">
+
+    <!-- Featured editorial card — magazine-style hero story -->
+    <article class="njs-featured fade-up">
+      <div class="njs-featured-media">
+        <img src="https://www.kan.fi/wp-content/uploads/2025/12/IMG_0685-731x1024.jpeg" alt="Valtteri Tuokkola" loading="lazy">
+      </div>
+      <div class="njs-featured-body">
+        <div class="njs-meta">
+          <span class="njs-tag">Organisaatio</span>
+          <span class="njs-date">2024</span>
         </div>
-        <div class="news-body">
-          <div class="news-meta"><span class="news-tag">Organisaatio</span><span class="news-date">2024</span></div>
-          <h3 class="news-title">Valtteri Tuokkola valittu uudeksi toiminnanjohtajaksi</h3>
-          <p class="news-excerpt">KAN ry:n hallitus on valinnut Valtteri Tuokkolan uudeksi toiminnanjohtajaksi, kun Jouko Vuorenniemi jää eläkkeelle. Tuokkola tuo mukanaan vahvaa kansainvälistä elämänkokemusta lapsuudesta Tansaniassa ja 16 vuoden työvuosista Kanadasta.</p>
-          <p class="news-excerpt" style="margin-top:-0.5rem;">Tällä hetkellä hän työskentelee Iso Kirja -opistolla johtavana opettajana ja tähtää rohkaisemaan ihmisiä elämään täyteen potentiaaliinsa.</p>
+        <h2 class="njs-headline">Valtteri Tuokkola valittu uudeksi toiminnanjohtajaksi</h2>
+        <p class="njs-lead">KAN ry:n hallitus on valinnut Valtteri Tuokkolan uudeksi toiminnanjohtajaksi, kun Jouko Vuorenniemi jää eläkkeelle.</p>
+        <p class="njs-body">Tuokkola tuo mukanaan vahvaa kansainvälistä elämänkokemusta lapsuudesta Tansaniassa ja 16 vuoden työvuosista Kanadasta. Tällä hetkellä hän työskentelee Iso Kirja -opistolla johtavana opettajana ja tähtää rohkaisemaan ihmisiä elämään täyteen potentiaaliinsa.</p>
+        <div class="njs-byline">
+          <span class="njs-byline-dot"></span>
+          Toiminnanjohtaja · KAN ry
         </div>
       </div>
-      <div class="news-card fade-up d1">
-        <div class="news-img"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=85&auto=format&fit=crop" alt="Yhteisö" loading="lazy"></div>
-        <div class="news-body">
-          <div class="news-meta"><span class="news-tag">Yhteisö</span><span class="news-date">2024</span></div>
-          <h3 class="news-title">54 vuotta yhdessä — juhlahistoriikki saatavilla</h3>
-          <p class="news-excerpt">KAN ry:n 50-vuotisjuhlahistoriikki on ladattavissa verkosta. Tutustu järjestömme vuosikymmenien matkaan vapaaehtoistyöstä ammatilliseksi kuntoutustyöksi.</p>
+    </article>
+
+    <!-- Secondary news as horizontal magazine row -->
+    <div class="njs-grid">
+      <article class="njs-card fade-up d1">
+        <div class="njs-card-media">
+          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=900&q=85&auto=format&fit=crop" alt="Yhteisö" loading="lazy">
         </div>
-      </div>
-      <div class="news-card fade-up d2">
-        <div class="news-img"><img src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=800&q=85&auto=format&fit=crop" alt="Auringonvalo lehtien läpi" loading="lazy"></div>
-        <div class="news-body">
-          <div class="news-meta"><span class="news-tag">Jäsenyys</span><span class="news-date">2024</span></div>
-          <h3 class="news-title">Liity yli 2 000 jäsenen joukkoon</h3>
-          <p class="news-excerpt">Kannattajajäsenyydellä tuet konkreettisesti elämänmuutostyötä Suomessa. Yhdessä olemme jo auttaneet tuhansia ihmisiä löytämään uuden suunnan.</p>
+        <div class="njs-card-body">
+          <div class="njs-meta">
+            <span class="njs-tag">Yhteisö</span>
+            <span class="njs-date">2024</span>
+          </div>
+          <h3 class="njs-card-title">54 vuotta yhdessä — juhlahistoriikki saatavilla</h3>
+          <p class="njs-card-text">KAN ry:n 50-vuotisjuhlahistoriikki on ladattavissa verkosta. Tutustu järjestömme vuosikymmenien matkaan vapaaehtoistyöstä ammatilliseksi kuntoutustyöksi.</p>
         </div>
-      </div>
+      </article>
+      <article class="njs-card fade-up d2">
+        <div class="njs-card-media">
+          <img src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=900&q=85&auto=format&fit=crop" alt="Auringonvalo lehtien läpi" loading="lazy">
+        </div>
+        <div class="njs-card-body">
+          <div class="njs-meta">
+            <span class="njs-tag">Jäsenyys</span>
+            <span class="njs-date">2024</span>
+          </div>
+          <h3 class="njs-card-title">Liity yli 2 000 jäsenen joukkoon</h3>
+          <p class="njs-card-text">Kannattajajäsenyydellä tuet konkreettisesti elämänmuutostyötä Suomessa. Yhdessä olemme jo auttaneet tuhansia ihmisiä löytämään uuden suunnan.</p>
+        </div>
+      </article>
     </div>
+
   </div>
 </section>
 
