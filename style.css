@@ -2001,6 +2001,8 @@
       object-fit: cover; object-position: center 60%;
       display: block;
     }
+    .leader-photo img[src*="valtteri"] { object-position: center 42%; }
+    .leader-photo img[src*="marjut"]   { object-position: center 50%; }
     .leader-card--featured { padding-top: 1.5rem; }
     @media (max-width: 600px) {
       .leader-photo { width: 80px; height: 80px; }
