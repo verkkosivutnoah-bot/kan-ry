@@ -1864,45 +1864,104 @@
       #liity-combined { padding: 3rem 1.25rem 4rem; }
     }
 
-    /* ── MOBILEPAY BLOCK ────────────────────────── */
-    .lahjoita-mobilepay { display: flex; flex-direction: column; gap: 1.5rem; }
-    .mp-logo { display: inline-block; max-width: 260px; }
-    .mp-logo img,
-    .mp-logo svg { width: 100%; height: auto; display: block; }
+    /* ── MOBILEPAY BLOCK (refined) ─────────────── */
+    .lahjoita-mobilepay {
+      display: flex; flex-direction: column; gap: 1.75rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 2.25rem 2rem;
+      box-shadow: 0 18px 48px rgba(47,47,47,0.06);
+    }
+    .mp-head {
+      display: flex; align-items: center; gap: 1.25rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .mp-logo-tight {
+      width: 72px; height: 72px; flex-shrink: 0;
+      overflow: hidden; border-radius: 18px;
+      background: var(--grey-light);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .mp-logo-tight img {
+      width: 200%; height: 200%;
+      object-fit: contain; object-position: center;
+      display: block;
+    }
+    .mp-head-text { display: flex; flex-direction: column; gap: 0.25rem; min-width: 0; }
+    .mp-eyebrow {
+      font-family: var(--font-sub);
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--blue);
+    }
+    .mp-title {
+      font-family: var(--font-head);
+      font-size: clamp(1.5rem, 2.6vw, 1.9rem);
+      line-height: 1.05; letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin: 0;
+    }
     .mp-grid {
       display: grid; grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+      gap: 0.9rem;
     }
     .mp-card {
-      background: var(--surface);
+      position: relative;
+      background: var(--grey-light);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.5rem 1.25rem;
+      border-radius: 16px;
+      padding: 1.5rem 1.25rem 1.25rem;
       display: flex; flex-direction: column; align-items: flex-start;
-      gap: 0.5rem;
-      transition: transform 0.22s, border-color 0.22s, box-shadow 0.22s;
+      gap: 0.4rem; min-width: 0;
+      transition: transform 0.22s, border-color 0.22s, box-shadow 0.22s, background 0.22s;
     }
-    .mp-card:hover { transform: translateY(-2px); border-color: var(--blue); box-shadow: var(--shadow-sm); }
-    .mp-card--alt { background: var(--orange-soft); border-color: var(--orange); }
-    .mp-card--alt:hover { border-color: var(--grey-dark); }
+    .mp-card:hover {
+      transform: translateY(-3px); border-color: var(--blue);
+      box-shadow: 0 14px 28px rgba(79,134,198,0.18);
+      background: var(--white);
+    }
+    .mp-card--alt {
+      background: var(--orange-soft); border-color: var(--orange);
+    }
+    .mp-card--alt:hover { border-color: var(--grey-dark); background: var(--orange-soft); box-shadow: 0 14px 28px rgba(255,201,51,0.30); }
     .mp-card-tag {
       font-family: var(--font-sub);
-      font-size: 0.78rem; font-weight: 700;
+      font-size: 0.72rem; font-weight: 700;
       letter-spacing: 0.18em; text-transform: uppercase;
       color: var(--text-light);
     }
     .mp-card--alt .mp-card-tag { color: var(--grey-dark); }
     .mp-card-code {
       font-family: var(--font-head);
-      font-size: 2.6rem; line-height: 1;
-      letter-spacing: 0.02em;
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      line-height: 1; letter-spacing: 0.03em;
       color: var(--text);
     }
+    .mp-card-hint {
+      font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.06em; color: var(--text-mute);
+      text-transform: uppercase;
+      margin-top: 0.1rem;
+    }
+    .mp-card--alt .mp-card-hint { color: rgba(47,47,47,0.55); }
+    .mp-helper {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      font-size: 0.88rem; color: var(--text-light);
+      line-height: 1.5; margin: 0;
+    }
+    .mp-helper svg { color: var(--blue); flex-shrink: 0; }
+    .mp-helper em { font-style: normal; font-weight: 700; color: var(--text); }
+
     @media (max-width: 600px) {
-      .mp-grid { grid-template-columns: 1fr; gap: 0.75rem; }
-      .mp-card { padding: 1.25rem 1rem; }
-      .mp-card-code { font-size: 2.2rem; }
-      .mp-logo { max-width: 180px; }
+      .lahjoita-mobilepay { padding: 1.75rem 1.25rem; gap: 1.25rem; }
+      .mp-head { gap: 1rem; padding-bottom: 1.1rem; }
+      .mp-logo-tight { width: 58px; height: 58px; border-radius: 14px; }
+      .mp-grid { grid-template-columns: 1fr; gap: 0.7rem; }
+      .mp-card { padding: 1.25rem 1.1rem 1rem; }
+      .mp-helper { font-size: 0.82rem; }
     }
 
     /* Featured news portrait — tight head+shoulders crop, minimal dead space */
