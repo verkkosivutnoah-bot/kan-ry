@@ -39,7 +39,7 @@
 
       /* Type — prefer exact brand fonts (local install / Adobe Fonts kit),
          fallback to nearest free subs */
-      --font-body:    'Garet', 'Outfit', system-ui, sans-serif;
+      --font-body:    'Montserrat', 'Outfit', system-ui, sans-serif;
       --font-sub:     'Estenda 30 Deca', 'Estenda', 'Saira Condensed', 'Outfit', sans-serif;
       --font-head:    'Zuume Rough Bold', 'Zuume Rough', 'Zuume', 'Anton', sans-serif;
     }
