@@ -41,7 +41,7 @@
          fallback to nearest free subs */
       --font-body:    'Montserrat', 'Outfit', system-ui, sans-serif;
       --font-sub:     'Estenda 30 Deca', 'Estenda', 'Saira Condensed', 'Outfit', sans-serif;
-      --font-head:    'Zuume Rough Bold', 'Zuume Rough', 'Zuume', 'Anton', sans-serif;
+      --font-head:    'Big Shoulders Display', 'Anton', 'Saira Condensed', sans-serif;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
