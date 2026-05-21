@@ -2325,3 +2325,61 @@
       .njs-card-body { padding: 1.4rem 1.25rem 1.6rem; }
       .njs-card-title { font-size: 1.15rem; }
     }
+
+    /* ── NEWSLETTER FEEL UPGRADES ────────────── */
+    /* Serif italic accent (à la "NIIN MAAILMA PARANI") */
+    .accent-italic, .about-quote blockquote, .liity-emphasis {
+      font-family: 'Lora', Georgia, serif;
+      font-style: italic;
+      letter-spacing: 0;
+    }
+
+    /* Editorial uppercase headlines — tighter tracking, heavier weight */
+    .sec-title, .page-hero-title, .hero-title,
+    .pillar-title, .loc-head-name, .news-title,
+    .leader-name, .contact-card-title,
+    .lahjoita-h2, .mp-title, .form-h2,
+    .njs-headline, .njs-card-title {
+      text-transform: uppercase;
+      letter-spacing: 0.005em;
+    }
+    .pillar-title { letter-spacing: 0.01em; }
+
+    /* Tag pills — solid blue with white text (newsletter style) */
+    .njs-tag, .news-tag, .loc-tag,
+    .pillar-num, .stat-lbl {
+      letter-spacing: 0.16em;
+    }
+
+    /* Yellow CTA variant */
+    .btn-yellow {
+      background: var(--orange); color: var(--grey-dark);
+      padding: 0.95rem 1.6rem; border-radius: 100px;
+      font-family: var(--font-sub);
+      font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; font-size: 0.85rem;
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      transition: transform 0.22s, background 0.22s, box-shadow 0.22s;
+      border: none; cursor: pointer;
+    }
+    .btn-yellow:hover {
+      background: var(--grey-dark); color: var(--orange);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(255,201,51,0.45);
+    }
+
+    /* Section number/eyebrow stronger contrast */
+    .eyebrow {
+      color: var(--blue); font-family: var(--font-sub);
+      font-weight: 700; letter-spacing: 0.22em;
+    }
+
+    /* Tighter heading line-height for uppercase blocks */
+    .sec-title, .page-hero-title { line-height: 1.05; }
+
+    /* Italic pull quote special: bigger + blue */
+    .about-quote blockquote {
+      color: var(--blue);
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      line-height: 1.4;
+    }
