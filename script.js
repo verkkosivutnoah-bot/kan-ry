@@ -88,6 +88,16 @@
     });
   });
 
+  /* ── Lue lisää expand ── */
+  document.querySelectorAll('.njs-expand-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById(btn.dataset.target);
+      if (!target) return;
+      const expanded = target.classList.toggle('expanded');
+      btn.textContent = expanded ? 'Näytä vähemmän' : 'Lue lisää';
+    });
+  });
+
   /* ── Cookie banner ── */
   (function(){
     const banner = document.getElementById('cookie-banner');
