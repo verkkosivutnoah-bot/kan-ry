@@ -1098,39 +1098,45 @@
     }
     .loc-item {
       background: var(--white);
-      border: 1px solid var(--border-soft);
-      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      border-radius: 20px;
       overflow: hidden;
-      transition: border-color 0.3s, box-shadow 0.3s;
-      box-shadow: var(--shadow-xs);
+      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+      box-shadow: 0 4px 18px rgba(47,47,47,0.07);
     }
-    .loc-item.open, .loc-item:hover { border-color: var(--blue); box-shadow: var(--shadow); }
+    .loc-item:hover:not(.open) { border-color: var(--blue); box-shadow: 0 14px 36px rgba(1,112,185,0.12); transform: translateY(-2px); }
+    .loc-item.open { border-color: var(--blue); box-shadow: 0 8px 28px rgba(1,112,185,0.10); }
     .loc-head {
-      width: 100%; display: grid;
-      grid-template-columns: 48px 1fr auto auto;
-      align-items: center; gap: 1.25rem;
-      padding: 1.25rem 1.75rem;
+      width: 100%; display: flex;
+      align-items: center; justify-content: space-between;
+      gap: 1.25rem;
+      padding: 1.75rem 1.75rem 1.5rem;
       background: transparent; border: none; cursor: pointer;
       text-align: left; font: inherit; color: inherit;
     }
+    .loc-head-content {
+      display: flex; flex-direction: column; gap: 0.35rem; min-width: 0;
+    }
     .loc-head:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
     .loc-head-num {
-      font-family: var(--font-head);
-      font-size: 1.05rem; font-weight: 600;
-      color: var(--text-mute); letter-spacing: 0.02em;
+      font-family: var(--font-sub);
+      font-size: 0.62rem; font-weight: 700;
+      color: var(--text-mute); letter-spacing: 0.18em;
+      text-transform: uppercase;
     }
     .loc-head-name {
       font-family: var(--font-head);
-      font-size: 1.35rem; font-weight: 700; color: var(--text);
-      letter-spacing: -0.01em; line-height: 1.2;
+      font-size: 1.55rem; font-weight: 800; color: var(--text);
+      letter-spacing: -0.01em; line-height: 1.15;
+      text-transform: uppercase;
     }
     .loc-head-tag {
       display: inline-flex; align-items: center; gap: 0.4rem;
       background: var(--blue-pale); color: var(--blue);
-      font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.1em; padding: 0.28rem 0.75rem;
+      font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 0.25rem 0.7rem;
       border-radius: 100px; border: 1px solid rgba(1,112,185,0.18);
-      white-space: nowrap;
+      white-space: nowrap; align-self: flex-start;
     }
     .loc-head-tag::before {
       content: ''; width: 5px; height: 5px; background: var(--blue); border-radius: 50%;
@@ -1239,10 +1245,10 @@
     .loc-item.doc-item .loc-doc-list li { margin: 0; }
 
     @media (max-width: 900px) {
-      .loc-head { grid-template-columns: 36px 1fr auto; gap: 1rem; padding: 1.15rem 1.25rem; }
+      .loc-head { padding: 1.25rem 1.25rem 1.1rem; gap: 0.85rem; }
       .loc-head-tag { display: none; }
-      .loc-head-name { font-size: 1.15rem; }
-      .loc-panel-body { grid-template-columns: 1fr; gap: 1.5rem; padding: 0 1.25rem 1.5rem; }
+      .loc-head-name { font-size: 1.2rem; }
+      .loc-panel-body { gap: 1.5rem; padding: 0 1.25rem 1.5rem; }
     }
 
     /* ── TOIMINTAYKSIKOT BG IMAGE ────────────────── */
@@ -1432,6 +1438,12 @@
     }
     .card-h3::before { content: ''; width: 22px; height: 1.5px; background: var(--blue); }
     .card-h3-mt { margin-top: 1.75rem; }
+    .card-note {
+      margin-top: 1.1rem; font-size: 0.84rem; line-height: 1.6;
+      color: var(--text-light); border-top: 1px solid var(--border);
+      padding-top: 0.85rem;
+    }
+    .card-note em { font-style: normal; font-family: ui-monospace, monospace; font-size: 0.82rem; color: var(--text); }
     .card-list {
       display: grid; grid-template-columns: 1fr 1.4fr;
       gap: 0.4rem 1rem; font-size: 0.92rem;
@@ -1448,11 +1460,11 @@
 
     .lahjoita-trust {
       max-width: 1180px; margin: 3rem auto 0;
-      padding: 1.5rem 1.75rem; background: var(--orange-soft);
-      border: 1px solid var(--orange); border-radius: 14px;
-      font-size: 0.92rem; color: var(--grey-dark); line-height: 1.65;
+      padding: 1.5rem 1.75rem; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 14px;
+      font-size: 0.92rem; color: var(--text-body); line-height: 1.65;
     }
-    .lahjoita-trust strong { color: var(--grey-dark); }
+    .lahjoita-trust strong { color: var(--text); }
 
     @media (max-width: 900px) {
       #lahjoita-info { padding: 3rem 1.25rem 4rem; }
@@ -1615,9 +1627,7 @@
     }
 
     /* Accordion full-width centered, refined item spacing */
-    #toimintayksikot-body .loc-accordion { max-width: 1080px; margin: 0 auto; gap: 0.85rem; }
-    #toimintayksikot-body .loc-item { background: var(--white); border-color: var(--border); box-shadow: var(--shadow-xs); }
-    #toimintayksikot-body .loc-item:hover, #toimintayksikot-body .loc-item.open { border-color: var(--blue); box-shadow: var(--shadow); }
+    #toimintayksikot-body .loc-accordion { max-width: 1080px; margin: 0 auto; gap: 1.1rem; }
 
     /* ── GLOBAL TEXT OVERFLOW SAFETY ─────────────── */
     body { overflow-wrap: break-word; word-wrap: break-word; }
@@ -1932,16 +1942,16 @@
       background: var(--white);
     }
     .mp-card--alt {
-      background: var(--orange-soft); border-color: var(--orange);
+      background: var(--blue-pale); border-color: rgba(1,112,185,0.28);
     }
-    .mp-card--alt:hover { border-color: var(--grey-dark); background: var(--orange-soft); box-shadow: 0 14px 28px rgba(255,201,51,0.30); }
+    .mp-card--alt:hover { border-color: var(--blue); background: var(--blue-pale); box-shadow: 0 14px 28px rgba(1,112,185,0.18); }
     .mp-card-tag {
       font-family: var(--font-sub);
       font-size: 0.72rem; font-weight: 700;
       letter-spacing: 0.18em; text-transform: uppercase;
       color: var(--text-light);
     }
-    .mp-card--alt .mp-card-tag { color: var(--grey-dark); }
+    .mp-card--alt .mp-card-tag { color: var(--blue); }
     .mp-card-code {
       font-family: var(--font-head);
       font-size: clamp(2.2rem, 4vw, 3rem);
@@ -1954,7 +1964,7 @@
       text-transform: uppercase;
       margin-top: 0.1rem;
     }
-    .mp-card--alt .mp-card-hint { color: rgba(47,47,47,0.55); }
+    .mp-card--alt .mp-card-hint { color: rgba(1,112,185,0.65); }
     .mp-helper {
       display: inline-flex; align-items: center; gap: 0.55rem;
       font-size: 0.88rem; color: var(--text-light);
@@ -2019,8 +2029,8 @@
     /* ── LASKUTUSOSOITE CARD ───────────────────── */
     .laskutus-card {
       grid-column: 1 / -1;
-      background: var(--orange-soft);
-      border: 1px solid var(--orange);
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 16px;
       padding: 1.5rem 1.75rem;
       display: flex; flex-direction: column; gap: 0.45rem;
@@ -2029,13 +2039,13 @@
       font-family: var(--font-sub);
       font-size: 0.78rem; font-weight: 700;
       letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--grey-dark);
+      color: var(--blue);
       display: inline-flex; align-items: center; gap: 0.6rem;
       margin-bottom: 0.35rem;
     }
-    .laskutus-tag::before { content: ''; width: 24px; height: 1.5px; background: var(--grey-dark); }
+    .laskutus-tag::before { content: ''; width: 24px; height: 1.5px; background: var(--blue); }
     .laskutus-card p {
-      font-size: 0.95rem; color: var(--grey-dark); line-height: 1.5;
+      font-size: 0.95rem; color: var(--text-body); line-height: 1.5;
       margin: 0;
     }
     .laskutus-card strong { color: var(--grey-dark); font-weight: 700; }
@@ -2223,17 +2233,17 @@
     .njs-featured:hover { box-shadow: 0 24px 60px rgba(47,47,47,0.12); transform: translateY(-2px); }
     .njs-featured-media {
       position: relative; overflow: hidden;
-      min-height: 380px;
+      min-height: 260px;
       background: var(--grey-light);
     }
     .njs-featured-media img {
       width: 100%; height: 100%; object-fit: cover;
       object-position: center 18%;
-      transform: scale(1.25);
+      transform: scale(1.05);
       transform-origin: 50% 18%;
       transition: transform 0.9s ease;
     }
-    .njs-featured:hover .njs-featured-media img { transform: scale(1.3); }
+    .njs-featured:hover .njs-featured-media img { transform: scale(1.1); }
     .njs-featured-body {
       padding: 2.5rem 2.5rem;
       display: flex; flex-direction: column; justify-content: center; gap: 0.85rem;
@@ -2273,6 +2283,39 @@
       margin-top: 0.5rem;
     }
     .njs-byline-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); }
+
+    /* Strategy card */
+    .strat-sections {
+      display: flex; flex-direction: column; gap: 1rem;
+      margin-top: 0.75rem;
+    }
+    .strat-block {
+      border-left: 2px solid var(--blue-pale);
+      padding-left: 0.9rem;
+    }
+    .strat-label {
+      display: block;
+      font-family: var(--font-sub);
+      font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 0.3rem;
+    }
+    .strat-block p {
+      font-size: 0.88rem; line-height: 1.6; color: var(--text-body);
+      margin: 0;
+    }
+    .strat-list {
+      list-style: none; padding: 0; margin: 0.25rem 0 0;
+      display: flex; flex-direction: column; gap: 0.2rem;
+    }
+    .strat-list li {
+      font-size: 0.85rem; line-height: 1.5; color: var(--text-body);
+      padding-left: 1rem; position: relative;
+    }
+    .strat-list li::before {
+      content: '–';
+      position: absolute; left: 0; color: var(--blue); font-weight: 700;
+    }
 
     /* Secondary cards row */
     .njs-grid {
