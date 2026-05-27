@@ -1592,8 +1592,8 @@
     .toim-info-card .toim-info-tag { margin-bottom: 0; }
     .toim-info-card p { flex: 1; }
     .toim-info-card.alt {
-      background: var(--orange-soft);
-      border-color: var(--orange);
+      background: var(--white);
+      border-color: var(--border);
     }
     .toim-info-tag {
       display: inline-flex; align-items: center; gap: 0.55rem;
@@ -1603,14 +1603,11 @@
       color: var(--blue); margin-bottom: 0.85rem;
     }
     .toim-info-tag::before { content: ''; width: 24px; height: 1.5px; background: var(--blue); }
-    .toim-info-card.alt .toim-info-tag { color: var(--grey-dark); }
-    .toim-info-card.alt .toim-info-tag::before { background: var(--grey-dark); }
     .toim-info-card p {
       font-size: 0.96rem; line-height: 1.6;
       color: var(--text-body);
     }
     .toim-info-card a { color: var(--blue); font-weight: 600; }
-    .toim-info-card.alt a { color: var(--grey-dark); text-decoration: underline; }
     @media (max-width: 800px) {
       #toim-intro { padding: 2.5rem 1.25rem; }
       .toim-info-grid { grid-template-columns: 1fr; gap: 1rem; }
