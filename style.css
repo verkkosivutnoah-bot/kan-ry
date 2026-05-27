@@ -1037,6 +1037,21 @@
       transition: color 0.2s;
     }
     .leader-card a:hover { color: var(--blue-hover); }
+    .leader-card--minor {
+      padding: 1.1rem 1.25rem;
+      background: transparent;
+      border-color: var(--border-soft);
+    }
+    .leader-card--minor:hover { transform: none; background: var(--surface); }
+    .leader-card--minor .leader-name {
+      font-size: 0.95rem; font-weight: 600; color: var(--text-body);
+      margin-bottom: 0.15rem;
+    }
+    .leader-card--minor .leader-role {
+      font-size: 0.75rem; color: var(--text-mute); margin-bottom: 0.6rem;
+    }
+    .leader-card--minor a { font-size: 0.8rem; color: var(--text-light); padding: 0.1rem 0; }
+    .leader-card--minor a:hover { color: var(--blue); }
 
     @media (max-width: 900px) {
       .page-hero { padding: 8rem 0 4rem; }
