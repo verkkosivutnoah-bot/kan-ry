@@ -575,7 +575,8 @@
     .pillars-hd { text-align: center; max-width: 720px; margin: 0 auto 4rem; }
     .pillars-hd .eyebrow { justify-content: center; display: inline-flex; }
     .pillars-hd .sec-lead { margin: 0 auto; }
-    .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+    .pillars-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    @media (max-width: 1100px) { .pillars-grid { grid-template-columns: repeat(2, 1fr); } }
     .pillar-card {
       background: var(--white); border-radius: var(--radius);
       padding: 2.75rem 2rem 2.25rem; position: relative; overflow: hidden;
@@ -614,7 +615,15 @@
       font-weight: 700; color: var(--text); margin-bottom: 0.875rem;
       letter-spacing: -0.01em;
     }
-    .pillar-text { color: var(--text-body); line-height: 1.78; font-size: 0.95rem; }
+    .pillar-text { color: var(--text-body); line-height: 1.6; font-size: 0.95rem; margin-bottom: 1rem; }
+    .pillar-principles {
+      font-size: 0.85rem; line-height: 1.55;
+      color: var(--text-light);
+      padding-top: 1rem; margin-top: auto;
+      border-top: 1px solid var(--border);
+    }
+    .pillar-principles strong { color: var(--blue); font-weight: 700; }
+    .pillar-card { display: flex; flex-direction: column; }
 
     /* ── LOCATIONS ────────────────────────────────── */
     #toimintayksiköt { background: var(--bg); }
