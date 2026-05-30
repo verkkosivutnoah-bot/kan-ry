@@ -132,19 +132,14 @@
 
     .nav-logo-img { display: inline-flex; align-items: center; flex-shrink: 0; min-width: 0; }
     .nav-logo-img img {
-      height: 84px; width: auto; max-width: none; display: block;
+      height: 64px; width: auto; max-width: none; display: block;
       object-fit: contain;
-      background: #ffffff;
-      padding: 0.4rem 0.7rem;
-      border-radius: 14px;
-      box-shadow: none;
-      transition: opacity 0.22s, height 0.35s, padding 0.35s, border-radius 0.35s, background 0.35s;
+      background: transparent;
+      transition: opacity 0.22s, height 0.35s;
     }
-    .nav-logo-img:hover img { opacity: 0.88; }
+    .nav-logo-img:hover img { opacity: 0.82; }
     .navbar.scrolled .nav-logo-img img {
-      background: #ffffff;
-      padding: 0.3rem 0.55rem;
-      border-radius: 12px;
+      height: 54px;
     }
 
     .nav-logo { display: flex; align-items: center; gap: 0.75rem; }
@@ -838,8 +833,8 @@
     @media (max-width: 900px) {
       .navbar { padding: 0.6rem 1rem; width: calc(100% - 1rem); }
       .navbar.scrolled { padding: 0.4rem 0.85rem; top: 0.5rem; max-width: calc(100% - 1.5rem); }
-      .nav-logo-img img { height: 64px; }
-      .navbar.scrolled .nav-logo-img img { height: 52px; }
+      .nav-logo-img img { height: 52px; }
+      .navbar.scrolled .nav-logo-img img { height: 44px; }
       .nav-actions { gap: 0.5rem; }
       .nav-actions .btn-nav-ghost { display: none; }
       .nav-actions .btn-blue { padding: 0.6rem 1.05rem; font-size: 0.82rem; }
@@ -883,8 +878,8 @@
     @media (max-width: 600px) {
       .navbar { padding: 0.5rem 0.85rem; }
       .navbar.scrolled { padding: 0.4rem 0.75rem; }
-      .nav-logo-img img { height: 52px; }
-      .navbar.scrolled .nav-logo-img img { height: 44px; }
+      .nav-logo-img img { height: 48px; }
+      .navbar.scrolled .nav-logo-img img { height: 42px; }
       .nav-actions .btn-blue { padding: 0.55rem 0.9rem; font-size: 0.78rem; }
       .nav-actions { gap: 0.4rem; }
 
@@ -911,7 +906,7 @@
       .stat-lbl { font-size: 0.62rem; letter-spacing: 0.06em; }
     }
     @media (max-width: 380px) {
-      .nav-logo-img img { height: 48px; }
+      .nav-logo-img img { height: 42px; }
       .hero-title { font-size: 1.85rem; }
       .hero-rail { flex-direction: column; }
       .hero-rail-stat + .hero-rail-stat { padding-left: 0; padding-top: 0.85rem; border-left: none; border-top: 1px solid rgba(255,255,255,0.13); }
@@ -1106,52 +1101,36 @@
     }
     .loc-item.open, .loc-item:hover { border-color: var(--blue); box-shadow: var(--shadow); }
     .loc-head {
-      width: 100%; display: grid;
-      grid-template-columns: 210px 1fr;
-      align-items: stretch; gap: 0;
-      padding: 0;
+      width: 100%; display: flex;
+      align-items: center; justify-content: space-between;
+      gap: 1.25rem;
+      padding: 1.75rem 1.75rem 1.5rem;
       background: transparent; border: none; cursor: pointer;
       text-align: left; font: inherit; color: inherit;
-      min-height: 170px;
+    }
+    .loc-head-content {
+      display: flex; flex-direction: column; gap: 0.35rem; min-width: 0;
     }
     .loc-head:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
-
-    /* Thumbnail image inside accordion header */
-    .loc-head-thumb {
-      position: relative; overflow: hidden;
-      background: var(--grey-light); flex-shrink: 0;
-    }
-    .loc-head-thumb img {
-      width: 100%; height: 100%; object-fit: cover; object-position: center;
-      transition: transform 0.7s ease; display: block;
-    }
-    .loc-item:hover .loc-head-thumb img,
-    .loc-item.open .loc-head-thumb img { transform: scale(1.07); }
-
-    /* Wrapper for the text meta columns (num / name / tag / toggle) */
-    .loc-head-meta {
-      display: grid;
-      grid-template-columns: 48px 1fr auto auto;
-      align-items: center; gap: 1.25rem;
-      padding: 1.5rem 1.75rem;
-    }
     .loc-head-num {
-      font-family: var(--font-head);
-      font-size: 1.05rem; font-weight: 600;
-      color: var(--text-mute); letter-spacing: 0.02em;
+      font-family: var(--font-sub);
+      font-size: 0.62rem; font-weight: 700;
+      color: var(--text-mute); letter-spacing: 0.18em;
+      text-transform: uppercase;
     }
     .loc-head-name {
       font-family: var(--font-head);
-      font-size: 1.35rem; font-weight: 700; color: var(--text);
-      letter-spacing: -0.01em; line-height: 1.2;
+      font-size: 1.55rem; font-weight: 800; color: var(--text);
+      letter-spacing: -0.01em; line-height: 1.15;
+      text-transform: uppercase;
     }
     .loc-head-tag {
       display: inline-flex; align-items: center; gap: 0.4rem;
       background: var(--blue-pale); color: var(--blue);
-      font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.1em; padding: 0.28rem 0.75rem;
+      font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 0.25rem 0.7rem;
       border-radius: 100px; border: 1px solid rgba(1,112,185,0.18);
-      white-space: nowrap;
+      white-space: nowrap; align-self: flex-start;
     }
     .loc-head-tag::before {
       content: ''; width: 5px; height: 5px; background: var(--blue); border-radius: 50%;
@@ -1260,10 +1239,9 @@
     .loc-item.doc-item .loc-doc-list li { margin: 0; }
 
     @media (max-width: 900px) {
-      .loc-head { grid-template-columns: 130px 1fr; min-height: 130px; }
-      .loc-head-meta { grid-template-columns: 36px 1fr auto; gap: 1rem; padding: 1.15rem 1.25rem; }
+      .loc-head { padding: 1.25rem 1.25rem 1.1rem; gap: 0.85rem; }
       .loc-head-tag { display: none; }
-      .loc-head-name { font-size: 1.15rem; }
+      .loc-head-name { font-size: 1.2rem; }
       .loc-panel-body { grid-template-columns: 1fr; gap: 1.5rem; padding: 0 1.25rem 1.5rem; }
     }
 
@@ -1643,13 +1621,6 @@
     #toimintayksikot-body .loc-accordion { max-width: 1080px; margin: 0 auto; gap: 0.85rem; }
     #toimintayksikot-body .loc-item { background: var(--white); border-color: var(--border); box-shadow: var(--shadow-xs); }
     #toimintayksikot-body .loc-item:hover, #toimintayksikot-body .loc-item.open { border-color: var(--blue); box-shadow: var(--shadow); }
-
-    @media (max-width: 600px) {
-      .loc-head { grid-template-columns: 90px 1fr; min-height: 110px; }
-      .loc-head-meta { padding: 1rem 1rem; gap: 0.75rem; grid-template-columns: 32px 1fr auto; }
-      .loc-head-num { font-size: 0.9rem; }
-      .loc-head-name { font-size: 1rem; }
-    }
 
     /* ── GLOBAL TEXT OVERFLOW SAFETY ─────────────── */
     body { overflow-wrap: break-word; word-wrap: break-word; }
