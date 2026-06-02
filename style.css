@@ -1283,14 +1283,124 @@
       #toimintayksikot-body { padding: 2.5rem 1.25rem 4rem; }
     }
 
+    /* ── QUICK-JUMP LOCATION INDEX ───────────────── */
+    .loc-index {
+      position: sticky; top: 84px; z-index: 20;
+      display: flex; align-items: center; gap: 0.4rem;
+      flex-wrap: wrap;
+      padding: 0.55rem 0.7rem;
+      margin: 0 0 3.5rem;
+      background: rgba(255,255,255,0.82);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      box-shadow: 0 8px 24px rgba(47,47,47,0.07);
+    }
+    .loc-index-lbl {
+      font-family: var(--font-sub);
+      font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--text-mute); font-weight: 700;
+      padding: 0 0.5rem 0 0.6rem;
+    }
+    .loc-index a {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-family: var(--font-sub);
+      font-size: 0.84rem; font-weight: 600; letter-spacing: 0.01em;
+      color: var(--text); text-decoration: none; white-space: nowrap;
+      padding: 0.4rem 0.95rem; border-radius: 100px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .loc-index a:hover { background: var(--blue-pale); color: var(--blue); }
+    .loc-index-num {
+      font-family: var(--font-head); font-weight: 800;
+      color: var(--blue); font-size: 0.92rem; line-height: 1;
+    }
+
+    /* ── EDITORIAL FEATURE ROWS ──────────────────── */
+    .loc-features { display: flex; flex-direction: column; gap: 4.5rem; }
+    .loc-feature {
+      display: grid; grid-template-columns: 1.05fr 1fr;
+      gap: 3rem; align-items: center;
+      scroll-margin-top: 160px;
+    }
+    .loc-feature:nth-child(even) .lf-media { order: 2; }
+    .lf-media {
+      position: relative; border-radius: var(--radius); overflow: hidden;
+      aspect-ratio: 4 / 3;
+      background: var(--surface-2);
+      box-shadow: 0 26px 52px rgba(47,47,47,0.13);
+    }
+    .lf-media img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.9s ease;
+    }
+    .loc-feature:hover .lf-media img { transform: scale(1.05); }
+    .lf-num {
+      position: absolute; top: 0.5rem; left: 1.1rem; z-index: 2;
+      font-family: var(--font-head); font-weight: 900;
+      font-size: 4.75rem; line-height: 1; letter-spacing: -0.02em;
+      color: var(--white); opacity: 0.95;
+      text-shadow: 0 6px 22px rgba(0,0,0,0.4);
+    }
+    .lf-body { display: flex; flex-direction: column; gap: 0.85rem; min-width: 0; }
+    .lf-tag {
+      align-self: flex-start;
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      font-family: var(--font-sub);
+      font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+      font-weight: 700; color: var(--blue);
+    }
+    .lf-tag::before { content: ''; width: 28px; height: 2px; background: var(--blue); }
+    .lf-title {
+      font-family: var(--font-head);
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      line-height: 1.04; letter-spacing: 0.01em; text-transform: uppercase;
+      color: var(--text); margin: 0;
+    }
+    .lf-lead {
+      font-size: 1.06rem; line-height: 1.6; color: var(--text);
+      font-weight: 500; margin: 0;
+    }
+    .lf-text {
+      font-size: 0.95rem; line-height: 1.65; color: var(--text-light); margin: 0;
+    }
+    .lf-meta {
+      display: flex; flex-direction: column; gap: 0.65rem;
+      margin-top: 0.5rem; padding: 1.15rem 1.3rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+    }
+    .lf-meta-row {
+      display: flex; align-items: flex-start; gap: 0.7rem;
+      font-size: 0.92rem; line-height: 1.45; color: var(--text);
+    }
+    .lf-meta-row svg {
+      width: 17px; height: 17px; flex-shrink: 0; margin-top: 1px;
+      stroke: var(--blue);
+    }
+    .lf-meta-row a { color: var(--blue); font-weight: 600; text-decoration: none; }
+    .lf-meta-row a:hover { color: var(--blue-hover); }
+    .lf-docs { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.55rem; }
+
+    @media (max-width: 900px) {
+      .loc-index { top: 72px; flex-wrap: nowrap; overflow-x: auto; border-radius: 16px; margin-bottom: 2.5rem; }
+      .loc-index::-webkit-scrollbar { display: none; }
+      .loc-index { scrollbar-width: none; }
+      .loc-features { gap: 3rem; }
+      .loc-feature { grid-template-columns: 1fr; gap: 1.4rem; }
+      .loc-feature:nth-child(even) .lf-media { order: 0; }
+      .lf-num { font-size: 3.4rem; }
+    }
+
     /* Omavalvontaohjelma flat box (5th item) */
     .toim-ova-box {
-      max-width: calc(50% - 0.875rem);
-      margin: 1.75rem auto 0;
+      max-width: 100%;
+      margin: 4.5rem 0 0;
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 1.5rem 1.75rem;
+      padding: 1.75rem 2rem;
       box-shadow: var(--shadow-xs);
     }
     .toim-ova-title {
