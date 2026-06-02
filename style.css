@@ -1488,9 +1488,9 @@
 
     .lahjoita-trust {
       max-width: 1180px; margin: 3rem auto 0;
-      padding: 1.5rem 1.75rem; background: var(--orange-soft);
-      border: 1px solid var(--orange); border-radius: 14px;
-      font-size: 0.92rem; color: var(--grey-dark); line-height: 1.65;
+      padding: 1.5rem 1.75rem; background: var(--surface);
+      border: 1px solid var(--border-soft); border-radius: 14px;
+      font-size: 0.92rem; color: var(--text-body); line-height: 1.65;
     }
     .lahjoita-trust strong { color: var(--grey-dark); }
 
@@ -2058,8 +2058,8 @@
     /* ── LASKUTUSOSOITE CARD ───────────────────── */
     .laskutus-card {
       grid-column: 1 / -1;
-      background: var(--orange-soft);
-      border: 1px solid var(--orange);
+      background: var(--surface);
+      border: 1px solid var(--border-soft);
       border-radius: 16px;
       padding: 1.5rem 1.75rem;
       display: flex; flex-direction: column; gap: 0.45rem;
@@ -2081,6 +2081,91 @@
     @media (max-width: 600px) {
       .laskutus-card { padding: 1.25rem 1.25rem; }
     }
+
+    /* ── UNIT CARDS (per-home contact) ─────────── */
+    .unit-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+    .unit-card {
+      background: var(--white); border: 1px solid var(--border-soft);
+      border-radius: var(--radius); padding: 1.75rem;
+      box-shadow: var(--shadow-xs);
+      display: flex; flex-direction: column; gap: 1rem;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    }
+    .unit-card:hover {
+      transform: translateY(-4px); border-color: var(--blue);
+      box-shadow: var(--shadow);
+    }
+    .unit-card-head { display: flex; flex-direction: column; gap: 0.25rem; }
+    .unit-tag {
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--blue);
+    }
+    .unit-name {
+      font-family: var(--font-head); font-size: 1.25rem;
+      font-weight: 700; color: var(--text); margin: 0;
+      text-transform: uppercase; letter-spacing: 0.01em;
+    }
+    .unit-meta { display: flex; flex-direction: column; gap: 0.5rem; border-top: 1px solid var(--border-soft); padding-top: 1rem; }
+    .unit-row {
+      display: flex; align-items: flex-start; gap: 0.6rem;
+      font-size: 0.92rem; color: var(--text-body); line-height: 1.45;
+    }
+    .unit-row svg { flex-shrink: 0; margin-top: 2px; color: var(--text-mute); }
+    .unit-row a { color: var(--blue); font-weight: 500; transition: color 0.2s; }
+    .unit-row a:hover { color: var(--blue-hover); }
+    .unit-vastaava {
+      margin-top: 0.25rem; padding-top: 0.75rem;
+      border-top: 1px solid var(--border-soft);
+      font-size: 0.85rem; color: var(--text-light);
+    }
+    .unit-vastaava strong { color: var(--text); font-weight: 600; }
+    .unit-more {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      margin-top: auto; padding-top: 0.75rem;
+      font-size: 0.82rem; font-weight: 700; letter-spacing: 0.04em;
+      color: var(--blue); text-transform: uppercase;
+      transition: gap 0.2s;
+    }
+    .unit-more:hover { gap: 0.55rem; color: var(--blue-hover); }
+    @media (max-width: 700px) { .unit-grid { grid-template-columns: 1fr; } }
+
+    /* ── HALLITUS LIST ───────────────────────── */
+    .hallitus-section { margin-top: 3rem; }
+    .hallitus-hd {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--text-mute); margin-bottom: 1.25rem;
+    }
+    .hallitus-list {
+      list-style: none; padding: 0; margin: 0;
+      display: flex; flex-wrap: wrap; gap: 0.75rem;
+    }
+    .hallitus-item {
+      background: var(--surface); border: 1px solid var(--border-soft);
+      border-radius: 12px; padding: 1rem 1.25rem;
+      flex: 1 1 220px; min-width: 200px;
+    }
+    .hallitus-item-name { font-weight: 700; font-size: 0.97rem; color: var(--text); display: block; }
+    .hallitus-item-role { font-size: 0.8rem; color: var(--text-light); margin: 0.15rem 0 0.6rem; display: block; }
+    .hallitus-item a { display: block; font-size: 0.85rem; color: var(--blue); padding: 0.15rem 0; }
+    .hallitus-item a:hover { color: var(--blue-hover); }
+
+    /* ── DONATE NOTICE ───────────────────────── */
+    .donate-notice {
+      display: flex; align-items: center; gap: 0.75rem;
+      background: rgba(1,112,185,0.05);
+      border: 1px solid rgba(1,112,185,0.18);
+      border-radius: 12px; padding: 0.9rem 1.25rem;
+      font-size: 0.93rem; color: var(--text);
+      margin-bottom: 3.5rem;
+    }
+    .donate-notice svg { flex-shrink: 0; color: var(--blue); }
+    .donate-notice a { color: var(--blue); font-weight: 600; }
+    .donate-notice a:hover { color: var(--blue-hover); }
 
     /* ── MOBILE + DESKTOP POLISH SWEEP ────────── */
     /* Universal: keep paddings sane on small viewports */
@@ -2248,6 +2333,25 @@
     /* ── AJANKOHTAISTA — refined magazine layout ── */
     #ajankohtaista-body { padding: 4rem 2rem 6rem; background: var(--bg); }
     #ajankohtaista-body .container { display: flex; flex-direction: column; gap: 3rem; }
+
+    /* ── STRATEGIA BLOCKS ────────────────────── */
+    .strat-sections { display: flex; flex-direction: column; gap: 0.85rem; margin-top: 0.35rem; }
+    .strat-block {
+      padding: 0.9rem 1.1rem; background: var(--surface);
+      border-radius: 10px; border-left: 3px solid var(--blue);
+    }
+    .strat-label {
+      display: block; font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 0.45rem;
+    }
+    .strat-block p { font-size: 0.9rem; color: var(--text-body); line-height: 1.65; margin: 0; }
+    .strat-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.3rem; }
+    .strat-list li {
+      font-size: 0.87rem; color: var(--text-body); line-height: 1.6;
+      padding-left: 1rem; position: relative;
+    }
+    .strat-list li::before { content: '–'; position: absolute; left: 0; color: var(--blue); font-weight: 700; }
 
     /* Featured editorial card */
     .njs-featured {

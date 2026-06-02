@@ -89,7 +89,7 @@
     <div class="page-hero-inner">
       <nav class="breadcrumb" aria-label="Polku"><a href="index.html">Etusivu</a> <span>/</span> <span>Ajankohtaista</span></nav>
       <h1 class="page-hero-title">Mitä meillä<br><em>tapahtuu</em></h1>
-      <p class="page-hero-lead">Uutiset, kuulumiset ja tapahtumat KAN ry:n yhteisöstä — koottu yhteen paikkaan.</p>
+      <p class="page-hero-lead">Uutisia, kuulumisia ja tapahtumia KAN ry:n yhteisössä.</p>
     </div>
   </div>
 </section>
@@ -160,32 +160,53 @@
 
     </div>
 
-    <!-- Secondary news as horizontal magazine row -->
+    <!-- Secondary cards -->
     <div class="njs-grid">
-      <article class="njs-card fade-up d1">
-        <div class="njs-card-media">
+      <article class="njs-mid fade-up d1" id="juhlaliite">
+        <div class="njs-mid-media">
           <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=900&q=85&auto=format&fit=crop" alt="Yhteisö" loading="lazy">
         </div>
-        <div class="njs-card-body">
+        <div class="njs-mid-body">
           <div class="njs-meta">
             <span class="njs-tag">Yhteisö</span>
-            <span class="njs-date">2024</span>
+            <span class="njs-date">2021</span>
           </div>
-          <h3 class="njs-card-title">54 vuotta yhdessä — juhlahistoriikki saatavilla</h3>
-          <p class="njs-card-text">KAN ry:n 50-vuotisjuhlahistoriikki on ladattavissa verkosta. Tutustu järjestömme vuosikymmenien matkaan vapaaehtoistyöstä ammatilliseksi kuntoutustyöksi.</p>
+          <h3 class="njs-card-title">54 vuotta yhdessä — juhlahistoriikki</h3>
+          <div class="njs-mid-collapsible" id="col-juhlaliite">
+            <p class="njs-lead">KAN ry:n 50-vuotisjuhlahistoriikki kokoaa järjestön tarinan ensimmäisistä vapaaehtoistyön vuosista nykypäivän ammatilliseen päihdekuntoutukseen.</p>
+            <p class="njs-body">Liite sisältää katsauksen vuosikymmenien mittaiseen matkaan: kuinka pieni kristillinen vertaistukiryhmä kasvoi Suomen suurimmaksi päihdekuntoutuksen kansalaisjärjestöksi. Mukana muisteluja, valokuvia ja kuvauksia työn hedelmistä sekä niistä ihmisistä, joiden elämä on muuttunut.</p>
+          </div>
+          <button class="njs-expand-btn" data-target="col-juhlaliite">Lue lisää</button>
+          <a href="KAN_juhlaliite_50v.pdf" class="pdf-link" target="_blank" rel="noopener" aria-label="Lataa KAN 50-vuotisjuhlaliite PDF" style="margin-top: 0.75rem;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+            </svg>
+            Lataa 50v-juhlaliite (PDF)
+          </a>
         </div>
       </article>
-      <article class="njs-card fade-up d2">
-        <div class="njs-card-media">
+      <article class="njs-mid fade-up d2">
+        <div class="njs-mid-media">
           <img src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=900&q=85&auto=format&fit=crop" alt="Auringonvalo lehtien läpi" loading="lazy">
         </div>
-        <div class="njs-card-body">
+        <div class="njs-mid-body">
           <div class="njs-meta">
             <span class="njs-tag">Jäsenyys</span>
-            <span class="njs-date">2024</span>
+            <span class="njs-date">2025</span>
           </div>
           <h3 class="njs-card-title">Liity yli 2 000 jäsenen joukkoon</h3>
-          <p class="njs-card-text">Kannattajajäsenyydellä tuet konkreettisesti elämänmuutostyötä Suomessa. Yhdessä olemme jo auttaneet tuhansia ihmisiä löytämään uuden suunnan.</p>
+          <div class="njs-mid-collapsible" id="col-jasenyys">
+            <p class="njs-lead">Kannattajajäsenyydellä olet osa 54-vuotista elämänmuutostyötä — ja tuet konkreettisesti sitä, että muutos on mahdollinen jokaiselle.</p>
+            <p class="njs-body">Jäsenenä saat tiedon KAN ry:n kuulumisista ja tapahtumista, ja olet osa yhteisöä, joka uskoo jokaisen ihmisen mahdollisuuteen muutokseen. Jäsenmaksu on pieni, mutta merkitys suuri.</p>
+          </div>
+          <button class="njs-expand-btn" data-target="col-jasenyys">Lue lisää</button>
+          <div class="loc-doc-row" style="margin-top: 0.75rem;">
+            <a href="liity-jaseneksi.html" class="loc-doc-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+              Liity jäseneksi
+            </a>
+          </div>
         </div>
       </article>
     </div>
