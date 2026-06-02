@@ -1646,6 +1646,11 @@
       color: var(--text-light); font-size: 0.95rem; line-height: 1.6;
       margin-bottom: 1.75rem;
     }
+    .creamailer-wrap { width: 100%; }
+    .creamailer-iframe {
+      width: 100%; min-height: 620px; border: none; display: block;
+      border-radius: 12px;
+    }
     .form-grid {
       display: grid; grid-template-columns: 1fr 1fr;
       gap: 0.95rem 1rem;
