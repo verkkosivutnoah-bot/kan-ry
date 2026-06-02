@@ -2466,6 +2466,12 @@
       transition: all 0.2s; margin-top: 0.1rem;
     }
     .njs-expand-btn:hover { background: var(--blue); color: var(--white); }
+    /* loc-panel-meta inside njs-mid-body: reset order so it doesn't jump to top */
+    .njs-mid-body .loc-panel-meta {
+      order: 0;
+      margin-top: 0.25rem;
+      border: 1px solid var(--border-soft);
+    }
     @media (max-width: 900px) {
       .njs-pair { grid-template-columns: 1fr; gap: 1.25rem; }
     }
