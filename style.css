@@ -2564,7 +2564,7 @@
       pointer-events: none;
       transition: opacity 0.3s;
     }
-    .njs-mid-collapsible.expanded { max-height: 60rem; }
+    .njs-mid-collapsible.expanded { max-height: 160rem; }
     .njs-mid-collapsible.expanded::after { opacity: 0; }
     .njs-expand-btn {
       display: inline-flex; align-items: center; gap: 0.4rem;
