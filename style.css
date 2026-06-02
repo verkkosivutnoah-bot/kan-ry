@@ -815,8 +815,25 @@
       background: var(--blue); color: var(--white); border-color: transparent;
       transform: translateY(-2px); box-shadow: 0 8px 20px rgba(1,112,185,0.4);
     }
+    .footer-badges {
+      max-width: 1180px; margin: 3rem auto 0;
+      padding-bottom: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 2rem;
+      display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+    }
+    .footer-badge-logo {
+      height: 56px; width: auto;
+      border-radius: 10px;
+      background: var(--white);
+      padding: 6px 10px;
+    }
+    .footer-badge-lk {
+      height: 50px; width: auto;
+      border-radius: 8px;
+    }
     .footer-bottom {
-      max-width: 1180px; margin: 4.5rem auto 0;
+      max-width: 1180px; margin: 0 auto;
       border-top: 1px solid rgba(255,255,255,0.08);
       padding: 1.85rem 0 2.25rem;
       display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
