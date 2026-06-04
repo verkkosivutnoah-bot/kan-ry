@@ -117,15 +117,48 @@
       <p class="liity-cta-line">Liity Kan ry:n jäseneksi syöttämällä tietosi viereiseen lomakkeeseen. Jäsenmaksu on <strong>38 €/vuosi</strong>. Lähetämme sinulle postia vuoden mittaan joko sähköisesti tai paperikirjeiden kautta.</p>
     </div>
 
-    <div class="form-wrap form-wrap--cta">
+    <div class="form-wrap">
       <span class="form-eyebrow">Jäsenlomake</span>
       <h2 class="form-h2">Täytä tietosi</h2>
-      <p class="form-lead">Liittyminen tapahtuu suojatulla lomakkeella. Avaa lomake alta, täytä tietosi ja lähetä — lähetämme jäsenmaksun maksuohjeet sähköpostiisi.</p>
-      <a href="https://kan-ry-lv.creamailer.fi/survey/answer/ugiumxcdhtxrq" target="_blank" rel="noopener" class="btn btn-blue btn-lg form-cta-btn">
-        Avaa jäsenlomake
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-      </a>
-      <p class="form-cta-note">Lomake aukeaa uuteen välilehteen.</p>
+      <p class="form-lead">Lähetämme jäsenmaksun maksuohjeet sähköpostiisi. Voimme olla yhteydessä vuosittain sähköpostitse tai kirjeitse.</p>
+
+      <form id="liity-form" class="form-grid" novalidate>
+        <div class="form-field full">
+          <label for="lf-name">Nimi *</label>
+          <input type="text" id="lf-name" name="name" autocomplete="name" required placeholder="Etunimi Sukunimi">
+        </div>
+        <div class="form-field full">
+          <label for="lf-email">Sähköposti *</label>
+          <input type="email" id="lf-email" name="email" autocomplete="email" required placeholder="nimi@esimerkki.fi">
+        </div>
+        <div class="form-field full">
+          <label for="lf-phone">Puhelin</label>
+          <input type="tel" id="lf-phone" name="phone" autocomplete="tel" placeholder="040 123 4567">
+        </div>
+        <div class="form-field full">
+          <label for="lf-address">Osoite</label>
+          <input type="text" id="lf-address" name="address" autocomplete="street-address" placeholder="Katuosoite">
+        </div>
+        <div class="form-field">
+          <label for="lf-zip">Postinumero</label>
+          <input type="text" id="lf-zip" name="zip_code" autocomplete="postal-code" placeholder="00000">
+        </div>
+        <div class="form-field">
+          <label for="lf-city">Postitoimipaikka</label>
+          <input type="text" id="lf-city" name="city" autocomplete="address-level2" placeholder="Kaupunki">
+        </div>
+
+        <label class="form-consent">
+          <input type="checkbox" id="lf-consent" name="consent" required>
+          <span>Hyväksyn, että tietojani käsitellään jäsenyyttä varten <a href="tietosuojaseloste.html" target="_blank" rel="noopener">tietosuojaselosteen</a> mukaisesti.</span>
+        </label>
+
+        <button type="submit" class="form-submit" id="lf-submit">Liity jäseneksi</button>
+
+        <p class="form-fee">Jäsenmaksu on <strong>38 €/vuosi</strong>. Maksuohjeet lähetetään sähköpostiisi.</p>
+
+        <p class="form-status" id="lf-status" role="status" aria-live="polite" hidden></p>
+      </form>
     </div>
 
   </div>
@@ -195,6 +228,69 @@
 </footer>
 
 <script src="script.js"></script>
+
+<script>
+(function () {
+  var form = document.getElementById('liity-form');
+  if (!form) return;
+  var statusEl = document.getElementById('lf-status');
+  var btn = document.getElementById('lf-submit');
+
+  function setStatus(msg, type) {
+    statusEl.textContent = msg;
+    statusEl.hidden = false;
+    statusEl.className = 'form-status' + (type ? ' form-status--' + type : '');
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    if (!form.checkValidity()) {
+      setStatus('Täytä pakolliset kentät (nimi, sähköposti ja suostumus).', 'error');
+      form.reportValidity();
+      return;
+    }
+
+    var payload = {
+      name: form.name.value.trim(),
+      email: form.email.value.trim(),
+      phone: form.phone.value.trim(),
+      address: form.address.value.trim(),
+      zip_code: form.zip_code.value.trim(),
+      city: form.city.value.trim()
+    };
+
+    btn.disabled = true;
+    var originalText = btn.textContent;
+    btn.textContent = 'Lähetetään…';
+    setStatus('Lähetetään…', '');
+
+    fetch('/api/liity', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(function (res) {
+        return res.json().then(function (data) { return { ok: res.ok, data: data }; });
+      })
+      .then(function (r) {
+        if (r.ok) {
+          form.reset();
+          setStatus('Kiitos! Liittymisesi on vastaanotettu. Lähetämme maksuohjeet sähköpostiisi.', 'ok');
+        } else {
+          setStatus((r.data && r.data.error) || 'Lähetys epäonnistui. Yritä uudelleen tai ota yhteyttä info@kan.fi.', 'error');
+          btn.disabled = false;
+          btn.textContent = originalText;
+        }
+      })
+      .catch(function () {
+        setStatus('Verkkovirhe. Yritä uudelleen tai ota yhteyttä info@kan.fi.', 'error');
+        btn.disabled = false;
+        btn.textContent = originalText;
+      });
+  });
+})();
+</script>
 
 <div id="cookie-banner" role="dialog" aria-label="Evästeasetukset">
   <p>Tämä sivusto käyttää välttämättömiä evästeitä. Jatkamalla hyväksyt evästeiden käytön.</p>
