@@ -1660,10 +1660,12 @@
       color: var(--text-light); font-size: 0.95rem; line-height: 1.6;
       margin-bottom: 1.75rem;
     }
-    .creamailer-wrap { width: 100%; }
-    .creamailer-iframe {
-      width: 100%; min-height: 620px; border: none; display: block;
-      border-radius: 12px;
+    .form-cta-btn {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      margin-top: 0.5rem;
+    }
+    .form-cta-note {
+      margin-top: 0.85rem; font-size: 0.8rem; color: var(--text-mute);
     }
     .form-grid {
       display: grid; grid-template-columns: 1fr 1fr;
