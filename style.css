@@ -456,7 +456,7 @@
 
     /* ── SECTIONS ────────────────────────────────── */
     section { padding: 7rem 2rem; }
-    .container { max-width: 1180px; margin: 0 auto; }
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 2rem; }
     .eyebrow {
       font-size: 0.74rem; font-weight: 700; text-transform: uppercase;
       letter-spacing: 0.18em; color: var(--blue); display: inline-flex; align-items: center;
