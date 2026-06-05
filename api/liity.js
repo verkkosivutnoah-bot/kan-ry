@@ -11,6 +11,43 @@ const F_NAME = 'name-2602492';
 const F_EMAIL = 'email-2602489';
 const F_CONTACT = 'contactData-2615038';
 
+// Creamailer list API (to store full contact info: name, address, zip, city)
+const API_BASE = 'https://api.cmfile.net';
+const API_PFX = 'v2/api';
+const LIST_ID = process.env.CREAMAILER_LIST_ID || '355351'; // "Uudet osoitteet listalle"
+
+async function apiReq(method, path, bodyObj) {
+  const accessToken = process.env.CREAMAILER_ACCESS_TOKEN;
+  const sharedSecret = process.env.CREAMAILER_SHARED_SECRET;
+  if (!accessToken || !sharedSecret) return { status: 0, skipped: true };
+  const full = `${API_PFX}/${path}`;
+  const body = bodyObj ? JSON.stringify(bodyObj) : '';
+  const ts = String(Math.floor(Date.now() / 1000));
+  const sig = crypto.createHmac('sha256', sharedSecret).update(`${API_BASE}/${full}` + '' + body + ts).digest('hex');
+  const r = await fetch(`${API_BASE}/${full}`, {
+    method,
+    headers: {
+      'X-Access-Token': accessToken,
+      'X-Request-Signature': sig,
+      'X-Request-Timestamp': ts,
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    },
+    body: body || undefined,
+  });
+  return { status: r.status, ok: r.ok };
+}
+
+// Store/refresh full contact fields on the list (survey only saves email)
+async function upsertContact(fields) {
+  // create first (no autoresponder — survey already handles confirmation)
+  let r = await apiReq('POST', `lists/${LIST_ID}/subscribers`, { ...fields, send_autoresponders: false });
+  if (r.skipped) return;
+  if (r.ok) return;
+  // already exists → update
+  await apiReq('PUT', `lists/${LIST_ID}/subscribers`, fields);
+}
+
 function readBody(req) {
   if (req.body && typeof req.body === 'object') return req.body;
   if (typeof req.body === 'string' && req.body) {
@@ -84,7 +121,15 @@ export default async function handler(req, res) {
 
     const loc = subRes.headers.get('location') || '';
     const ok = (subRes.status === 302 && /thank-you/.test(loc)) || subRes.status === 200;
-    if (ok) return res.status(200).json({ ok: true });
+    if (ok) {
+      // Store full contact info on the list (survey saves only email).
+      const fields = { email, name };
+      if (clean(input.address)) fields.address = clean(input.address);
+      if (zip) fields.zip_code = zip;
+      if (city) fields.city = city;
+      try { await upsertContact(fields); } catch (e) { console.error('upsertContact failed', e); }
+      return res.status(200).json({ ok: true });
+    }
 
     const body = await subRes.text();
     console.error('Survey submit failed', subRes.status, loc, body.slice(0, 300));
