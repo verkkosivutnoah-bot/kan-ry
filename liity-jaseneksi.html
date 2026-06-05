@@ -133,11 +133,7 @@
           <input type="email" id="lf-email" name="email" autocomplete="email" required placeholder="nimi@esimerkki.fi">
         </div>
         <div class="form-field full">
-          <label for="lf-phone">Puhelin</label>
-          <input type="tel" id="lf-phone" name="phone" autocomplete="tel" placeholder="040 123 4567">
-        </div>
-        <div class="form-field full">
-          <label for="lf-address">Osoite</label>
+          <label for="lf-address">Postitusosoite</label>
           <input type="text" id="lf-address" name="address" autocomplete="street-address" placeholder="Katuosoite">
         </div>
         <div class="form-field">
@@ -255,7 +251,6 @@
     var payload = {
       name: form.name.value.trim(),
       email: form.email.value.trim(),
-      phone: form.phone.value.trim(),
       address: form.address.value.trim(),
       zip_code: form.zip_code.value.trim(),
       city: form.city.value.trim()

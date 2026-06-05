@@ -1,7 +1,15 @@
 import crypto from 'node:crypto';
 
-const BASE_URL = 'https://api.cmfile.net';
-const API_PREFIX = 'v2/api';
+const ORIGIN = 'https://kan-ry-lv.creamailer.fi';
+const SURVEY_PAGE = ORIGIN + '/survey/answer/ugiumxcdhtxrq';
+const SURVEY_ACTION = ORIGIN + '/surveys/ugiumxcdhtxrq';
+const CHALLENGE_URL = ORIGIN + '/captcha/a/challenge';
+const UA = 'Mozilla/5.0 (compatible; KANryForm/1.0)';
+
+// Survey field names (from the Creamailer survey markup)
+const F_NAME = 'name-2602492';
+const F_EMAIL = 'email-2602489';
+const F_CONTACT = 'contactData-2615038';
 
 function readBody(req) {
   if (req.body && typeof req.body === 'object') return req.body;
@@ -10,9 +18,22 @@ function readBody(req) {
   }
   return {};
 }
+function clean(s) { return typeof s === 'string' ? s.trim() : ''; }
+function cookieHeader(arr) { return (arr || []).map(c => c.split(';')[0]).join('; '); }
 
-function clean(s) {
-  return typeof s === 'string' ? s.trim() : '';
+async function solveAltcha(cookies) {
+  const r = await fetch(CHALLENGE_URL, { headers: { 'User-Agent': UA, 'Cookie': cookies } });
+  if (!r.ok) throw new Error('challenge ' + r.status);
+  const ch = await r.json();
+  let number = -1;
+  const max = ch.maxNumber ?? 1000000;
+  for (let n = 0; n <= max; n++) {
+    if (crypto.createHash('sha256').update(ch.salt + n).digest('hex') === ch.challenge) { number = n; break; }
+  }
+  if (number < 0) throw new Error('altcha unsolved');
+  return Buffer.from(JSON.stringify({
+    algorithm: ch.algorithm, challenge: ch.challenge, number, salt: ch.salt, signature: ch.signature,
+  })).toString('base64');
 }
 
 export default async function handler(req, res) {
@@ -21,77 +42,55 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const accessToken = process.env.CREAMAILER_ACCESS_TOKEN;
-  const sharedSecret = process.env.CREAMAILER_SHARED_SECRET;
-  const listId = process.env.CREAMAILER_LIST_ID;
-
-  if (!accessToken || !sharedSecret || !listId) {
-    console.error('Creamailer env vars missing');
-    return res.status(500).json({ error: 'Palvelin ei ole vielä määritetty. Ota yhteyttä info@kan.fi.' });
-  }
-
   const input = readBody(req);
-  const email = clean(input.email);
   const name = clean(input.name);
-
-  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  if (!emailOk) {
-    return res.status(400).json({ error: 'Tarkista sähköpostiosoite.' });
-  }
-  if (!name) {
-    return res.status(400).json({ error: 'Nimi puuttuu.' });
-  }
-
-  // Build subscriber payload (only include non-empty optional fields)
-  const data = { email, name, send_autoresponders: true };
-  const phone = clean(input.phone);
-  const address = clean(input.address);
+  const email = clean(input.email);
+  // Postal address: accept single 'address' or compose from parts
+  let contact = clean(input.address);
   const zip = clean(input.zip_code);
   const city = clean(input.city);
-  if (phone) data.phone = phone;
-  if (address) data.address = address;
-  if (zip) data.zip_code = zip;
-  if (city) data.city = city;
+  if (zip || city) contact = [contact, [zip, city].filter(Boolean).join(' ')].filter(Boolean).join(', ');
 
-  const fullPath = `${API_PREFIX}/lists/${listId}/subscribers`;
-  const url = `${BASE_URL}/${fullPath}`;
-  const bodyString = JSON.stringify(data);
-  const timestamp = String(Math.floor(Date.now() / 1000));
-
-  // Signature must match PHP SDK: baseUrl + '/' + fullPath + queryString + body + timestamp
-  const signData = `${BASE_URL}/${fullPath}` + '' + bodyString + timestamp;
-  const signature = crypto.createHmac('sha256', sharedSecret).update(signData).digest('hex');
+  if (!name) return res.status(400).json({ error: 'Nimi puuttuu.' });
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return res.status(400).json({ error: 'Tarkista sähköpostiosoite.' });
 
   try {
-    const cmRes = await fetch(url, {
+    // 1. Load survey page → CSRF token + session cookies
+    const pageRes = await fetch(SURVEY_PAGE, { headers: { 'User-Agent': UA } });
+    const cookies = cookieHeader(pageRes.headers.getSetCookie());
+    const html = await pageRes.text();
+    const token = (html.match(/name="_token"\s+value="([^"]+)"/) || [])[1];
+    if (!token || !cookies) throw new Error('no token/cookie');
+
+    // 2. Solve ALTCHA proof-of-work
+    const altcha = await solveAltcha(cookies);
+
+    // 3. Submit survey (multipart)
+    const fd = new FormData();
+    fd.append('_token', token);
+    fd.append('page', '1');
+    fd.append(F_NAME, name);
+    fd.append(F_EMAIL, email);
+    fd.append(F_CONTACT, contact);
+    fd.append('altcha', altcha);
+    fd.append('submit', '');
+
+    const subRes = await fetch(SURVEY_ACTION, {
       method: 'POST',
-      headers: {
-        'X-Access-Token': accessToken,
-        'X-Request-Signature': signature,
-        'X-Request-Timestamp': timestamp,
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-      },
-      body: bodyString,
+      headers: { 'User-Agent': UA, 'Cookie': cookies, 'Referer': SURVEY_PAGE, 'Origin': ORIGIN },
+      body: fd,
+      redirect: 'manual',
     });
 
-    const text = await cmRes.text();
-    let payload;
-    try { payload = text ? JSON.parse(text) : {}; } catch { payload = { message: text }; }
+    const loc = subRes.headers.get('location') || '';
+    const ok = (subRes.status === 302 && /thank-you/.test(loc)) || subRes.status === 200;
+    if (ok) return res.status(200).json({ ok: true });
 
-    if (cmRes.ok) {
-      return res.status(200).json({ ok: true });
-    }
-
-    console.error('Creamailer error', cmRes.status, text);
-    const msg = (payload && payload.message) || `Creamailer-virhe (HTTP ${cmRes.status}).`;
-    // 422 = validation (e.g. already subscribed) — surface friendlier text
-    if (cmRes.status === 422) {
-      return res.status(422).json({ error: 'Tarkista tiedot. Mahdollisesti olet jo jäsenlistalla.' });
-    }
-    return res.status(502).json({ error: msg });
+    const body = await subRes.text();
+    console.error('Survey submit failed', subRes.status, loc, body.slice(0, 300));
+    return res.status(502).json({ error: 'Lähetys epäonnistui. Yritä uudelleen tai ota yhteyttä info@kan.fi.' });
   } catch (err) {
-    console.error('Creamailer request failed', err);
-    return res.status(502).json({ error: 'Yhteys jäsenrekisteriin epäonnistui. Yritä myöhemmin uudelleen.' });
+    console.error('Survey proxy error', err);
+    return res.status(502).json({ error: 'Yhteys lomakkeeseen epäonnistui. Yritä myöhemmin uudelleen.' });
   }
 }
