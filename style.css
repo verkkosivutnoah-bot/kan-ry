@@ -789,6 +789,7 @@
     }
     .f-contact a:hover { color: var(--blue-sky); }
     .f-contact-icon { margin-top: 0.07rem; flex-shrink: 0; color: var(--blue-sky); opacity: 0.85; }
+    .f-ytunnus { padding-left: 1.35rem; color: rgba(255,255,255,0.5); font-size: 0.8rem; }
     .f-col-title {
       font-family: var(--font-head); font-size: 1.05rem;
       font-weight: 700; color: var(--white); margin-bottom: 1.5rem;
