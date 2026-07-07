@@ -2615,6 +2615,8 @@
       transition: all 0.2s; margin-top: 0.1rem;
     }
     .njs-expand-btn:hover { background: var(--blue); color: var(--white); }
+    /* Inside njs-mid cards: single-column lists — long bullets stay readable */
+    .njs-mid .loc-panel-desc ul { grid-template-columns: 1fr; }
     /* loc-panel-meta inside njs-mid-body: reset order so it doesn't jump to top */
     .njs-mid-body .loc-panel-meta {
       order: 0;
